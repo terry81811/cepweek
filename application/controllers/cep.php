@@ -5,13 +5,20 @@ class Cep extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('cep/index');
+        $data['title'] = "Rainbowhope | cepweek";
+		$this->load->view('cep/index', $data);
 	}
 
 	public function page()
 	{
 		$this->load->view('cep/page');
 	}
+
+    public function test()
+    {
+        $this->load->view('cep/test');
+    }
+
 }
 
 /* End of file welcome.php */
