@@ -2,7 +2,6 @@
 
 class Cep extends CI_Controller {
 
-
 	public function index()
 	{
         $data['title'] = "Rainbowhope | cepweek";
@@ -19,7 +18,14 @@ class Cep extends CI_Controller {
         $this->load->view('cep/test');
     }
 
+    public function wall()
+    {
+        $data['title'] = "Rainbowhope | cepweek";
+        $this->load->view('cep/wall', $data);
+    }
+
 }
+
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
