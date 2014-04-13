@@ -19,6 +19,11 @@ class Cep extends CI_Controller {
         $this->load->view('cep/test');
     }
 
+    public function test_form()
+    {
+        $this->load->view('cep/test_form');
+    }
+
 }
 
 /* End of file welcome.php */
