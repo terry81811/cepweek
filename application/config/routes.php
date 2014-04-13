@@ -37,7 +37,12 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['(:any)'] = 'cep/$1';
+
+$route['api/(:any)'] = "api/$1";
+
+
+$route['(:any)'] = "cep/$1";
+
 $route['default_controller'] = "cep";
 $route['404_override'] = '';
 
