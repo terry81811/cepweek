@@ -1,18 +1,23 @@
 
-/* ==========================================================================
+/* =====================================
    main.scss
-   ========================================================================== */
+   ===================================== */
 @import 'h5bp';
 @import 'compass';
 @import 'mixin';
 
+
+body {
+    background: url('../img/bg-wood.png') fixed center;
+    background-size: contain;
+}
 #loading {
     @include size(100%);
     position: fixed;
     z-index: 2;
     background: rgba(0,0,0,0.8);
     text-align: center;
-    background-image: url('../img/loading.gif');
+    background: url('../img/loading.gif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 300px;
@@ -20,11 +25,13 @@
 
 .container {
     background: url('../img/bg.jpg');
+    width: 960px;
 }
 
 .wall {
     background: url('../img/wall.png');
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
+    letter-spacing: -0.32em;
 }
 
 .wall-cube,
@@ -42,7 +49,6 @@
 }
 .wall-cube {
     display: inline-block;
-    margin-left: -0.27em; 
 }
 .wall-cube1 {
     .wall-black,
