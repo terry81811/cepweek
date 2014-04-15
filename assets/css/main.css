@@ -251,10 +251,96 @@ body {
   background-size: 300px; }
 
 .container {
-  background: url("../img/bg.jpg");
+  position: relative;
+  margin: 0 auto;
+  width: 1040px;
+  padding: 40px;
+  background: url("../img/bg.jpg"); }
+
+.main-container {
   width: 960px; }
 
-.wall {
+.call-to-action {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  background: url("../img/call-to-action.png");
+  background-size: contain;
+  width: 120px;
+  height: 120px; }
+  .call-to-action a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+/* =====================================
+   header
+   ===================================== */
+.header {
+  min-height: 100px;
+  overflow: hidden;
+  *zoom: 1; }
+  .header .logo {
+    float: left;
+    background: url("../img/logo.png");
+    width: 310px;
+    height: 207px; }
+  .header .banner {
+    position: relative;
+    margin: 0 auto;
+    background: url("../img/banner.png") no-repeat;
+    background-size: contain;
+    width: 600px;
+    height: 200px; }
+
+/* =====================================
+   nav
+   ===================================== */
+.main-nav {
+  height: 50px;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb; }
+  .main-nav a {
+    padding: none;
+    text-align: center;
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left; }
+  .main-nav ul {
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .main-nav li a:hover {
+    background: none; }
+  .main-nav li.about {
+    background: url("../img/btn-about.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.about:hover {
+    background: url("../img/btn-about-hover.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.product {
+    background: url("../img/btn-product.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.product:hover {
+    background: url("../img/btn-product-hover.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.progress {
+    background: url("../img/btn-progress.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.progress:hover {
+    background: url("../img/btn-progress-hover.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.edm {
+    background: url("../img/btn-edm.png") no-repeat center;
+    background-size: contain; }
+  .main-nav li.edm:hover {
+    background: url("../img/btn-edm-hover.png") no-repeat center;
+    background-size: contain; }
+
+/* =====================================
+   wall
+   ===================================== */
+.wall-container {
   background: url("../img/wall.png");
   width: 564px;
   height: 720px;

@@ -18,10 +18,10 @@ class Cep extends CI_Controller {
         $this->load->view('cep/test');
     }
 
-    public function wall()
+    public function progress()
     {
-        $data['title'] = "Rainbowhope | cepweek";
-        $this->load->view('cep/wall', $data);
+        $data['title'] = "募資進度 | Rainbowhope";
+        $this->load->view('cep/progress', $data);
     }
 
     public function test_form()

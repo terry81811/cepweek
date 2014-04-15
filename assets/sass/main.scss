@@ -22,13 +22,110 @@ body {
     background-repeat: no-repeat;
     background-size: 300px;
 }
-
 .container {
+    position: relative;
+    margin: 0 auto;
+    width: 1040px;
+    padding: 40px;
     background: url('../img/bg.jpg');
+}
+.main-container {
     width: 960px;
 }
+.call-to-action {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background: url('../img/call-to-action.png');
+    background-size: contain;
+    @include size(120px);
+    a {
+        display: block;
+        @include size(100%);
+    }
+}
 
-.wall {
+/* =====================================
+   header
+   ===================================== */
+.header {
+    min-height: 100px;
+    @include clearfix;
+    .logo {
+        float: left;
+        background: url('../img/logo.png');
+        @include size(image-width('../img/logo.png'), image-height('../img/logo.png'));
+    }
+    .banner {
+        position: relative;
+        margin: 0 auto;
+        background: url('../img/banner.png') no-repeat;
+        background-size: contain;
+        @include size(600px,200px);
+    }
+}
+
+/* =====================================
+   nav
+   ===================================== */
+.main-nav {
+    height: 50px;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    a {
+        padding: none;
+        text-align: center;
+        @include hide-text;
+    }
+    ul {
+        height: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    li {
+        a:hover {
+            background: none;
+        }
+        &.about {
+            background: url('../img/btn-about.png') no-repeat center;
+            background-size: contain;
+        }
+        &.about:hover {
+            background: url('../img/btn-about-hover.png') no-repeat center;
+            background-size: contain;
+        }
+        &.product {
+            background: url('../img/btn-product.png') no-repeat center;
+            background-size: contain;
+        }
+        &.product:hover {
+            background: url('../img/btn-product-hover.png') no-repeat center;
+            background-size: contain;
+        }
+        &.progress {
+            background: url('../img/btn-progress.png') no-repeat center;
+            background-size: contain;
+        }
+        &.progress:hover {
+            background: url('../img/btn-progress-hover.png') no-repeat center;
+            background-size: contain;
+        }
+        &.edm {
+            background: url('../img/btn-edm.png') no-repeat center;
+            background-size: contain;
+        }
+        &.edm:hover {
+            background: url('../img/btn-edm-hover.png') no-repeat center;
+            background-size: contain;
+        }
+    }
+}
+
+
+/* =====================================
+   wall
+   ===================================== */
+.wall-container {
     background: url('../img/wall.png');
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
