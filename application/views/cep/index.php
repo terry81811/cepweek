@@ -16,20 +16,13 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <div class="main-container">
-            <div id="loading"></div>
-            <div class="container">
-                hi
+        <div id="loading"></div>
+        <div class="container">
+            <div class="main-container">
                 <img src="http://www.psdgraphics.com/wp-content/uploads/2012/03/yellow-bokeh-background.jpg" alt="">
                 <img src="http://www.psdgraphics.com/wp-content/uploads/2012/03/yellow-bokeh-background.jpg" alt="">
             </div>
         </div>
-            
-        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

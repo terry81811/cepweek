@@ -18,27 +18,23 @@
     <body>
         <div class="container">
             <div class="main-container">
-                <div class="row">
                 <header class="header">
-                    <div class="logo"><a href=""></a></div>
-                    <div class="banner"></div>
+                    <div class="logo"><a href="/">rainbowhope</a></div>
+                    <div class="banner img-responsive"></div>
                 </header>
-                </div>
-                <div class="row">
                 <nav class="main-nav">
                     <ul class="nav nav-pills nav-justified">
                         <li class="about"><a href="<?php echo base_url(); ?>about">緣起</a></li>
                         <li class="product"><a href="<?php echo base_url(); ?>product">商品</a></li>
-                        <li class="progress"><a href="<?php echo base_url(); ?>progress">進度</a></li>
+                        <li class="progresss"><a href="<?php echo base_url(); ?>progress">進度</a></li>
                         <li class="edm"><a href="<?php echo base_url(); ?>edm">edm</a></li>
                     </ul>
                 </nav>
-                </div>
                 <div class="order-info">
-                    <h2 class="remainder">剩下<span>999</span>個</h2>
+                    <h2 class="remainder">剩下<span>737</span>個</h2>
                     <div class="chart" data-percent="89" data-scale-color="#ffb400">89%</div>
                 </div>
-                <div class="wall-container">
+                <div class="wall-container img-responsive">
                     <div class="wall-cube">
                         <div class="wall-black"></div>
                         <div class="wall-colorful"></div>
@@ -58,9 +54,10 @@
                 </div>
             </div>
         </div>
-        <div class="call-to-action" role="button">
+        <div class="call-to-action visible-md visible-lg" role="button">
             <a href="<?php echo base_url(); ?>order"></a>
         </div>
+        <div class="facebook"><a href="#"></a></div>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

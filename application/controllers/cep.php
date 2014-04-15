@@ -4,7 +4,7 @@ class Cep extends CI_Controller {
 
 	public function index()
 	{
-        $data['title'] = "Rainbowhope | cepweek";
+        $data['title'] = "Rainbowhope";
 		$this->load->view('cep/index', $data);
 	}
 

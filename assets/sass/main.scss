@@ -6,39 +6,49 @@
 @import 'compass';
 @import 'mixin';
 
+$transifion-effect: all .15s ease-in-out;
 
+/* =====================================
+   main
+   ===================================== */
 body {
     background: url('../img/bg-wood.png') fixed center;
     background-size: contain;
 }
+
+
 #loading {
     @include size(100%);
     position: fixed;
     z-index: 2;
-    background: rgba(0,0,0,0.8);
     text-align: center;
-    background: url('../img/loading.gif');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 300px;
+    background: rgba(0,0,0,0.8) url('../img/loading.gif') center no-repeat;
+    background-size: 250px;
 }
 .container {
-    position: relative;
-    margin: 0 auto;
-    width: 1040px;
-    padding: 40px;
     background: url('../img/bg.jpg');
 }
-.main-container {
-    width: 960px;
-}
+
+
 .call-to-action {
-    position: fixed;
-    top: 50px;
-    right: 50px;
     background: url('../img/call-to-action.png');
     background-size: contain;
     @include size(120px);
+    a {
+        display: block;
+        @include size(100%);
+    }
+    &:hover {
+        @include transform(scale(1.1));
+        @include transition($transifion-effect);
+    }
+}
+.facebook {
+    background: url('../img/facebook.png');
+    background-size: contain;
+    position: fixed;
+    @include size(150px, 116px);
+    @include transition($transifion-effect);
     a {
         display: block;
         @include size(100%);
@@ -55,6 +65,7 @@ body {
         float: left;
         background: url('../img/logo.png');
         @include size(image-width('../img/logo.png'), image-height('../img/logo.png'));
+        @include hide-text();
     }
     .banner {
         position: relative;
@@ -72,6 +83,7 @@ body {
     height: 50px;
     border-top: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
+    @include clearfix;
     a {
         padding: none;
         text-align: center;
@@ -102,11 +114,12 @@ body {
             background: url('../img/btn-product-hover.png') no-repeat center;
             background-size: contain;
         }
-        &.progress {
+        &.progresss {
             background: url('../img/btn-progress.png') no-repeat center;
             background-size: contain;
+            @include box-shadow(none);
         }
-        &.progress:hover {
+        &.progresss:hover {
             background: url('../img/btn-progress-hover.png') no-repeat center;
             background-size: contain;
         }
@@ -174,4 +187,50 @@ body {
     background: url('../img/wall.png');
     z-index: 1;
     // transition-delay:0.2s;
+}
+
+
+
+
+/* =====================================
+   media query
+   ===================================== */
+@media (min-width: 992px) { 
+    .main-container {
+        width: 960px;
+    }
+    .container {
+        width: 1040px;
+        padding: 40px;
+    }
+    .call-to-action {
+        position: fixed;
+        top: 50px;
+        right: 50px;
+    }
+    .facebook {
+        bottom: 100px;
+        right: -55px;
+        @include transform(rotate(-90deg));
+        &:hover {
+            right: -50px;
+        }
+    }
+}
+
+@media (max-width: 767px) { 
+    .header {
+        margin-top: 20px;
+    }
+    .facebook {
+        position: fixed;
+        bottom: -25px;
+        right: 10px;
+        @include transform(rotate(0));
+        @include size(100px, 77px);
+        &:hover {
+            right: 10px;
+            bottom: -20px;
+        }
+    }
 }
