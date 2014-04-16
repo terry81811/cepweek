@@ -31,24 +31,409 @@
                     </ul>
                 </nav>
                 <div class="order-info">
-                    <h2 class="remainder">剩下<span>737</span>個</h2>
-                    <div class="chart" data-percent="89" data-scale-color="#ffb400">89%</div>
+                    <h2 class="remainder">剩下<span><?php echo $remain_count; ?></span>個</h2>
+                    <div class="chart" data-percent="<?php echo $complete_percent; ?>" 
+                        data-scale-color="#ffb400">已完成了<?php echo $complete_percent; ?>%</div>
                 </div>
                 <div class="wall-container img-responsive">
-                    <div class="wall-cube">
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
                         <div class="wall-black"></div>
                         <div class="wall-colorful"></div>
                     </div>
-                    <div class="wall-cube wall-cube1">
+                    <div class="wall-cube wall-cube-position">
                         <div class="wall-black"></div>
                         <div class="wall-colorful"></div>
                     </div>
-                    <div class="wall-cube wall-cube2">
+                    <div class="wall-cube wall-cube-position">
                         <div class="wall-black"></div>
                         <div class="wall-colorful"></div>
                     </div>
-                    <div class="wall-cube wall-cube3">
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
                         <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black"></div>
+                        <div class="wall-colorful"></div>
+                    </div>
+                    <div class="wall-cube wall-cube-position">
+                        <div class="wall-black "></div>
                         <div class="wall-colorful"></div>
                     </div>
                 </div>
@@ -69,10 +454,38 @@
                 $(".chart").easyPieChart({
                     //your options goes here
                 });
-                setTimeout(function() {
-                    $(".wall-cube").addClass("active");
-                },300);
-                
+                randomElements = $(".wall-cube").get().sort(function(){ 
+                  return Math.round(Math.random())-0.5
+                }).slice(0,<?php echo $complete_percent;?>);
+
+            // version 1
+                // $(randomElements).each( 
+                //     setTimeout(function() {
+                //         $(this).addClass("active");
+                //     }, 20);
+                // });
+            // version 3
+                // var index = 0;
+                // setTimeout(function () {
+                //     $(randomElements).get(index).addClass("active");
+                //     index++;
+                // }, 30);
+            // varsion 2
+                // $.each($(randomElements), setTimeout(function() {
+                //         $(this).addClass("active");
+                //     }, 30)
+                // );
+
+
+                function flip() {
+                    $(randomElements).each(function(index) {        
+                        var that = this;
+                        var t = setTimeout(function() { 
+                            $(that).addClass("active"); 
+                        }, 30 * index);        
+                    });
+                }
+                flip();
             });
         </script>
         <script>

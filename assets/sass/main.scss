@@ -139,7 +139,7 @@ body {
    wall
    ===================================== */
 .wall-container {
-    background: url('../img/wall.png');
+    // background: url('../img/wall.png');
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
 }
@@ -147,7 +147,7 @@ body {
 .wall-cube,
 .wall-black,
 .wall-colorful {
-    @include size(56.4px, 74px);
+    @include size(56.4px, 72px);
 }
 
 .wall-black,
@@ -159,6 +159,7 @@ body {
 }
 .wall-cube {
     display: inline-block;
+    margin-bottom: -0.3em;
 }
 .wall-cube1 {
     .wall-black,
@@ -187,8 +188,64 @@ body {
     background: url('../img/wall.png');
     z-index: 1;
     // transition-delay:0.2s;
+} 
+@for $i from 1 through 100 {
+    .wall-cube-position:nth-child(#{$i}) { 
+        @if $i < 11 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 1) -72px * 0;
+            }
+        } @else if  $i < 21 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 1;
+            }
+        } @else if  $i < 31 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 2;
+            }
+        } @else if  $i < 41 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 3;
+            }
+        } @else if  $i < 51 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 4;
+            }
+        } @else if  $i < 61 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 5;
+            }
+        } @else if  $i < 71 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 6;
+            }
+        } @else if  $i < 81 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 7;
+            }
+        } @else if  $i < 91 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 8;
+            }
+        } @else if  $i < 101 {
+            .wall-black,
+            .wall-colorful {
+                background-position: -56.4px * ($i - 11) -72px * 9;
+            }
+        } @else {
+            background-position: 0 0;
+        }
+    }
 }
-
 
 
 
@@ -217,7 +274,6 @@ body {
         }
     }
 }
-
 @media (max-width: 767px) { 
     .header {
         margin-top: 20px;

@@ -232,3 +232,35 @@
 2014-04-15 19:04:06 overwrite css/main.css 
 2014-04-15 19:04:17 overwrite css/main.css 
 2014-04-15 19:04:24 overwrite css/main.css 
+2014-04-16 01:24:45 overwrite css/main.css 
+2014-04-16 01:24:57 overwrite css/main.css 
+2014-04-16 01:25:03 overwrite css/main.css 
+2014-04-16 01:45:57 overwrite css/main.css 
+2014-04-16 01:46:03 overwrite css/main.css 
+2014-04-16 01:51:37     error sass/main.scss (Line 192: Invalid CSS after "...tion:nth-child(": expected ")", was "$i) { ")
+2014-04-16 01:51:37 overwrite css/main.css 
+2014-04-16 01:52:50     error sass/main.scss (Line 192: Invalid CSS after "...e-position:eq( ": expected ")", was "$i ) { ")
+2014-04-16 01:52:50 overwrite css/main.css 
+2014-04-16 01:53:09     error sass/main.scss (Line 196: Invalid CSS after "...   @if 10 < $i ": expected "{", was "&& $i < 21 {")
+2014-04-16 01:53:09 overwrite css/main.css 
+2014-04-16 01:57:27     error sass/main.scss (Line 195: Invalid CSS after "...lse if 10 < $i ": expected "{", was "&& $i < 21 {")
+2014-04-16 01:57:27 overwrite css/main.css 
+2014-04-16 01:58:02     error sass/main.scss (Line 196: Undefined variable: "$i-10".)
+2014-04-16 01:58:02 overwrite css/main.css 
+2014-04-16 01:58:50 overwrite css/main.css 
+2014-04-16 01:58:57 identical css/main.css 
+2014-04-16 02:03:12     error sass/main.scss (Line 196: Undefined variable: "$i-10".)
+2014-04-16 02:03:12 overwrite css/main.css 
+2014-04-16 02:03:19 overwrite css/main.css 
+2014-04-16 02:03:49     error sass/main.scss (Line 192: Invalid CSS after "...ion:nth-child( ": expected ")", was "$i ) { ")
+2014-04-16 02:03:49 overwrite css/main.css 
+2014-04-16 02:04:37 overwrite css/main.css 
+2014-04-16 02:04:51 identical css/main.css 
+2014-04-16 02:06:05 overwrite css/main.css 
+2014-04-16 02:08:59 overwrite css/main.css 
+2014-04-16 02:10:08 overwrite css/main.css 
+2014-04-16 02:13:15 overwrite css/main.css 
+2014-04-16 02:13:42 overwrite css/main.css 
+2014-04-16 02:13:54 overwrite css/main.css 
+2014-04-16 02:14:19 overwrite css/main.css 
+2014-04-16 02:18:10 overwrite css/main.css 
