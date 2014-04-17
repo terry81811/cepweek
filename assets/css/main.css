@@ -335,43 +335,108 @@ body {
   .main-nav li.about {
     background: url("../img/btn-about.png") no-repeat center;
     background-size: contain; }
-  .main-nav li.about:hover {
-    background: url("../img/btn-about-hover.png") no-repeat center;
-    background-size: contain; }
+    .main-nav li.about:hover {
+      background: url("../img/btn-about-hover.png") no-repeat center;
+      background-size: contain; }
   .main-nav li.product {
     background: url("../img/btn-product.png") no-repeat center;
     background-size: contain; }
-  .main-nav li.product:hover {
-    background: url("../img/btn-product-hover.png") no-repeat center;
-    background-size: contain; }
+    .main-nav li.product:hover {
+      background: url("../img/btn-product-hover.png") no-repeat center;
+      background-size: contain; }
   .main-nav li.progresss {
-    background: url("../img/btn-progress.png") no-repeat center;
-    background-size: contain;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none; }
-  .main-nav li.progresss:hover {
-    background: url("../img/btn-progress-hover.png") no-repeat center;
+    background: url("../img/btn-progresss.png") no-repeat center;
     background-size: contain; }
+    .main-nav li.progresss:hover {
+      background: url("../img/btn-progresss-hover.png") no-repeat center;
+      background-size: contain; }
   .main-nav li.edm {
     background: url("../img/btn-edm.png") no-repeat center;
     background-size: contain; }
-  .main-nav li.edm:hover {
-    background: url("../img/btn-edm-hover.png") no-repeat center;
-    background-size: contain; }
+    .main-nav li.edm:hover {
+      background: url("../img/btn-edm-hover.png") no-repeat center;
+      background-size: contain; }
+
+.order-info {
+  padding: 20px;
+  margin-bottom: 30px; }
+
+.counter {
+  position: absolute;
+  top: 204px;
+  left: 372px;
+  text-align: center;
+  width: 140px;
+  height: 71px; }
+
+.cake {
+  position: relative;
+  margin: 0 auto;
+  background: url("../img/progress_cake.png") center top no-repeat, url("../img/progress_gray_line.png") center bottom no-repeat;
+  width: 100%;
+  height: 511px; }
+
+.fund-raising {
+  background: #fff;
+  padding: 20px;
+  text-align: centet; }
+  .fund-raising .text {
+    background: url("../img/progress_text.png") center top no-repeat;
+    width: 100%;
+    height: 87px; }
+  .fund-raising .content {
+    padding: 5px;
+    margin-top: 20px;
+    outline: 1px solid #a8a8a8;
+    min-height: 300px;
+    overflow: hidden;
+    *zoom: 1; }
+  .fund-raising .title {
+    position: relative;
+    top: 15px;
+    left: -5px;
+    margin-bottom: 40px;
+    padding-top: 7px;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 2px;
+    background: url("../img/progress_arrow.png") center no-repeat;
+    width: 196px;
+    height: 55px; }
+  .fund-raising .money {
+    position: relative;
+    top: -2px;
+    left: 5px;
+    margin-right: 5px; }
+  .fund-raising .content-bg {
+    background: #e9e3e2;
+    position: relative;
+    width: 100%;
+    height: 100%; }
+  .fund-raising .chart {
+    position: relative;
+    text-align: center; }
+    .fund-raising .chart .percent-wrap {
+      position: absolute;
+      top: 85px;
+      width: 100%;
+      text-align: center; }
+    .fund-raising .chart .percent {
+      font-family: 'Rammetto One', cursive;
+      font-size: 40px; }
 
 /* =====================================
    wall
    ===================================== */
 .wall-container {
-  width: 564px;
-  height: 720px;
+  width: 548px;
+  height: 700px;
   letter-spacing: -0.32em; }
 
 .wall-cube,
 .wall-black,
 .wall-colorful {
-  width: 56.4px;
+  width: 54.8px;
   height: 72px; }
 
 .wall-black,
@@ -387,10 +452,6 @@ body {
 .wall-cube {
   display: inline-block;
   margin-bottom: -0.3em; }
-
-.wall-cube1 .wall-black,
-.wall-cube1 .wall-colorful {
-  background-position: -56.4px 0; }
 
 .wall-cube.active .wall-black {
   -webkit-transform: rotateY(180deg);
@@ -430,399 +491,403 @@ body {
 
 .wall-cube-position:nth-child(2) .wall-black,
 .wall-cube-position:nth-child(2) .wall-colorful {
-  background-position: -56.4px 0px; }
+  background-position: -54.8px 0px; }
 
 .wall-cube-position:nth-child(3) .wall-black,
 .wall-cube-position:nth-child(3) .wall-colorful {
-  background-position: -112.8px 0px; }
+  background-position: -109.6px 0px; }
 
 .wall-cube-position:nth-child(4) .wall-black,
 .wall-cube-position:nth-child(4) .wall-colorful {
-  background-position: -169.2px 0px; }
+  background-position: -164.4px 0px; }
 
 .wall-cube-position:nth-child(5) .wall-black,
 .wall-cube-position:nth-child(5) .wall-colorful {
-  background-position: -225.6px 0px; }
+  background-position: -219.2px 0px; }
 
 .wall-cube-position:nth-child(6) .wall-black,
 .wall-cube-position:nth-child(6) .wall-colorful {
-  background-position: -282px 0px; }
+  background-position: -274px 0px; }
 
 .wall-cube-position:nth-child(7) .wall-black,
 .wall-cube-position:nth-child(7) .wall-colorful {
-  background-position: -338.4px 0px; }
+  background-position: -328.8px 0px; }
 
 .wall-cube-position:nth-child(8) .wall-black,
 .wall-cube-position:nth-child(8) .wall-colorful {
-  background-position: -394.8px 0px; }
+  background-position: -383.6px 0px; }
 
 .wall-cube-position:nth-child(9) .wall-black,
 .wall-cube-position:nth-child(9) .wall-colorful {
-  background-position: -451.2px 0px; }
+  background-position: -438.4px 0px; }
 
 .wall-cube-position:nth-child(10) .wall-black,
 .wall-cube-position:nth-child(10) .wall-colorful {
-  background-position: -507.6px 0px; }
+  background-position: -493.2px 0px; }
 
 .wall-cube-position:nth-child(11) .wall-black,
 .wall-cube-position:nth-child(11) .wall-colorful {
-  background-position: 0px -72px; }
+  background-position: 0px -70px; }
 
 .wall-cube-position:nth-child(12) .wall-black,
 .wall-cube-position:nth-child(12) .wall-colorful {
-  background-position: -56.4px -72px; }
+  background-position: -54.8px -70px; }
 
 .wall-cube-position:nth-child(13) .wall-black,
 .wall-cube-position:nth-child(13) .wall-colorful {
-  background-position: -112.8px -72px; }
+  background-position: -109.6px -70px; }
 
 .wall-cube-position:nth-child(14) .wall-black,
 .wall-cube-position:nth-child(14) .wall-colorful {
-  background-position: -169.2px -72px; }
+  background-position: -164.4px -70px; }
 
 .wall-cube-position:nth-child(15) .wall-black,
 .wall-cube-position:nth-child(15) .wall-colorful {
-  background-position: -225.6px -72px; }
+  background-position: -219.2px -70px; }
 
 .wall-cube-position:nth-child(16) .wall-black,
 .wall-cube-position:nth-child(16) .wall-colorful {
-  background-position: -282px -72px; }
+  background-position: -274px -70px; }
 
 .wall-cube-position:nth-child(17) .wall-black,
 .wall-cube-position:nth-child(17) .wall-colorful {
-  background-position: -338.4px -72px; }
+  background-position: -328.8px -70px; }
 
 .wall-cube-position:nth-child(18) .wall-black,
 .wall-cube-position:nth-child(18) .wall-colorful {
-  background-position: -394.8px -72px; }
+  background-position: -383.6px -70px; }
 
 .wall-cube-position:nth-child(19) .wall-black,
 .wall-cube-position:nth-child(19) .wall-colorful {
-  background-position: -451.2px -72px; }
+  background-position: -438.4px -70px; }
 
 .wall-cube-position:nth-child(20) .wall-black,
 .wall-cube-position:nth-child(20) .wall-colorful {
-  background-position: -507.6px -72px; }
+  background-position: -493.2px -70px; }
 
 .wall-cube-position:nth-child(21) .wall-black,
 .wall-cube-position:nth-child(21) .wall-colorful {
-  background-position: -564px -144px; }
+  background-position: -548px -140px; }
 
 .wall-cube-position:nth-child(22) .wall-black,
 .wall-cube-position:nth-child(22) .wall-colorful {
-  background-position: -620.4px -144px; }
+  background-position: -602.8px -140px; }
 
 .wall-cube-position:nth-child(23) .wall-black,
 .wall-cube-position:nth-child(23) .wall-colorful {
-  background-position: -676.8px -144px; }
+  background-position: -657.6px -140px; }
 
 .wall-cube-position:nth-child(24) .wall-black,
 .wall-cube-position:nth-child(24) .wall-colorful {
-  background-position: -733.2px -144px; }
+  background-position: -712.4px -140px; }
 
 .wall-cube-position:nth-child(25) .wall-black,
 .wall-cube-position:nth-child(25) .wall-colorful {
-  background-position: -789.6px -144px; }
+  background-position: -767.2px -140px; }
 
 .wall-cube-position:nth-child(26) .wall-black,
 .wall-cube-position:nth-child(26) .wall-colorful {
-  background-position: -846px -144px; }
+  background-position: -822px -140px; }
 
 .wall-cube-position:nth-child(27) .wall-black,
 .wall-cube-position:nth-child(27) .wall-colorful {
-  background-position: -902.4px -144px; }
+  background-position: -876.8px -140px; }
 
 .wall-cube-position:nth-child(28) .wall-black,
 .wall-cube-position:nth-child(28) .wall-colorful {
-  background-position: -958.8px -144px; }
+  background-position: -931.6px -140px; }
 
 .wall-cube-position:nth-child(29) .wall-black,
 .wall-cube-position:nth-child(29) .wall-colorful {
-  background-position: -1015.2px -144px; }
+  background-position: -986.4px -140px; }
 
 .wall-cube-position:nth-child(30) .wall-black,
 .wall-cube-position:nth-child(30) .wall-colorful {
-  background-position: -1071.6px -144px; }
+  background-position: -1041.2px -140px; }
 
 .wall-cube-position:nth-child(31) .wall-black,
 .wall-cube-position:nth-child(31) .wall-colorful {
-  background-position: -1128px -216px; }
+  background-position: -1096px -210px; }
 
 .wall-cube-position:nth-child(32) .wall-black,
 .wall-cube-position:nth-child(32) .wall-colorful {
-  background-position: -1184.4px -216px; }
+  background-position: -1150.8px -210px; }
 
 .wall-cube-position:nth-child(33) .wall-black,
 .wall-cube-position:nth-child(33) .wall-colorful {
-  background-position: -1240.8px -216px; }
+  background-position: -1205.6px -210px; }
 
 .wall-cube-position:nth-child(34) .wall-black,
 .wall-cube-position:nth-child(34) .wall-colorful {
-  background-position: -1297.2px -216px; }
+  background-position: -1260.4px -210px; }
 
 .wall-cube-position:nth-child(35) .wall-black,
 .wall-cube-position:nth-child(35) .wall-colorful {
-  background-position: -1353.6px -216px; }
+  background-position: -1315.2px -210px; }
 
 .wall-cube-position:nth-child(36) .wall-black,
 .wall-cube-position:nth-child(36) .wall-colorful {
-  background-position: -1410px -216px; }
+  background-position: -1370px -210px; }
 
 .wall-cube-position:nth-child(37) .wall-black,
 .wall-cube-position:nth-child(37) .wall-colorful {
-  background-position: -1466.4px -216px; }
+  background-position: -1424.8px -210px; }
 
 .wall-cube-position:nth-child(38) .wall-black,
 .wall-cube-position:nth-child(38) .wall-colorful {
-  background-position: -1522.8px -216px; }
+  background-position: -1479.6px -210px; }
 
 .wall-cube-position:nth-child(39) .wall-black,
 .wall-cube-position:nth-child(39) .wall-colorful {
-  background-position: -1579.2px -216px; }
+  background-position: -1534.4px -210px; }
 
 .wall-cube-position:nth-child(40) .wall-black,
 .wall-cube-position:nth-child(40) .wall-colorful {
-  background-position: -1635.6px -216px; }
+  background-position: -1589.2px -210px; }
 
 .wall-cube-position:nth-child(41) .wall-black,
 .wall-cube-position:nth-child(41) .wall-colorful {
-  background-position: -1692px -288px; }
+  background-position: -1644px -280px; }
 
 .wall-cube-position:nth-child(42) .wall-black,
 .wall-cube-position:nth-child(42) .wall-colorful {
-  background-position: -1748.4px -288px; }
+  background-position: -1698.8px -280px; }
 
 .wall-cube-position:nth-child(43) .wall-black,
 .wall-cube-position:nth-child(43) .wall-colorful {
-  background-position: -1804.8px -288px; }
+  background-position: -1753.6px -280px; }
 
 .wall-cube-position:nth-child(44) .wall-black,
 .wall-cube-position:nth-child(44) .wall-colorful {
-  background-position: -1861.2px -288px; }
+  background-position: -1808.4px -280px; }
 
 .wall-cube-position:nth-child(45) .wall-black,
 .wall-cube-position:nth-child(45) .wall-colorful {
-  background-position: -1917.6px -288px; }
+  background-position: -1863.2px -280px; }
 
 .wall-cube-position:nth-child(46) .wall-black,
 .wall-cube-position:nth-child(46) .wall-colorful {
-  background-position: -1974px -288px; }
+  background-position: -1918px -280px; }
 
 .wall-cube-position:nth-child(47) .wall-black,
 .wall-cube-position:nth-child(47) .wall-colorful {
-  background-position: -2030.4px -288px; }
+  background-position: -1972.8px -280px; }
 
 .wall-cube-position:nth-child(48) .wall-black,
 .wall-cube-position:nth-child(48) .wall-colorful {
-  background-position: -2086.8px -288px; }
+  background-position: -2027.6px -280px; }
 
 .wall-cube-position:nth-child(49) .wall-black,
 .wall-cube-position:nth-child(49) .wall-colorful {
-  background-position: -2143.2px -288px; }
+  background-position: -2082.4px -280px; }
 
 .wall-cube-position:nth-child(50) .wall-black,
 .wall-cube-position:nth-child(50) .wall-colorful {
-  background-position: -2199.6px -288px; }
+  background-position: -2137.2px -280px; }
 
 .wall-cube-position:nth-child(51) .wall-black,
 .wall-cube-position:nth-child(51) .wall-colorful {
-  background-position: -2256px -360px; }
+  background-position: -2192px -350px; }
 
 .wall-cube-position:nth-child(52) .wall-black,
 .wall-cube-position:nth-child(52) .wall-colorful {
-  background-position: -2312.4px -360px; }
+  background-position: -2246.8px -350px; }
 
 .wall-cube-position:nth-child(53) .wall-black,
 .wall-cube-position:nth-child(53) .wall-colorful {
-  background-position: -2368.8px -360px; }
+  background-position: -2301.6px -350px; }
 
 .wall-cube-position:nth-child(54) .wall-black,
 .wall-cube-position:nth-child(54) .wall-colorful {
-  background-position: -2425.2px -360px; }
+  background-position: -2356.4px -350px; }
 
 .wall-cube-position:nth-child(55) .wall-black,
 .wall-cube-position:nth-child(55) .wall-colorful {
-  background-position: -2481.6px -360px; }
+  background-position: -2411.2px -350px; }
 
 .wall-cube-position:nth-child(56) .wall-black,
 .wall-cube-position:nth-child(56) .wall-colorful {
-  background-position: -2538px -360px; }
+  background-position: -2466px -350px; }
 
 .wall-cube-position:nth-child(57) .wall-black,
 .wall-cube-position:nth-child(57) .wall-colorful {
-  background-position: -2594.4px -360px; }
+  background-position: -2520.8px -350px; }
 
 .wall-cube-position:nth-child(58) .wall-black,
 .wall-cube-position:nth-child(58) .wall-colorful {
-  background-position: -2650.8px -360px; }
+  background-position: -2575.6px -350px; }
 
 .wall-cube-position:nth-child(59) .wall-black,
 .wall-cube-position:nth-child(59) .wall-colorful {
-  background-position: -2707.2px -360px; }
+  background-position: -2630.4px -350px; }
 
 .wall-cube-position:nth-child(60) .wall-black,
 .wall-cube-position:nth-child(60) .wall-colorful {
-  background-position: -2763.6px -360px; }
+  background-position: -2685.2px -350px; }
 
 .wall-cube-position:nth-child(61) .wall-black,
 .wall-cube-position:nth-child(61) .wall-colorful {
-  background-position: -2820px -432px; }
+  background-position: -2740px -420px; }
 
 .wall-cube-position:nth-child(62) .wall-black,
 .wall-cube-position:nth-child(62) .wall-colorful {
-  background-position: -2876.4px -432px; }
+  background-position: -2794.8px -420px; }
 
 .wall-cube-position:nth-child(63) .wall-black,
 .wall-cube-position:nth-child(63) .wall-colorful {
-  background-position: -2932.8px -432px; }
+  background-position: -2849.6px -420px; }
 
 .wall-cube-position:nth-child(64) .wall-black,
 .wall-cube-position:nth-child(64) .wall-colorful {
-  background-position: -2989.2px -432px; }
+  background-position: -2904.4px -420px; }
 
 .wall-cube-position:nth-child(65) .wall-black,
 .wall-cube-position:nth-child(65) .wall-colorful {
-  background-position: -3045.6px -432px; }
+  background-position: -2959.2px -420px; }
 
 .wall-cube-position:nth-child(66) .wall-black,
 .wall-cube-position:nth-child(66) .wall-colorful {
-  background-position: -3102px -432px; }
+  background-position: -3014px -420px; }
 
 .wall-cube-position:nth-child(67) .wall-black,
 .wall-cube-position:nth-child(67) .wall-colorful {
-  background-position: -3158.4px -432px; }
+  background-position: -3068.8px -420px; }
 
 .wall-cube-position:nth-child(68) .wall-black,
 .wall-cube-position:nth-child(68) .wall-colorful {
-  background-position: -3214.8px -432px; }
+  background-position: -3123.6px -420px; }
 
 .wall-cube-position:nth-child(69) .wall-black,
 .wall-cube-position:nth-child(69) .wall-colorful {
-  background-position: -3271.2px -432px; }
+  background-position: -3178.4px -420px; }
 
 .wall-cube-position:nth-child(70) .wall-black,
 .wall-cube-position:nth-child(70) .wall-colorful {
-  background-position: -3327.6px -432px; }
+  background-position: -3233.2px -420px; }
 
 .wall-cube-position:nth-child(71) .wall-black,
 .wall-cube-position:nth-child(71) .wall-colorful {
-  background-position: -3384px -504px; }
+  background-position: -3288px -490px; }
 
 .wall-cube-position:nth-child(72) .wall-black,
 .wall-cube-position:nth-child(72) .wall-colorful {
-  background-position: -3440.4px -504px; }
+  background-position: -3342.8px -490px; }
 
 .wall-cube-position:nth-child(73) .wall-black,
 .wall-cube-position:nth-child(73) .wall-colorful {
-  background-position: -3496.8px -504px; }
+  background-position: -3397.6px -490px; }
 
 .wall-cube-position:nth-child(74) .wall-black,
 .wall-cube-position:nth-child(74) .wall-colorful {
-  background-position: -3553.2px -504px; }
+  background-position: -3452.4px -490px; }
 
 .wall-cube-position:nth-child(75) .wall-black,
 .wall-cube-position:nth-child(75) .wall-colorful {
-  background-position: -3609.6px -504px; }
+  background-position: -3507.2px -490px; }
 
 .wall-cube-position:nth-child(76) .wall-black,
 .wall-cube-position:nth-child(76) .wall-colorful {
-  background-position: -3666px -504px; }
+  background-position: -3562px -490px; }
 
 .wall-cube-position:nth-child(77) .wall-black,
 .wall-cube-position:nth-child(77) .wall-colorful {
-  background-position: -3722.4px -504px; }
+  background-position: -3616.8px -490px; }
 
 .wall-cube-position:nth-child(78) .wall-black,
 .wall-cube-position:nth-child(78) .wall-colorful {
-  background-position: -3778.8px -504px; }
+  background-position: -3671.6px -490px; }
 
 .wall-cube-position:nth-child(79) .wall-black,
 .wall-cube-position:nth-child(79) .wall-colorful {
-  background-position: -3835.2px -504px; }
+  background-position: -3726.4px -490px; }
 
 .wall-cube-position:nth-child(80) .wall-black,
 .wall-cube-position:nth-child(80) .wall-colorful {
-  background-position: -3891.6px -504px; }
+  background-position: -3781.2px -490px; }
 
 .wall-cube-position:nth-child(81) .wall-black,
 .wall-cube-position:nth-child(81) .wall-colorful {
-  background-position: -3948px -576px; }
+  background-position: -3836px -560px; }
 
 .wall-cube-position:nth-child(82) .wall-black,
 .wall-cube-position:nth-child(82) .wall-colorful {
-  background-position: -4004.4px -576px; }
+  background-position: -3890.8px -560px; }
 
 .wall-cube-position:nth-child(83) .wall-black,
 .wall-cube-position:nth-child(83) .wall-colorful {
-  background-position: -4060.8px -576px; }
+  background-position: -3945.6px -560px; }
 
 .wall-cube-position:nth-child(84) .wall-black,
 .wall-cube-position:nth-child(84) .wall-colorful {
-  background-position: -4117.2px -576px; }
+  background-position: -4000.4px -560px; }
 
 .wall-cube-position:nth-child(85) .wall-black,
 .wall-cube-position:nth-child(85) .wall-colorful {
-  background-position: -4173.6px -576px; }
+  background-position: -4055.2px -560px; }
 
 .wall-cube-position:nth-child(86) .wall-black,
 .wall-cube-position:nth-child(86) .wall-colorful {
-  background-position: -4230px -576px; }
+  background-position: -4110px -560px; }
 
 .wall-cube-position:nth-child(87) .wall-black,
 .wall-cube-position:nth-child(87) .wall-colorful {
-  background-position: -4286.4px -576px; }
+  background-position: -4164.8px -560px; }
 
 .wall-cube-position:nth-child(88) .wall-black,
 .wall-cube-position:nth-child(88) .wall-colorful {
-  background-position: -4342.8px -576px; }
+  background-position: -4219.6px -560px; }
 
 .wall-cube-position:nth-child(89) .wall-black,
 .wall-cube-position:nth-child(89) .wall-colorful {
-  background-position: -4399.2px -576px; }
+  background-position: -4274.4px -560px; }
 
 .wall-cube-position:nth-child(90) .wall-black,
 .wall-cube-position:nth-child(90) .wall-colorful {
-  background-position: -4455.6px -576px; }
+  background-position: -4329.2px -560px; }
 
 .wall-cube-position:nth-child(91) .wall-black,
 .wall-cube-position:nth-child(91) .wall-colorful {
-  background-position: -4512px -648px; }
+  background-position: -4384px -630px; }
 
 .wall-cube-position:nth-child(92) .wall-black,
 .wall-cube-position:nth-child(92) .wall-colorful {
-  background-position: -4568.4px -648px; }
+  background-position: -4438.8px -630px; }
 
 .wall-cube-position:nth-child(93) .wall-black,
 .wall-cube-position:nth-child(93) .wall-colorful {
-  background-position: -4624.8px -648px; }
+  background-position: -4493.6px -630px; }
 
 .wall-cube-position:nth-child(94) .wall-black,
 .wall-cube-position:nth-child(94) .wall-colorful {
-  background-position: -4681.2px -648px; }
+  background-position: -4548.4px -630px; }
 
 .wall-cube-position:nth-child(95) .wall-black,
 .wall-cube-position:nth-child(95) .wall-colorful {
-  background-position: -4737.6px -648px; }
+  background-position: -4603.2px -630px; }
 
 .wall-cube-position:nth-child(96) .wall-black,
 .wall-cube-position:nth-child(96) .wall-colorful {
-  background-position: -4794px -648px; }
+  background-position: -4658px -630px; }
 
 .wall-cube-position:nth-child(97) .wall-black,
 .wall-cube-position:nth-child(97) .wall-colorful {
-  background-position: -4850.4px -648px; }
+  background-position: -4712.8px -630px; }
 
 .wall-cube-position:nth-child(98) .wall-black,
 .wall-cube-position:nth-child(98) .wall-colorful {
-  background-position: -4906.8px -648px; }
+  background-position: -4767.6px -630px; }
 
 .wall-cube-position:nth-child(99) .wall-black,
 .wall-cube-position:nth-child(99) .wall-colorful {
-  background-position: -4963.2px -648px; }
+  background-position: -4822.4px -630px; }
 
 .wall-cube-position:nth-child(100) .wall-black,
 .wall-cube-position:nth-child(100) .wall-colorful {
-  background-position: -5019.6px -648px; }
+  background-position: -4877.2px -630px; }
+
+.odometer-formatting-mark {
+  visibility: hidden;
+  margin-left: -2px; }
 
 /* =====================================
    media query

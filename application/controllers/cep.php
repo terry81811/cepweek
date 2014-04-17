@@ -21,8 +21,8 @@ class Cep extends CI_Controller {
     public function progress()
     {
         $data['title'] = "募資進度 | 彩虹故鄉的願望";
-        $data['remain_count'] = 3888;
-        $data['complete_percent'] = ((5000 - 3888) / 5000 ) * 100;
+        $data['remain_count'] = 999;
+        $data['complete_percent'] = ((5000 - 999) / 5000 ) * 100;
         $this->load->view('cep/progress', $data);
     }
 

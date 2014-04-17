@@ -98,48 +98,93 @@ body {
         a:hover {
             background: none;
         }
-        &.about {
-            background: url('../img/btn-about.png') no-repeat center;
-            background-size: contain;
-        }
-        &.about:hover {
-            background: url('../img/btn-about-hover.png') no-repeat center;
-            background-size: contain;
-        }
-        &.product {
-            background: url('../img/btn-product.png') no-repeat center;
-            background-size: contain;
-        }
-        &.product:hover {
-            background: url('../img/btn-product-hover.png') no-repeat center;
-            background-size: contain;
-        }
-        &.progresss {
-            background: url('../img/btn-progress.png') no-repeat center;
-            background-size: contain;
-            @include box-shadow(none);
-        }
-        &.progresss:hover {
-            background: url('../img/btn-progress-hover.png') no-repeat center;
-            background-size: contain;
-        }
-        &.edm {
-            background: url('../img/btn-edm.png') no-repeat center;
-            background-size: contain;
-        }
-        &.edm:hover {
-            background: url('../img/btn-edm-hover.png') no-repeat center;
-            background-size: contain;
+        @each $class in about, product, progresss, edm {
+            &.#{$class} {
+                background: url('../img/btn-#{$class}.png') no-repeat center;
+                background-size: contain;
+                &:hover {
+                    background: url('../img/btn-#{$class}-hover.png') no-repeat center;
+                    background-size: contain;
+                }
+            }
         }
     }
 }
 
+.order-info {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.counter {
+    position: absolute;
+    top: 204px;
+    left: 372px;
+    text-align: center;
+    @include size(140px, 71px);
+}
+.cake {
+    position: relative;
+    margin: 0 auto;
+    background: url('../img/progress_cake.png') center top no-repeat, url('../img/progress_gray_line.png') center bottom no-repeat;
+    @include size(100%, image-height('../img/progress_cake.png')+image-height('../img/progress_gray_line.png')+40);
+}
+.fund-raising {
+    background: #fff;
+    padding: 20px;
+    text-align: centet;
+    .text { 
+        background: url('../img/progress_text.png') center top no-repeat;
+        @include size(100%, image-height('../img/progress_text.png'));
+    }
+    .content {
+        padding: 5px;
+        margin-top: 20px;
+        outline: 1px solid #a8a8a8;
+        min-height: 300px;
+        @include clearfix;
+    }
+    .title {
+        position: relative;
+        top: 15px;
+        left: -5px;
+        margin-bottom: 40px;
+        padding-top: 7px;
+        color: #fff;
+        font-size: 24px;
+        letter-spacing: 2px;
+        @include background-via-img('../img/progress_arrow.png');
+    }
+    .money {
+        position: relative;
+        top: -2px;
+        left: 5px;  
+        margin-right: 5px; 
+    }
+    .content-bg { 
+        background: #e9e3e2;
+        position: relative;
+        @include size(100%);
+    }
+    .chart {
+        position: relative;
+        text-align: center;
+        .percent-wrap {
+            position: absolute;
+            top: 85px;
+            width: 100%;
+            text-align: center;
+        }
+        .percent {
+            font-family: 'Rammetto One', cursive;
+            font-size: 40px;
+        }
+    }
+}
 
 /* =====================================
    wall
    ===================================== */
 .wall-container {
-    // background: url('../img/wall.png');
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
 }
@@ -147,7 +192,7 @@ body {
 .wall-cube,
 .wall-black,
 .wall-colorful {
-    @include size(56.4px, 72px);
+    @include size(54.8px, 72px);
 }
 
 .wall-black,
@@ -160,12 +205,6 @@ body {
 .wall-cube {
     display: inline-block;
     margin-bottom: -0.3em;
-}
-.wall-cube1 {
-    .wall-black,
-    .wall-colorful {
-        background-position: -56.4px 0;
-    }
 }
 
 .wall-cube.active {
@@ -187,66 +226,68 @@ body {
     @include transform(rotateY(-180deg));
     background: url('../img/wall.png');
     z-index: 1;
-    // transition-delay:0.2s;
 } 
 @for $i from 1 through 100 {
     .wall-cube-position:nth-child(#{$i}) { 
         @if $i < 11 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 1) -72px * 0;
+                background-position: -54.8px * ($i - 1) -70px * 0;
             }
         } @else if  $i < 21 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 1;
+                background-position: -54.8px * ($i - 11) -70px * 1;
             }
         } @else if  $i < 31 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 2;
+                background-position: -54.8px * ($i - 11) -70px * 2;
             }
         } @else if  $i < 41 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 3;
+                background-position: -54.8px * ($i - 11) -70px * 3;
             }
         } @else if  $i < 51 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 4;
+                background-position: -54.8px * ($i - 11) -70px * 4;
             }
         } @else if  $i < 61 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 5;
+                background-position: -54.8px * ($i - 11) -70px * 5;
             }
         } @else if  $i < 71 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 6;
+                background-position: -54.8px * ($i - 11) -70px * 6;
             }
         } @else if  $i < 81 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 7;
+                background-position: -54.8px * ($i - 11) -70px * 7;
             }
         } @else if  $i < 91 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 8;
+                background-position: -54.8px * ($i - 11) -70px * 8;
             }
         } @else if  $i < 101 {
             .wall-black,
             .wall-colorful {
-                background-position: -56.4px * ($i - 11) -72px * 9;
+                background-position: -54.8px * ($i - 11) -70px * 9;
             }
         } @else {
             background-position: 0 0;
         }
     }
 }
-
+.odometer-formatting-mark {
+    visibility: hidden;
+    margin-left: -2px;
+}
 
 
 /* =====================================

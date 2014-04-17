@@ -1,0 +1,9 @@
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin background-via-img($url) {
+    background: url($url) center no-repeat;
+    @include size(image-width($url), image-height($url));
+}
