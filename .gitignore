@@ -9,5 +9,6 @@ application/logs/*
 !application/logs/.htaccess
 
 application/config/*
+application/config/config.php
 
 application/models/WebATM_php/*

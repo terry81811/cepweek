@@ -30,7 +30,7 @@ function __autoload($class)
 | path to your installation.
 |
 */
-$config['base_url']	= '/cepweek/';
+$config['base_url']	= '';
 
 /*
 |--------------------------------------------------------------------------
