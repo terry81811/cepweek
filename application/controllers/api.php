@@ -13,15 +13,22 @@ class Api extends CI_Controller
     }
 
 
+/****************************************************************************
+APIs for DB CRUD
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// order API
+// --------------------------------------------------------------------------
 	public function order()
 	{
 
 		$post_data = $this->input->post(NULL, TRUE);
 
 
-/*
-insert payment information in DB// ORDER_TABLE
-*/
+        /*
+        insert payment information in DB// ORDER_TABLE
+        */
         $pay_payment_method = $post_data['payment'];
 
         $pay_name = $post_data['pay_name'];
@@ -79,6 +86,33 @@ insert payment information in DB// ORDER_TABLE
 
     //        print_r($post_data);
 	}
+
+/****************************************************************************
+APIs for Email
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// email after ordering
+// --------------------------------------------------------------------------
+
+public function confirm_email()
+{
+    $this->load->library('email');
+
+    $this->email->from('your@example.com', 'Your Name');
+    $this->email->to('someone@example.com'); 
+    $this->email->cc('another@another-example.com'); 
+    $this->email->bcc('them@their-example.com'); 
+
+    $this->email->subject('Email Test');
+    $this->email->message('Testing the email class.'); 
+
+    $this->email->send();
+
+    echo $this->email->print_debugger();
+
+}
+
 
 
 }

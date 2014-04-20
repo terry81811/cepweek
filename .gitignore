@@ -10,5 +10,7 @@ application/logs/*
 
 application/config/*
 application/config/config.php
+application/config/email.php
 
 application/models/WebATM_php/*
+
