@@ -109,7 +109,7 @@ public function confirm_email()
 
         foreach ($email_to as $_key => $_value) {
 
-            $this->email->from('terrytsai0811@gmail.com', 'TerryTsai');
+            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
             $this->email->to($_value); 
             $this->email->subject($email_subject);
             $this->email->message($email_message); 
@@ -120,7 +120,7 @@ public function confirm_email()
 
     if(!is_array($email_to)){
 
-        $this->email->from('terrytsai0811@gmail.com', 'TerryTsai');
+        $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
         $this->email->to($email_to); 
         $this->email->subject($email_subject);
         $this->email->message($email_message); 
