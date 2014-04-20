@@ -18,7 +18,7 @@ APIs for DB CRUD
 *****************************************************************************/
 
 // --------------------------------------------------------------------------
-// order API
+// order Insert API
 // --------------------------------------------------------------------------
 	public function order()
 	{
@@ -98,19 +98,35 @@ APIs for Email
 public function confirm_email()
 {
     $this->load->library('email');
+ 
+    $post_data = $this->input->post(NULL, TRUE);
+    
+    $email_to = $post_data['email_to'];
+    $email_subject = $post_data['email_subject'];
+    $email_message = $post_data['email_message']; 
 
-    $this->email->from('your@example.com', 'Your Name');
-    $this->email->to('someone@example.com'); 
-    $this->email->cc('another@another-example.com'); 
-    $this->email->bcc('them@their-example.com'); 
+    if(is_array($email_to)){
 
-    $this->email->subject('Email Test');
-    $this->email->message('Testing the email class.'); 
+        foreach ($email_to as $_key => $_value) {
 
-    $this->email->send();
+            $this->email->from('terrytsai0811@gmail.com', 'TerryTsai');
+            $this->email->to($_value); 
+            $this->email->subject($email_subject);
+            $this->email->message($email_message); 
+            $this->email->send();
+            echo $this->email->print_debugger();
+        }
+    }
 
-    echo $this->email->print_debugger();
+    if(!is_array($email_to)){
 
+        $this->email->from('terrytsai0811@gmail.com', 'TerryTsai');
+        $this->email->to($email_to); 
+        $this->email->subject($email_subject);
+        $this->email->message($email_message); 
+        $this->email->send();
+        echo $this->email->print_debugger();
+    }
 }
 
 
