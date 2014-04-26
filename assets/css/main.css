@@ -277,6 +277,7 @@ body {
   background: url("../img/facebook.png");
   background-size: contain;
   position: fixed;
+  z-index: 10;
   width: 150px;
   height: 116px;
   -webkit-transition: all 0.15s ease-in-out;
@@ -296,19 +297,8 @@ body {
   overflow: hidden;
   *zoom: 1; }
   .header .logo {
-    float: left;
-    background: url("../img/logo.png");
-    width: 310px;
-    height: 207px;
-    text-indent: -119988px;
-    overflow: hidden;
-    text-align: left; }
-  .header .banner {
-    position: relative;
-    margin: 0 auto;
-    background: url("../img/banner.png") no-repeat;
-    background-size: contain;
-    width: 600px;
+    display: block;
+    width: 481px;
     height: 200px; }
 
 /* =====================================
@@ -318,6 +308,8 @@ body {
   height: 50px;
   border-top: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
+  margin-bottom: 20px;
+  margin-top: 20px;
   overflow: hidden;
   *zoom: 1; }
   .main-nav a {
@@ -332,11 +324,11 @@ body {
     padding-bottom: 5px; }
   .main-nav li a:hover {
     background: none; }
-  .main-nav li.about {
-    background: url("../img/btn-about.png") no-repeat center;
+  .main-nav li.story {
+    background: url("../img/btn-story.png") no-repeat center;
     background-size: contain; }
-    .main-nav li.about:hover {
-      background: url("../img/btn-about-hover.png") no-repeat center;
+    .main-nav li.story:hover {
+      background: url("../img/btn-story-hover.png") no-repeat center;
       background-size: contain; }
   .main-nav li.product {
     background: url("../img/btn-product.png") no-repeat center;
@@ -350,13 +342,39 @@ body {
     .main-nav li.progresss:hover {
       background: url("../img/btn-progresss-hover.png") no-repeat center;
       background-size: contain; }
-  .main-nav li.edm {
-    background: url("../img/btn-edm.png") no-repeat center;
+  .main-nav li.photos {
+    background: url("../img/btn-photos.png") no-repeat center;
     background-size: contain; }
-    .main-nav li.edm:hover {
-      background: url("../img/btn-edm-hover.png") no-repeat center;
+    .main-nav li.photos:hover {
+      background: url("../img/btn-photos-hover.png") no-repeat center;
       background-size: contain; }
 
+/* =====================================
+   index
+   ===================================== */
+.banner {
+  margin-bottom: 20px; }
+
+.video {
+  position: relative; }
+  .video a:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -63px;
+    margin-top: -62.5px;
+    background: url("../img/Home_play.png");
+    background: url("../img/Home_play.png") center no-repeat;
+    width: 126px;
+    height: 125px; }
+  .video a:hover:after {
+    background: url("../img/Home_play2.png"); }
+
+/* =====================================
+   nav
+   ===================================== */
 .order-info {
   padding: 20px;
   margin-bottom: 30px; }
@@ -378,15 +396,20 @@ body {
 
 .fund-raising {
   background: #fff;
-  padding: 20px;
-  text-align: centet; }
-  .fund-raising .text {
+  padding: 20px; }
+  .fund-raising .content-bg {
+    background: #e9e3e2;
+    position: relative;
+    width: 100%;
+    height: 100%; }
+  .fund-raising .describe {
     background: url("../img/progress_text.png") center top no-repeat;
     width: 100%;
-    height: 87px; }
+    height: 161px; }
   .fund-raising .content {
     padding: 5px;
     margin-top: 20px;
+    margin-bottom: 20px;
     outline: 1px solid #a8a8a8;
     min-height: 300px;
     overflow: hidden;
@@ -408,14 +431,13 @@ body {
     top: -2px;
     left: 5px;
     margin-right: 5px; }
-  .fund-raising .content-bg {
-    background: #e9e3e2;
-    position: relative;
-    width: 100%;
-    height: 100%; }
   .fund-raising .chart {
     position: relative;
-    text-align: center; }
+    text-align: center;
+    min-height: 220px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    *zoom: 1; }
     .fund-raising .chart .percent-wrap {
       position: absolute;
       top: 85px;
@@ -424,6 +446,22 @@ body {
     .fund-raising .chart .percent {
       font-family: 'Rammetto One', cursive;
       font-size: 40px; }
+  .fund-raising .order-btn {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    background: url("../img/progress_order_button.png") center no-repeat;
+    width: 266px;
+    height: 70px;
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left; }
+    .fund-raising .order-btn:hover {
+      background: url("../img/progress_order_button2.png") center no-repeat;
+      width: 266px;
+      height: 70px; }
+    .fund-raising .order-btn:active {
+      background-position: 1px 1px; }
 
 /* =====================================
    wall
@@ -898,7 +936,7 @@ body {
 
   .container {
     width: 1040px;
-    padding: 40px; }
+    padding: 20px 40px; }
 
   .call-to-action {
     position: fixed;
@@ -915,9 +953,21 @@ body {
     transform: rotate(-90deg); }
     .facebook:hover {
       right: -50px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .facebook {
+    bottom: 100px;
+    right: -55px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .facebook:hover {
+      right: -50px; } }
 @media (max-width: 767px) {
-  .header {
-    margin-top: 20px; }
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px; }
 
   .facebook {
     position: fixed;
@@ -932,4 +982,11 @@ body {
     height: 77px; }
     .facebook:hover {
       right: 10px;
-      bottom: -20px; } }
+      bottom: -20px; }
+
+  .main-nav {
+    margin-top: 0; }
+
+  .header .logo {
+    height: auto;
+    margin-bottom: 20px; } }

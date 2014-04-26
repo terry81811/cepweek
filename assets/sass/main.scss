@@ -4,7 +4,7 @@
    ===================================== */
 @import 'h5bp';
 @import 'compass';
-@import 'mixin';
+@import 'mixin'; 
 
 $transifion-effect: all .15s ease-in-out;
 
@@ -47,6 +47,7 @@ body {
     background: url('../img/facebook.png');
     background-size: contain;
     position: fixed;
+    z-index: 10;
     @include size(150px, 116px);
     @include transition($transifion-effect);
     a {
@@ -60,19 +61,11 @@ body {
    ===================================== */
 .header {
     min-height: 100px;
-    @include clearfix;
+    @include clearfix; 
     .logo {
-        float: left;
-        background: url('../img/logo.png');
+        display: block; 
         @include size(image-width('../img/logo.png'), image-height('../img/logo.png'));
-        @include hide-text();
-    }
-    .banner {
-        position: relative;
-        margin: 0 auto;
-        background: url('../img/banner.png') no-repeat;
-        background-size: contain;
-        @include size(600px,200px);
+
     }
 }
 
@@ -81,13 +74,15 @@ body {
    ===================================== */
 .main-nav {
     height: 50px;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #bbb; 
     border-bottom: 1px solid #bbb;
+    margin-bottom: 20px;
+    margin-top: 20px;
     @include clearfix;
     a {
         padding: none;
         text-align: center;
-        @include hide-text;
+        @include hide-text; 
     }
     ul {
         height: 50px;
@@ -98,7 +93,7 @@ body {
         a:hover {
             background: none;
         }
-        @each $class in about, product, progresss, edm {
+        @each $class in story, product, progresss, photos {
             &.#{$class} {
                 background: url('../img/btn-#{$class}.png') no-repeat center;
                 background-size: contain;
@@ -110,7 +105,38 @@ body {
         }
     }
 }
+/* =====================================
+   index
+   ===================================== */
+.banner {
+    margin-bottom: 20px;
+}
+.video {
+    position: relative;
+    a:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -(image-width('../img/Home_play.png'))/2;
+        margin-top: -(image-height('../img/Home_play.png'))/2;
+        background: url('../img/Home_play.png');
+        @include background-via-img('../img/Home_play.png');
+    }
+    a:hover {
+        &:after {
+            background: url('../img/Home_play2.png');
+        }
+    }
+}
 
+
+
+
+/* =====================================
+   nav
+   ===================================== */
 .order-info {
     padding: 20px;
     margin-bottom: 30px;
@@ -131,14 +157,19 @@ body {
 .fund-raising {
     background: #fff;
     padding: 20px;
-    text-align: centet;
-    .text { 
+    .content-bg { 
+        background: #e9e3e2;
+        position: relative;
+        @include size(100%);
+    }
+    .describe { 
         background: url('../img/progress_text.png') center top no-repeat;
         @include size(100%, image-height('../img/progress_text.png'));
     }
     .content {
         padding: 5px;
         margin-top: 20px;
+        margin-bottom: 20px;  
         outline: 1px solid #a8a8a8;
         min-height: 300px;
         @include clearfix;
@@ -160,14 +191,12 @@ body {
         left: 5px;  
         margin-right: 5px; 
     }
-    .content-bg { 
-        background: #e9e3e2;
-        position: relative;
-        @include size(100%);
-    }
     .chart {
         position: relative;
         text-align: center;
+        min-height: 220px;
+        margin-bottom: 20px;
+        @include clearfix;
         .percent-wrap {
             position: absolute;
             top: 85px;
@@ -177,6 +206,19 @@ body {
         .percent {
             font-family: 'Rammetto One', cursive;
             font-size: 40px;
+        }
+    }
+    .order-btn {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        @include background-via-img('../img/progress_order_button.png');
+        @include hide-text;
+        &:hover {
+            @include background-via-img('../img/progress_order_button2.png');
+        }
+        &:active {
+            background-position: 1px 1px;
         }
     }
 }
@@ -294,12 +336,12 @@ body {
    media query
    ===================================== */
 @media (min-width: 992px) { 
-    .main-container {
+    .main-container { 
         width: 960px;
     }
     .container {
         width: 1040px;
-        padding: 40px;
+        padding: 20px 40px;
     }
     .call-to-action {
         position: fixed;
@@ -315,9 +357,20 @@ body {
         }
     }
 }
+@media (min-width: 768px) and (max-width: 991px) {
+    .facebook {
+        bottom: 100px;
+        right: -55px;
+        @include transform(rotate(-90deg));
+        &:hover {
+            right: -50px;
+        }
+    }
+}
 @media (max-width: 767px) { 
-    .header {
-        margin-top: 20px;
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     .facebook {
         position: fixed;
@@ -329,5 +382,12 @@ body {
             right: 10px;
             bottom: -20px;
         }
+    }
+    .main-nav {
+        margin-top: 0;
+    }
+    .header .logo {
+        height: auto;
+        margin-bottom: 20px;
     }
 }

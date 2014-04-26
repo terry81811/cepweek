@@ -4,8 +4,12 @@ class Cep extends CI_Controller {
 
 	public function index()
 	{
-        $data['title'] = "彩虹故鄉的願望　　將您的愛心送入天堂12坪";
+        $data['title'] = "彩虹故鄉的願望";
+        $this->load->view('cep/partial/head', $data);
 		$this->load->view('cep/index', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/indexjs');
+        $this->load->view('cep/partial/closehtml');
 	}
 
 	public function page()
@@ -21,9 +25,13 @@ class Cep extends CI_Controller {
     public function progress()
     {
         $data['title'] = "募資進度 | 彩虹故鄉的願望";
-        $data['remain_count'] = 999;
-        $data['complete_percent'] = ((5000 - 999) / 5000 ) * 100;
+        $data['remain_count'] = 499;
+        $data['complete_percent'] = round(((4000 - 499) / 4000 ) * 100,2);
+        $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/progress', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/progressjs');
+        $this->load->view('cep/partial/closehtml');
     }
 
     public function test_form()
