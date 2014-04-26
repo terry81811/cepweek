@@ -45,7 +45,7 @@
 
 <BR/>
 	郵遞區號：<input type="text" name="pay_add_num" placeholder="111">
-	付款人地址：<input type="text" name="pay_add" placeholder="">
+	付款人地址：<input type="text" name="pay_address" placeholder="">
 
 <BR/>
 
