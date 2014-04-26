@@ -39,6 +39,11 @@ class Cep extends CI_Controller {
         $this->load->view('cep/test_form');
     }
 
+    public function test_email()
+    {
+        $this->load->view('cep/test_email');
+    }
+
 }
 
 

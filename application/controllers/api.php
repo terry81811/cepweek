@@ -13,15 +13,22 @@ class Api extends CI_Controller
     }
 
 
+/****************************************************************************
+APIs for DB CRUD
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// order Insert API
+// --------------------------------------------------------------------------
 	public function order()
 	{
 
 		$post_data = $this->input->post(NULL, TRUE);
 
 
-/*
-insert payment information in DB// ORDER_TABLE
-*/
+        /*
+        insert payment information in DB// ORDER_TABLE
+        */
         $pay_payment_method = $post_data['payment'];
 
         $pay_name = $post_data['pay_name'];
@@ -79,6 +86,49 @@ insert payment information in DB// ORDER_TABLE
 
     //        print_r($post_data);
 	}
+
+/****************************************************************************
+APIs for Email
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// email after ordering
+// --------------------------------------------------------------------------
+
+public function confirm_email()
+{
+    $this->load->library('email');
+ 
+    $post_data = $this->input->post(NULL, TRUE);
+    
+    $email_to = $post_data['email_to'];
+    $email_subject = $post_data['email_subject'];
+    $email_message = $post_data['email_message']; 
+
+    if(is_array($email_to)){
+
+        foreach ($email_to as $_key => $_value) {
+
+            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+            $this->email->to($_value); 
+            $this->email->subject($email_subject);
+            $this->email->message($email_message); 
+            $this->email->send();
+            echo $this->email->print_debugger();
+        }
+    }
+
+    if(!is_array($email_to)){
+
+        $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+        $this->email->to($email_to); 
+        $this->email->subject($email_subject);
+        $this->email->message($email_message); 
+        $this->email->send();
+        echo $this->email->print_debugger();
+    }
+}
+
 
 
 }
