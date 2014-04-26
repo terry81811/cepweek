@@ -44,6 +44,10 @@
 	付款人電話：<input type="text" name="pay_phone" placeholder="09xx-xxx-xxx">
 
 <BR/>
+	郵遞區號：<input type="text" name="pay_add_num" placeholder="111">
+	付款人地址：<input type="text" name="pay_add" placeholder="">
+
+<BR/>
 
 	發票抬頭：<input type="text" name="pay_title" placeholder="">
 	統一編號：<input type="text" name="pay_tax_id" placeholder="">

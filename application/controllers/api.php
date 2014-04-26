@@ -39,6 +39,9 @@ APIs for DB CRUD
         $pay_title = $post_data['pay_title'];
         $pay_tax_id = $post_data['pay_tax_id'];
 
+        $pay_add_num = $post_data['pay_add_num'];
+        $pay_address = $post_data['pay_address'];
+
 
         $order_id = $this->order_model->insert(array(
             'order_name' => $pay_name,
@@ -48,8 +51,12 @@ APIs for DB CRUD
             'order_email' => $pay_email,
             'order_phone' => $pay_phone,
             'order_timestamp' => date("Y-m-d H:i:s"),
+
             'order_title' => $pay_title,
-            'order_tax_id' => $pay_tax_id
+            'order_tax_id' => $pay_tax_id,
+
+            'order_add_num' => $pay_add_num,
+            'order_address' => $pay_address
         ));
         
         if ($order_id) {
