@@ -16,7 +16,7 @@ $IcpNo="8089002793";
 $IcpConfirmTransURL="https://rainbowhope.tw/api/webATM_return";
 
 //交易金額
-$TransAmt="XXX";
+$TransAmt=1000;
 
 //交易識別資料
 $TransIdentifyNo  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
@@ -38,18 +38,5 @@ echo  $TransIdentifyNo;
   </form>
 
 
-    <form action="https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
-        
 
-
-        <input type="hidden" name="MID" value="<? echo $MID;?>">
-        <input type="hidden" name="CID" value="<? echo $CID;?>">
-        <input type="hidden" name="TID" value="<? echo $TID;?>">
-        <input type="hidden" name="ONO" value="<? echo $ONO;?>">
-        <input type="hidden" name="TA" value="<? echo $TA;?>">
-        <input type="hidden" name="U" value="<? echo $U;?>">
-        <input type="hidden" name="M" value="<? echo $M;?>">
-
-        <input type="submit" name="bttSubmit" value="送出">
-    </form>
 
