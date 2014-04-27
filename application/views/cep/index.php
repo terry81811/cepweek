@@ -13,10 +13,10 @@
                 </header>
                 <nav class="main-nav">
                     <ul class="nav nav-pills nav-justified">
-                        <li class="story"><a href="<?php echo base_url(); ?>about">我們的故事</a></li>
+                        <li class="story"><a href="<?php echo base_url(); ?>story">我們的故事</a></li>
                         <li class="product"><a href="<?php echo base_url(); ?>product">產品介紹</a></li>
                         <li class="progresss"><a href="<?php echo base_url(); ?>progress">募款進度</a></li>
-                        <li class="photos"><a href="<?php echo base_url(); ?>edm">彩虹相簿</a></li>
+                        <li class="photos"><a href="<?php echo base_url(); ?>photos">彩虹相簿</a></li>
                     </ul>
                 </nav>
                 <div class="banner">

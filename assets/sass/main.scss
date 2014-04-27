@@ -14,6 +14,7 @@ $transifion-effect: all .15s ease-in-out;
 body {
     background: url('../img/bg-wood.png') fixed center;
     background-size: contain;
+    font-family: 黑體-繁, 'Heiti TC', 蘋果儷中黑, 'Apple LiGothic Medium', 微軟正黑體, 'Microsoft JhengHei';
 }
 
 
@@ -48,7 +49,7 @@ body {
     background-size: contain;
     position: fixed;
     z-index: 10;
-    @include size(150px, 116px);
+    @include size(120px, 116px);
     @include transition($transifion-effect);
     a {
         display: block;
@@ -78,6 +79,7 @@ body {
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     margin-top: 20px;
+    background: rgba(255,255,255,0.9);
     @include clearfix;
     a {
         padding: none;
@@ -246,7 +248,7 @@ body {
 }
 .wall-cube {
     display: inline-block;
-    margin-bottom: -0.3em;
+    margin-bottom: -0.35em;
 }
 
 .wall-cube.active {
@@ -332,6 +334,141 @@ body {
 }
 
 
+
+/* =====================================
+   order
+   ===================================== */
+.order-intro-frame {
+    border-top: 10px solid #ee9b29;
+    border-bottom: 10px solid #ee9b29;
+    padding: 20px 0;
+    margin-top: 20px;
+    .cake-info {
+        padding: 30px 0;
+        font-size: 1.7em;
+        color: #d83627;
+        li {
+            margin-bottom: 5px;
+        }
+    }
+    .sale-price {
+        color: #000;
+        position: relative;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -50px;
+            height: 3px;
+            width: 70px;
+            background: #000;
+            @include transform(rotate(-45deg));
+        }
+    }
+    .present {
+        margin-top: 20px;
+        padding: 5px 0;
+        border-top: 3px solid #ee9b29;
+        border-bottom: 3px solid #ee9b29;
+        background: #fff;
+        font-size: 1.7em;
+        text-align: center;
+    }
+}
+.order-form {
+    background: #fff;
+    font-size: 1.2em;
+}
+.mg10 {
+    margin: 10px;
+}
+.count, .total {
+    @include clearfix();
+    .price:before {
+        content: "NT$";
+        display: inline-block;
+    }
+}
+.receiver {
+}
+.line {
+    border-top: 1px solid #cbcbcb;
+    height: 1px;
+}
+.add-receiver {
+    cursor: pointer;
+}
+
+.payment {
+    a {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        height: 80px;
+        width: 70%;
+        line-height: 80px;
+        font-size: 30px;
+        color: #fff;
+        background:  #e9a026;
+        text-align: center;
+        text-decoration: none;
+        @include border-radius(5px);
+        &:hover,
+        &.active {
+            color: #e9a026;
+            background: #fff;
+            @include box-shadow(0 0 10px #e9a026);
+            @include transform(scale(1.05));
+            @include transition(all .1s ease-in); 
+        }
+        &:active {
+            background: lighten(#e9a026,30);
+            @include box-shadow(0 0 20px #e9a026);
+        }
+    }
+}
+.get-receipt-or-not {
+    display: none;
+    // visibility: hidden;
+    height: 0;
+    @include transition(all .1s ease-in); 
+    &.check {
+        // visibility: visible;
+        display: inherit;
+        height: auto;
+    }
+}
+.confirm {
+    .confirm-info {
+        font-size: 1.2em;
+        text-align: center;
+        border: 3px solid #e9a026;
+        padding: 20px;
+    }
+    .shipping-fee {
+        color: #e9a026;
+    }
+    span {
+        color: #e9a026;
+    }
+    .total-price {
+        &:before {
+            content: "NT$";
+            display: inline-block;
+
+        }
+    }
+    .submit-btn-row {
+        text-align: center;
+
+        // button {
+            // margin: 0 auto;
+            // position: relative;
+        // }
+    }
+}
+
 /* =====================================
    media query
    ===================================== */
@@ -356,6 +493,44 @@ body {
             right: -50px;
         }
     }
+    .order-form .address {
+        width: 472px;
+    }
+    .order-form .add_num,
+    .order-form .num {
+        width: 78px;
+    }
+    .order-form .rec-input {
+        width: 95px;
+    }
+    .order-form .rec-phone {
+        width: 160px;
+    }
+    .subscriber-info {
+        margin-top: 20px;
+        .pay_phone {
+            width: 160px;
+        }
+        .pay_name {
+            width: 95px;
+        }
+        .pay_email {
+            width: 250px;
+        }
+    }
+    .get-receipt-or-not {
+        .pay_post {
+            width: 60px;
+        }
+        .pay_address {
+            width: 290px;
+        } 
+        .pay_title,
+        .pay_tax_id {
+            width: 158px;
+        }
+    }
+
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .facebook {

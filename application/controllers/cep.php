@@ -17,11 +17,6 @@ class Cep extends CI_Controller {
 		$this->load->view('cep/page');
 	}
 
-    public function test()
-    {
-        $this->load->view('cep/test');
-    }
-
     public function progress()
     {
         $data['title'] = "募資進度 | 彩虹故鄉的願望";
@@ -43,7 +38,16 @@ class Cep extends CI_Controller {
     {
         $this->load->view('cep/test_email');
     }
-
+    public function order() 
+    {
+        $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
+        
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/order');
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/orderjs');
+        $this->load->view('cep/partial/closehtml');
+    }
 }
 
 
