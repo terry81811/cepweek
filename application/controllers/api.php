@@ -120,6 +120,9 @@ public function confirm_email()
             $this->email->to($_value); 
             $this->email->subject($email_subject);
             $this->email->message($email_message); 
+            $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
+            $this->email->attach($path_to_the_file);
+
             $this->email->send();
             echo $this->email->print_debugger();
         }
@@ -130,11 +133,32 @@ public function confirm_email()
         $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
         $this->email->to($email_to); 
         $this->email->subject($email_subject);
+
+//        $email_message = $this->load->view('cep/test_email_content');
+        $email_message = '<h1 style="text-align:center;color:red;">感謝您訂購</h1><p>訂購數量：10 價錢：3900 預計出貨日：5/1</p><img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3>';
+
+//        $this->email->message('台大創創學程'); 
         $this->email->message($email_message); 
+//        $msg = $this->load->view('cep/test_email');
+//        $this->email->message($msg); 
+
+        $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
+
+         $this->email->attach($path_to_the_file);
+
         $this->email->send();
         echo $this->email->print_debugger();
     }
 }
+
+/****************************************************************************
+APIs for Payment
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// credit card
+// --------
+
 
 
 

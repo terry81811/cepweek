@@ -48,6 +48,70 @@ class Cep extends CI_Controller {
         $this->load->view('cep/orderjs');
         $this->load->view('cep/partial/closehtml');
     }
+
+/****************************************************************************
+APIs for Payment
+*****************************************************************************/
+
+// --------------------------------------------------------------------------
+// credit card
+// --------
+
+    public function test_credit()
+    {
+    
+        $this->load->helper('security');
+        $MID = "8089002793";
+        $CID = "";
+        $TID = "EC000001";
+        $ONO = "001";
+        $TA = "1";
+        $U = "https://cepweek.com";
+        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U;
+        $M = do_hash($str, 'md5');
+
+
+        $data['MID'] = $MID;
+        $data['CID'] = $CID;
+        $data['TID'] = $TID;
+        $data['ONO'] = $ONO;
+        $data['TA'] = $TA;
+        $data['U'] = $U;
+        $data['M'] = $M;
+
+        $this->load->view('cep/test_credit',$data);
+    }
+
+
+// --------------------------------------------------------------------------
+// webATM
+// --------
+
+    public function test_ATM()
+    {
+    
+        $this->load->helper('security');
+        $MID = "8089002793";
+        $CID = "";
+        $TID = "EC000001";
+        $ONO = "001";
+        $TA = "1";
+        $U = "http://cepweek.com";
+        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U;
+        $M = do_hash($str, 'md5');
+
+
+        $data['MID'] = $MID;
+        $data['CID'] = $CID;
+        $data['TID'] = $TID;
+        $data['ONO'] = $ONO;
+        $data['TA'] = $TA;
+        $data['U'] = $U;
+        $data['M'] = $M;
+
+        $this->load->view('cep/test_credit',$data);
+    }
+
 }
 
 
