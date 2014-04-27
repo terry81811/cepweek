@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="row mg10 count">
-                                <div class="pull-right">小計：<span class="price">390</span></div>
+                                <div class="pull-right">小計：<span class="price">0</span></div>
                             </div>
                         </div>
                         <!-- end of receiver -->
@@ -83,7 +83,7 @@
                             <div class="pull-left add-receiver">
                                 <span class="glyphicon glyphicon-plus-sign"></span> 新增收貨人
                             </div>
-                            <div class="pull-right">合計：<span class="price">390</span></div>
+                            <div class="pull-right">合計：<span class="total-price">0</span></div>
                         </div>
                         <!-- end of .total -->
 
@@ -91,10 +91,10 @@
                         <div class="payment">
                             <h3>付款方式</h3>
                             <div class="row">
-                                <div class="col-md-4 col-md-offset-2">
+                                <div class="col-xs-6 col-md-4 col-md-offset-2">
                                     <a href="" role="button" class="payment-btn" id="payment-webatm-btn">WebATM</a>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-xs-6 col-md-4">
                                     <a href="" role="button" class="payment-btn" id="payment-credit_card-btn">線上刷卡</a>
                                 </div>
                                 <div style="display:none">
@@ -164,8 +164,8 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="confirm-info">
-                                        <p>您總共訂了<span class="total-num">1</span>個蛋糕</p>
-                                        <p>合計<span class="total-price">390</span><span class="shipping-fee">（含運）</span></p>
+                                        <p>您總共訂了<span class="confirm-total-num">0</span>個蛋糕</p>
+                                        <p>合計<span class="confirm-total-price">0</span><span class="shipping-fee">（含運）</span></p>
                                     </div>
                                 </div>
                             </div>

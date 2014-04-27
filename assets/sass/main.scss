@@ -379,6 +379,7 @@ body {
 .order-form {
     background: #fff;
     font-size: 1.2em;
+    padding-bottom: 20px;
 }
 .mg10 {
     margin: 10px;
@@ -389,8 +390,15 @@ body {
         content: "NT$";
         display: inline-block;
     }
+    .total-price:before {
+        content: "NT$";
+        display: inline-block;
+    }
 }
 .receiver {
+    .receiver-delete {
+        cursor: pointer;
+    }
 }
 .line {
     border-top: 1px solid #cbcbcb;
@@ -398,6 +406,7 @@ body {
 }
 .add-receiver {
     cursor: pointer;
+    font-size: 1.5em;
 }
 
 .payment {
@@ -452,7 +461,7 @@ body {
     span {
         color: #e9a026;
     }
-    .total-price {
+    .confirm-total-price {
         &:before {
             content: "NT$";
             display: inline-block;
@@ -461,11 +470,7 @@ body {
     }
     .submit-btn-row {
         text-align: center;
-
-        // button {
-            // margin: 0 auto;
-            // position: relative;
-        // }
+        margin-top: 20px;
     }
 }
 
@@ -564,5 +569,12 @@ body {
     .header .logo {
         height: auto;
         margin-bottom: 20px;
+    }
+    .payment .payment-btn {
+        font-size: 1.4em;
+        width: 100%;
+    }
+    .cake-info .sale-price:before {
+        display: none;
     }
 }

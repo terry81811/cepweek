@@ -971,7 +971,8 @@ body {
 
 .order-form {
   background: #fff;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  padding-bottom: 20px; }
 
 .mg10 {
   margin: 10px; }
@@ -982,13 +983,20 @@ body {
   .count .price:before, .total .price:before {
     content: "NT$";
     display: inline-block; }
+  .count .total-price:before, .total .total-price:before {
+    content: "NT$";
+    display: inline-block; }
+
+.receiver .receiver-delete {
+  cursor: pointer; }
 
 .line {
   border-top: 1px solid #cbcbcb;
   height: 1px; }
 
 .add-receiver {
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 1.5em; }
 
 .payment a {
   display: block;
@@ -1048,11 +1056,12 @@ body {
   color: #e9a026; }
 .confirm span {
   color: #e9a026; }
-.confirm .total-price:before {
+.confirm .confirm-total-price:before {
   content: "NT$";
   display: inline-block; }
 .confirm .submit-btn-row {
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px; }
 
 /* =====================================
    media query
@@ -1146,4 +1155,11 @@ body {
 
   .header .logo {
     height: auto;
-    margin-bottom: 20px; } }
+    margin-bottom: 20px; }
+
+  .payment .payment-btn {
+    font-size: 1.4em;
+    width: 100%; }
+
+  .cake-info .sale-price:before {
+    display: none; } }
