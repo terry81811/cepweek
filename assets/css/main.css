@@ -374,6 +374,37 @@ body {
   .video a:hover:after {
     background: url("../img/Home_play2.png"); }
 
+.index-intro {
+  padding-top: 50px;
+  position: relative;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+  border-radius: 10%; }
+  .index-intro .intro-text {
+    position: absolute;
+    font-size: 1.2em;
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    margin-left: -119px; }
+  .index-intro .sun {
+    position: absolute;
+    right: 80px;
+    bottom: 13px;
+    z-index: 3;
+    width: 250px; }
+  .index-intro .intro-text-highlight {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    margin-left: -212.5px;
+    font-size: 1.2em;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1em; }
+
 /* =====================================
    nav
    ===================================== */
@@ -483,7 +514,7 @@ body {
 .wall-colorful {
   position: absolute;
   z-index: 1;
-  background: url("../img/wall-black.png");
+  background: url("../img/wall-black3.png");
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -513,7 +544,7 @@ body {
   -ms-transform: rotateY(0deg);
   -o-transform: rotateY(0deg);
   transform: rotateY(0deg);
-  background: url("../img/wall-black.png");
+  background: url("../img/wall-black3.png");
   z-index: 2; }
 
 .wall-colorful {
@@ -930,6 +961,63 @@ body {
   margin-left: -2px; }
 
 /* =====================================
+   story
+   ===================================== */
+.story-frame {
+  padding: 0 20px 20px; }
+  .story-frame.first {
+    background: #eea094; }
+    .story-frame.first .story-foot-text {
+      margin-top: 0; }
+  .story-frame.second {
+    background: #87b9b1; }
+    .story-frame.second .title img {
+      width: 60%;
+      position: relative;
+      margin: 0 auto; }
+    .story-frame.second .intro {
+      padding-top: 3em; }
+  .story-frame.third {
+    background: #d4a98d; }
+    .story-frame.third .title img {
+      width: 90%;
+      position: relative;
+      margin: 0 auto; }
+    .story-frame.third .intro {
+      padding-top: 4em;
+      line-height: 1.5em; }
+  .story-frame .subtitle {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+    font-size: 1.4em;
+    text-align: center;
+    margin: 10px 0 20px;
+    font-weight: 900; }
+  .story-frame .after-subtitle {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 900; }
+  .story-frame .intro {
+    font-size: 1.25em;
+    text-align: left; }
+    .story-frame .intro p {
+      margin-bottom: 1.5em; }
+  .story-frame .story-foot-text {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 900;
+    margin-top: 20px; }
+  .story-frame .go-to-facebook a {
+    margin-top: 10px;
+    background: url("../img/Story_gotofanpage.png");
+    width: 400px;
+    height: 28px; }
+    .story-frame .go-to-facebook a:hover {
+      background: url("../img/Story_gotofanpage2.png"); }
+
+/* =====================================
    order
    ===================================== */
 .order-intro-frame {
@@ -1162,4 +1250,26 @@ body {
     width: 100%; }
 
   .cake-info .sale-price:before {
-    display: none; } }
+    display: none; }
+
+  .index-intro {
+    background: rgba(247, 246, 242, 0.8);
+    padding-top: 50px;
+    position: relative;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+    border-radius: 10%; }
+    .index-intro .intro-text,
+    .index-intro .intro-text-highlight,
+    .index-intro .sun {
+      position: relative;
+      margin-left: 0;
+      top: 0;
+      left: 0;
+      line-height: 1.4em; }
+    .index-intro .intro-text-highlight {
+      margin-top: 20px; }
+    .index-intro .sun {
+      margin-top: 20px; } }

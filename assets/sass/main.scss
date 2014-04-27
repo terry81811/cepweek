@@ -133,7 +133,37 @@ body {
     }
 }
 
-
+.index-intro {
+    // background: rgba(247,246,242,0.8);
+    padding-top: 50px;
+    position: relative;
+    @include border-radius(10%);
+    .intro-text {
+        position: absolute;
+        font-size: 1.2em;
+        text-align: center;
+        top: 20%;
+        left: 50%;
+        margin-left: -119px;
+    }
+    .sun {
+        position: absolute;
+        right: 80px;
+        bottom: 13px;
+        z-index: 3;
+        width: 250px;
+    }
+    .intro-text-highlight {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        margin-left: -212.5px;
+        font-size: 1.2em;
+        font-weight: 900;
+        text-align: center;
+        line-height: 1em;
+    }
+}
 
 
 /* =====================================
@@ -243,7 +273,7 @@ body {
 .wall-colorful {
     position: absolute;
     z-index: 1;
-    background: url('../img/wall-black.png');
+    background: url('../img/wall-black3.png');
     @include transition(all .4s ease-in-out);
 }
 .wall-cube {
@@ -263,7 +293,7 @@ body {
 
 .wall-black {
     @include transform(rotateY(0deg));
-    background: url('../img/wall-black.png');
+    background: url('../img/wall-black3.png');
     z-index: 2;
 }
 .wall-colorful {
@@ -332,6 +362,79 @@ body {
     visibility: hidden;
     margin-left: -2px;
 }
+
+/* =====================================
+   story
+   ===================================== */
+.story-frame {
+    padding: 0 20px 20px;
+    &.first {
+        background: #eea094;
+        .story-foot-text {
+            margin-top: 0;
+        }
+    }
+    &.second {
+        background: #87b9b1;
+        .title img {
+            width: 60%;
+            position: relative;
+            margin: 0 auto;
+        }
+        .intro {
+            padding-top: 3em;
+        }
+    }
+    &.third {
+        background: #d4a98d;
+        .title img {
+            width: 90%;
+            position: relative;
+            margin: 0 auto;
+        }
+        .intro {
+            padding-top: 4em;
+            line-height: 1.5em;
+        }
+    }
+    .subtitle {
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        padding: 10px 0;
+        font-size: 1.4em;
+        text-align: center;
+        margin: 10px 0 20px;
+        font-weight: 900;
+    }
+    .after-subtitle {
+        font-size: 1.4em;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 900;
+    }
+    .intro {
+        font-size: 1.25em;
+        text-align: left;
+        p {
+            margin-bottom: 1.5em;
+        }
+    }
+    .story-foot-text {
+        text-align: center;
+        font-size: 1.4em;
+        font-weight: 900;
+        margin-top: 20px;
+    }
+    .go-to-facebook a {
+        margin-top: 10px;
+        @include background(url('../img/Story_gotofanpage.png'));
+        @include size(400px, 28px);
+        &:hover {
+            @include background(url('../img/Story_gotofanpage2.png'));
+        }
+    }
+}
+
 
 
 
@@ -576,5 +679,26 @@ body {
     }
     .cake-info .sale-price:before {
         display: none;
+    }
+    .index-intro {
+        background: rgba(247,246,242,0.8);
+        padding-top: 50px;
+        position: relative;
+        @include border-radius(10%);
+        .intro-text,
+        .intro-text-highlight,
+        .sun {
+            position: relative;
+            margin-left: 0;
+            top: 0;
+            left: 0;
+            line-height: 1.4em;
+        }
+        .intro-text-highlight {
+            margin-top: 20px;
+        }
+        .sun {
+            margin-top: 20px;
+        }
     }
 }
