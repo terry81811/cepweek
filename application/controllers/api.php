@@ -175,5 +175,60 @@ APIs for Payment
 
 
 
+// --------------------------------------------------------------------------
+// webATM return
+// --------
+
+
+public function webATM_return()
+{
+ 
+    $post_data = $this->input->post(NULL, TRUE);
+
+    $HASHKey="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; 
+      
+    $IcpNo = $post_data["IcpNo"];
+    $TransNo = $post_data["TransNo"];
+    $TransAmt = $post_data["TransAmt"];
+    $atmTradeNo = $post_data["atmTradeNo"];
+    $atmTradeDate = $post_data["atmTradeDate"];
+    $atmTradeState = $post_data["atmTradeState"];
+    $atmErrNo = $post_data["atmErrNo"];
+    $atmErrDesc = $post_data["atmErrDesc"];
+    $atmIdentifyNo_New = $post_data["atmIdentifyNo_New"];
+    $Echo = $post_data["Echo"];
+
+
+
+    $checkatmIdentifyNo_New  = strtoupper(SHA1( $IcpNo . $TransNo . $TransAmt . $atmTradeNo . $atmTradeDate . $HASHKey . $atmTradeState));
+
+    if($post_data['atmIdentifyNo_New'] == $checkatmIdentifyNo_New){
+     
+        //trade status {S,F,Z}
+        if($post_data['atmTradeState'] == 'S'){
+
+            //交易成功
+            //記入DB
+
+        }
+
+        else if($post_data['atmTradeState'] == 'F'){
+
+            //交易失敗
+            //顯示失敗原因
+        }
+
+        else{
+            //其他狀況
+        }
+    
+    }else{
+        //check hash值錯誤，可能是偽裝？
+    }
+
+
+
+
+
 
 }
