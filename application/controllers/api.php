@@ -32,22 +32,34 @@ APIs for DB CRUD
         $pay_payment_method = $post_data['payment'];
 
         $pay_name = $post_data['pay_name'];
-        $pay_num = $post_data['pay_num'];
-        $pay_cost = $post_data['pay_cost'];
+//        $pay_cost = $post_data['pay_cost'];
         $pay_phone = $post_data['pay_phone'];
         $pay_email = $post_data['pay_email'];
         $pay_title = $post_data['pay_title'];
         $pay_tax_id = $post_data['pay_tax_id'];
 
-        $pay_add_num = $post_data['pay_add_num'];
+        $pay_add_num = $post_data['pay_post'];
         $pay_address = $post_data['pay_address'];
+
+        //calculating total number and cost of order
+        $total_num = 0;
+        $total_cost = 0;
+        foreach ($post_data['rec_name'] as $key => $value) {
+            $total_num += $post_data['rec_num'][$key];
+            if($post_data['rec_num'][$key] < 10){
+                $total_cost += ($post_data['rec_num'][$key] * 390 + 150);
+            }else{
+                $total_cost += ($post_data['rec_num'][$key] * 390);
+            }
+        }
+
 
 
         $order_id = $this->order_model->insert(array(
             'order_name' => $pay_name,
-            'order_num' => $pay_num,
+            'order_num' => $total_num,
             'order_type' => $pay_payment_method,
-            'order_cost' => $pay_cost,
+            'order_cost' => $total_cost,
             'order_email' => $pay_email,
             'order_phone' => $pay_phone,
             'order_timestamp' => date("Y-m-d H:i:s"),
@@ -80,6 +92,8 @@ APIs for DB CRUD
                     'rec_address_code' => $post_data['rec_add_num'][$key],
                     'rec_address' => $post_data['rec_address'][$key],
                     'rec_phone' => $post_data['rec_phone'][$key],
+                    'rec_arrive_time' => $post_data['rec_arrive_time'][$key],
+
                     'rec_timestamp' => date("Y-m-d H:i:s")
                 ));
 
