@@ -325,7 +325,9 @@ public function webATM_return()
             //寄email
             list($total_num, $email_to) = explode("&", $Echo);
 
-            $this->confirm_email($TransNo - 98080000, $TransAmt, $total_num, $email_to);
+            echo "email = $email_to";
+            echo "totalnum = $total_num";
+            $this->confirm_email(($TransNo - 98080000), $TransAmt, $total_num, $email_to);
 
             $data['TransNo'] = $TransNo;
             $data['TransAmt'] = $TransAmt;
