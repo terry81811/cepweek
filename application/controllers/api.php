@@ -103,16 +103,16 @@ APIs for DB CRUD
                     'rec_timestamp' => date("Y-m-d H:i:s")
                 ));
 
-            echo "receive ID = $rec_id"."<BR>";
+//            echo "receive ID = $rec_id"."<BR>";
             }
 
 
-            echo "order ID = $order_id"."<BR>";
+//            echo "order ID = $order_id"."<BR>";
 
             // --------------------------------------------------------------------------
             //do purchase
             if($pay_payment_method == 'webatm'){
-                $this->webATM_submit($order_id,$total_cost);
+                $this->webATM_submit($order_id,$total_cost,$total_num,$pay_email);
             }
             else if($pay_payment_method == 'credit_card'){
                 $this->credit_submit($order_id,$total_cost);
@@ -131,53 +131,30 @@ APIs for Email
 // email after ordering
 // --------------------------------------------------------------------------
 
-public function confirm_email()
+public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
 {
     $this->load->library('email');
  
-    $post_data = $this->input->post(NULL, TRUE);
-    
-    $email_to = $post_data['email_to'];
-    $email_subject = $post_data['email_subject'];
-    $email_message = $post_data['email_message']; 
-
-    if(is_array($email_to)){
-
-        foreach ($email_to as $_key => $_value) {
-
-            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
-            $this->email->to($_value); 
-            $this->email->subject($email_subject);
-            $this->email->message($email_message); 
-            $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
-            $this->email->attach($path_to_the_file);
-
-            $this->email->send();
-            echo $this->email->print_debugger();
-        }
-    }
-
-    if(!is_array($email_to)){
-
+        $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）！';
         $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
         $this->email->to($email_to); 
         $this->email->subject($email_subject);
 
-//        $email_message = $this->load->view('cep/test_email_content');
-        $email_message = '<h1 style="text-align:center;color:red;">感謝您訂購</h1><p>訂購數量：10 價錢：3900 預計出貨日：5/1</p><img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3>';
+//calculating shipping date
+        $date = '5/1';
 
-//        $this->email->message('台大創創學程'); 
+        $email_message = '<h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
+        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3>';
+
         $this->email->message($email_message); 
-//        $msg = $this->load->view('cep/test_email');
-//        $this->email->message($msg); 
 
         $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
 
-         $this->email->attach($path_to_the_file);
+        $this->email->attach($path_to_the_file);
 
         $this->email->send();
         echo $this->email->print_debugger();
-    }
 }
 
 /****************************************************************************
@@ -195,44 +172,42 @@ APIs for Payment
 // --------
 
 
-public function webATM_submit($order_id = NULL, $total_cost = NULL)
+public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num = NULL, $pay_email = NULL)
 {
 
     //請代入hashkey 資料
     $HASHKey="86A2C451B375D51039953841F8A6E5B1";
+    //$data['HASHKey']="86A2C451B375D51039953841F8A6E5B1";
 
     //請使用惟一值
-    $OrderNo= $order_id + 98080000;
+    $OrderNo = $order_id + 98080000;
+    $data['OrderNo']= $order_id + 98080000;
 
     //如有使用虛擬帳號請把虛擬帳號資料代入
     $VAccNo="";
+    $data['VAccNo']="";
 
     //廠商編號
     $IcpNo="39953841";
+    $data['IcpNo']="39953841";
 
     //廠商接收WebATM交易訊息URL
     $IcpConfirmTransURL="http://54.254.253.238/cepweek/api/webATM_return";
+    $data['IcpConfirmTransURL']="http://54.254.253.238/cepweek/api/webATM_return";
 
     //交易金額
-    $TransAmt=$total_cost;
+    $TransAmt = $total_cost;
+    $data['TransAmt']=$total_cost;
+
+    //Echo 自定訊息：訂購數量與email
+    $Echo = $total_num."&".$pay_email;
+    $data['Echo'] = $total_num."&".$pay_email;
 
     //交易識別資料
-    $TransIdentifyNo  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
+    $data['TransIdentifyNo']  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
 //    echo  $TransIdentifyNo;
 
-    $post_array = array('IcpNo' => $IcpNo,
-                        'VAccNo' => $VAccNo,
-                        'IcpConfirmTransURL' => $IcpConfirmTransURL,
-                        'TransNo' => $OrderNo,
-                        'TransAmt' => $TransAmt,
-                        'TransDesc' => '消費',
-                        'StoreName' => 'WebATM',
-                        'TransIdentifyNo' => $TransIdentifyNo,
-                        'Echo' => 'WebATM'
-     );
-
-    $output = $this->curl->simple_post('https://netbank.esunbank.com.tw/webatm/payment/paymentUTF8.asp', $post_array);
-    echo $output;
+    $this->load->view('cep/test_webATM',$data);
 }
 
 public function webATM_return()
@@ -270,7 +245,9 @@ public function webATM_return()
             //交易成功
             //記入DB
             //寄email
-            $this->confirm_email();
+            list($total_num, $email_to) = explode("&", $Echo);
+
+            $this->confirm_email($TransNo - 98080000, $TransAmt, $total_num, $email_to);
 
             $data['TransNo'] = $TransNo;
             $data['TransAmt'] = $TransAmt;
