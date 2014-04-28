@@ -116,6 +116,7 @@ APIs for DB CRUD
             else if($pay_payment_method == 'remittance'){
                 $result = $this->order_model->update(array(
                     'order_acc_name' => $post_data['order_acc_name'],
+                    'order_bank_id' => $post_data['order_bank_id'],
                     'order_last_id' => $post_data['order_last_id']
                 ), $order_id);
 
@@ -156,16 +157,16 @@ private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num =
 //calculating shipping date
         $date = $this->count_date();
 
-        $email_message = '<div><h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        $email_message = '<div><h1">感謝您的訂購</h1>
         <p>您的訂單編號：'.($order_id + 98080000).'</p>
         <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
-        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3></div>';
+        <br><h3>台大創創學程感謝您</h3></div>';
 
         $this->email->message($email_message); 
 
         $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
 
-        $this->email->attach($path_to_the_file);
+//        $this->email->attach($path_to_the_file);
 
         $this->email->send();
         echo $this->email->print_debugger();
@@ -183,19 +184,22 @@ public function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NUL
 //calculating shipping date
         $date = $this->count_date();
 
-        $email_message = '<div><h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        $email_message = '<div><h1">感謝您的訂購</h1>
         <p>您的訂單編號：'.($order_id + 98080000).'</p>
         <p>銀行代號：808 玉山銀行八德分行</p>
         <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
+        <p style="color:red;">提醒您，若為臨櫃存款，請記得填上存款人姓名</p>
+        <p style="color:red;">請勿使用無卡存款，以免對帳失敗</p>
+        
         <p>存戶帳號：0277-940-015066 </p>
         <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
-        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3></div>';
+        <br><h3>台大創創學程感謝您</h3></div>';
 
         $this->email->message($email_message); 
 
         $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
 
-        $this->email->attach($path_to_the_file);
+//        $this->email->attach($path_to_the_file);
 
         $this->email->send();
         echo $this->email->print_debugger();
@@ -215,7 +219,7 @@ public function tran_email_test()
 
 private function count_date()
 {
-    $date = '2014/5/8（日）';
+    $date = '2014/5/8（四）- 2014/5/11（日）';
     return $date;
 }
 
