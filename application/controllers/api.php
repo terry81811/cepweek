@@ -103,11 +103,11 @@ APIs for DB CRUD
                     'rec_timestamp' => date("Y-m-d H:i:s")
                 ));
 
-            echo "receive ID = $rec_id"."<BR>";
+//            echo "receive ID = $rec_id"."<BR>";
             }
 
 
-            echo "order ID = $order_id"."<BR>";
+//            echo "order ID = $order_id"."<BR>";
 
             // --------------------------------------------------------------------------
             //do purchase
