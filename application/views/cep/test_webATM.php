@@ -9,7 +9,7 @@
     <input type="hidden" name="TransDesc" value="消費"><br/>
     <input type="hidden" name="StoreName" value="哈凱部落-彩虹故鄉的願望"><br/>
     <input type="hidden" name="TransIdentifyNo" value="<? echo $TransIdentifyNo ;?>"><br/>
-    <input type="hidden" name="Echo" value="WebATM"><br/>       
+    <input type="hidden" name="Echo" value="<? echo $Echo ;?>"><br/>       
   </form>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
