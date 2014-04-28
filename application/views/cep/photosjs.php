@@ -5,6 +5,7 @@
                 $('#loading').hide();
             });
             $(".group1").colorbox({rel:'group1'});
+            $(".main-nav .photos").addClass("target");
         </script>
         <script>
             var $container = $(".masonry-container");

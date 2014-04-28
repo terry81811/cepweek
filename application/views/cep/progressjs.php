@@ -1,7 +1,7 @@
 <script>
     var addClassToWall = 0;
     $(function() {
-        
+        $(".main-nav .progresss").addClass("target");
     });
     
     $(window).scroll(function() {

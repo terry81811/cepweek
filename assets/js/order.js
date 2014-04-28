@@ -25,7 +25,7 @@ $(function() {
         if (local_order_num >= 10) { // 免運費
             local_order_price = local_order_num * 390;
         } else {
-            local_order_price = local_order_num * (390 + 150);
+            local_order_price = local_order_num * 390 + 150;
         }
         $(this).parents(".receiver").find(".price").html(local_order_price);
 
@@ -123,6 +123,7 @@ $(function() {
             '        </div>',
             '    </div>',
             '    <div class="row mg10 count">',
+            '        <div class="pull-left">運費：NT$150，單筆滿10個免運費。</div>',
             '        <div class="pull-right">小計：<span class="price">0</span></div>',
             '    </div>',
             '</div>'

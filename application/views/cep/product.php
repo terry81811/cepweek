@@ -43,7 +43,55 @@
                   </div>
                 </nav>
 
+                <div class="product-main-frame">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-product-intro">
+                                <h2>
+                                    <img class="img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_cloud.png">
+                                </h2>
+                                <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture1.2.png">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture2.jpg">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cake-intro-list">
+                                <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_roof.png">
+                                <ul>
+                                    <li>六吋蛋糕，適合小家庭的午茶時光</li>
+                                    <li>南投土鳳梨飽滿果粒</li>
+                                    <li>蜂蜜檸檬清爽無負擔</li>
+                                    <li>微熱山丘嚴選清蛋白</li>
+                                    <li>保存期限6天，烘焙完成隔日到貨</li>
+                                </ul>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="pull-right"><img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_yellow-round.png"></h2>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture3.png">
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture4.png">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture5.png">
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <a href="<?php echo base_url(); ?>order" role="button" class="order-btn">我要訂購</a>
                 </div>

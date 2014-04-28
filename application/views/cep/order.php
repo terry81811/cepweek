@@ -72,6 +72,7 @@
                                 </div>
                             </div>
                             <div class="row mg10 count">
+                                <div class="pull-left">運費：NT$150，單筆滿10個以上免運費。</div>
                                 <div class="pull-right">小計：<span class="price">0</span></div>
                             </div>
                         </div>
