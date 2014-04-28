@@ -317,7 +317,7 @@ public function webATM_return()
 
             $result_rec = $this->receive_model->update(array(
                 'rec_pay_success' => 1
-                ), ['rec_order_id' => ($TransNo - 98080000)]);
+                ), array('rec_order_id' => ($TransNo - 98080000)));
 
             //交易成功
             //記入DB
