@@ -11,7 +11,7 @@
             <div class="order-intro-frame">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="<?php echo base_url(); ?>/assets/photo/cake.png" class="img-responsive">
+                        <img src="<?php echo base_url(); ?>/assets/img/Cake.jpg" class="img-responsive">
                     </div>
                     <div class="col-md-7">
                         <div class="cake-info">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="order-form">
-                <form action="api/order" method="post" role="form" class="form-inline">
+                <form action="api/order" method="post" role="form" class="form-inline" id="order-form-validator">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <!-- receiver -->
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_num1">數量：</label>
-                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num1">
+                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num">
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_phone1">收件人電話：</label>

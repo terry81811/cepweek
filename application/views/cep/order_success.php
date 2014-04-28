@@ -43,40 +43,10 @@
                   </div>
                 </nav>
                 <div class="row">
-                    <div class="col-md-12 masonry-container">
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay1.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay1.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay2.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay2.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay3.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay3.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay4.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay4.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay5.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay5.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay6.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay6.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay7.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay7.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay8.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay8.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay9.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay9.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay10.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay10.jpg" ></a>
-                        </div>
-                        <div class="item">
-                            <a class="group1" href="<?php echo base_url(); ?>/assets/photo/hagay11.jpg" title="哈凱部落"><img class="img-responsive" src="<?php echo base_url(); ?>/assets/photo/hagay11.jpg" ></a>
-                        </div>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>訂購完成！</strong>
+                        <p>您已經訂購了<span class="success-count">5</span>個蛋糕，我們已經將資訊寄到<span class="success-email">s92f002@gmail.com</span></p>
                     </div>
                 </div>
             </div>

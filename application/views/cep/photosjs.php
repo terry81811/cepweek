@@ -3,15 +3,13 @@
         <script>
             $(window).load(function() {
                 $('#loading').hide();
+                var $container = $(".masonry-container");
+                // initialize
+                $container.masonry({
+                  columnWidth: 20,
+                  itemSelector: ".item"
+                });
             });
             $(".group1").colorbox({rel:'group1'});
             $(".main-nav .photos").addClass("target");
-        </script>
-        <script>
-            var $container = $(".masonry-container");
-            // initialize
-            $container.masonry({
-              columnWidth: 20,
-              itemSelector: ".item"
-            });
         </script>

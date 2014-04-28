@@ -42,6 +42,13 @@
                     </div>
                   </div>
                 </nav>
+                <!-- <div class="row">
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>訂購完成！</strong>
+                        <p>您已經訂購了<span class="success-count">5</span>個蛋糕，我們已經將資訊寄到<span class="success-email">s92f002@gmail.com</span></p>
+                    </div>
+                </div> -->
                 <div class="banner">
                     <img src="<?php echo base_url(); ?>/assets/img/Home_banner.png" class="img-responsive">
                 </div>

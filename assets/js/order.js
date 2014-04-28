@@ -1,7 +1,6 @@
 $(function() {
     $("#get-receipt-or-not-checkbox").on("click",function() {
         $(".get-receipt-or-not").toggleClass("check");
-        console.log("check");
     });
     $("#payment-webatm-btn").on("click", function(e) {
         e.preventDefault();
@@ -33,12 +32,10 @@ $(function() {
         $(".order-form .num").each(function() {
             var num = parseInt($(this).val(), 10);
             total_order_num = num + total_order_num;
-            console.log("total_order_num: " + total_order_num);
         });
         $(".order-form .price").each(function() {
             var price = parseInt($(this).text(), 10);
             total_order_price = price + total_order_price;
-            console.log("total_order_price: " + total_order_price);
         });
         $(".total-price").html(total_order_price);
 
@@ -68,12 +65,10 @@ $(function() {
         $(".order-form .num").each(function() {
             var num = parseInt($(this).text(), 10);
             total_order_num = num + total_order_num;
-            console.log("total_order_num: " + total_order_num);
         });
         $(".order-form .price").each(function() {
             var price = parseInt($(this).text(), 10);
             total_order_price = price + total_order_price;
-            console.log("total_order_price: " + total_order_price);
         });
         $(".total-price").html(total_order_price);
 
