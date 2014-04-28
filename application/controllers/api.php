@@ -75,13 +75,9 @@ APIs for DB CRUD
         
         if ($order_id) {
 
-
-
-
             $result = $this->order_model->update(array(
                 'order_cancel_hash' => hash('sha256', $order_id . SALT),
             ), $order_id);
-
 
             /*
             insert payment information in DB// RECEIVER_TABLE
@@ -117,6 +113,24 @@ APIs for DB CRUD
             else if($pay_payment_method == 'credit_card'){
                 $this->credit_submit($order_id,$total_cost);
             }
+            else if($pay_payment_method == 'remittance'){
+                $result = $this->order_model->update(array(
+                    'order_acc_name' => $post_data['order_acc_name'],
+                    'order_bank_id' => $post_data['order_bank_id'],
+                    'order_last_id' => $post_data['order_last_id']
+                ), $order_id);
+
+                $this->tran_email($order_id, $total_cost, $total_num, $email_to);
+
+                $data['title'] = "交易成功";
+                $this->load->view('cep/partial/head', $data);
+                $this->load->view('cep/order_success', $data);
+                $this->load->view('cep/partial/repeatjs');
+                $this->load->view('cep/order_successjs');
+                $this->load->view('cep/partial/closehtml');
+
+
+            }
 
         }
 
@@ -131,7 +145,7 @@ APIs for Email
 // email after ordering
 // --------------------------------------------------------------------------
 
-public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
+private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
 {
     $this->load->library('email');
  
@@ -141,25 +155,72 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
         $this->email->subject($email_subject);
 
 //calculating shipping date
-        $date = '5/1';
+        $date = $this->count_date();
 
-        $email_message = '<h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        $email_message = '<div><h1">感謝您的訂購</h1>
+        <p>您的訂單編號：'.($order_id + 98080000).'</p>
         <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
-        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3>';
+        <br><h3>台大創創學程感謝您</h3></div>';
 
         $this->email->message($email_message); 
 
         $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
 
-        $this->email->attach($path_to_the_file);
+//        $this->email->attach($path_to_the_file);
 
         $this->email->send();
         echo $this->email->print_debugger();
 }
 
+public function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
+{
+    $this->load->library('email');
+ 
+        $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）請於三日內匯款';
+        $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+        $this->email->to($email_to); 
+        $this->email->subject($email_subject);
+
+//calculating shipping date
+        $date = $this->count_date();
+
+        $email_message = '<div><h1">感謝您的訂購</h1>
+        <p>您的訂單編號：'.($order_id + 98080000).'</p>
+        <p>銀行代號：808 玉山銀行八德分行</p>
+        <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
+        <p style="color:red;">提醒您，若為臨櫃存款，請記得填上存款人姓名</p>
+        <p style="color:red;">請勿使用無卡存款，以免對帳失敗</p>
+        
+        <p>存戶帳號：0277-940-015066 </p>
+        <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
+        <br><h3>台大創創學程感謝您</h3></div>';
+
+        $this->email->message($email_message); 
+
+        $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
+
+//        $this->email->attach($path_to_the_file);
+
+        $this->email->send();
+        echo $this->email->print_debugger();
+}
+
+
 public function email_test()
 {
-    $this->confirm_email(2,1,1,'terrytsai0811@gmail.com');
+    $this->confirm_email(1,1,1,'terrytsai0811@gmail.com');
+}
+
+public function tran_email_test()
+{
+    $this->tran_email(1,1,1,'terrytsai0811@gmail.com');
+}
+
+
+private function count_date()
+{
+    $date = '2014/5/8（四）- 2014/5/11（日）';
+    return $date;
 }
 
 /****************************************************************************
@@ -254,6 +315,10 @@ public function webATM_return()
                 'order_success' => 1
                 ), ($TransNo - 98080000));
 
+            $result_rec = $this->receive_model->update(array(
+                'rec_pay_success' => 1
+                ), ['rec_order_id' => ($TransNo - 98080000)]);
+
             //交易成功
             //記入DB
             //寄email
@@ -267,7 +332,6 @@ public function webATM_return()
             $data['atmTradeDate'] = $atmTradeDate;
             $data['email_to'] = $email_to;
             $data['title'] = "交易成功";
-            //$this->load->view('',$data);
 
             $this->load->view('cep/partial/head', $data);
             $this->load->view('cep/order_success', $data);
@@ -290,7 +354,6 @@ public function webATM_return()
             $this->load->view('cep/partial/repeatjs');
             $this->load->view('cep/order_failjs');
             $this->load->view('cep/partial/closehtml');
-            //$this->load->view('',$data);
             //交易失敗
             //顯示失敗原因
         }
