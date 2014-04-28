@@ -157,6 +157,11 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
         echo $this->email->print_debugger();
 }
 
+public function email_test()
+{
+    $this->confirm_email(2,1,1,'terrytsai0811@gmail.com');
+}
+
 /****************************************************************************
 APIs for Payment
 *****************************************************************************/
@@ -170,6 +175,11 @@ APIs for Payment
 // --------------------------------------------------------------------------
 // webATM
 // --------
+
+public function webATM_test()
+{
+    $this->webATM_submit(2,1,1,'terrytsai0811@gmail.com');
+}
 
 
 public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num = NULL, $pay_email = NULL)
@@ -206,6 +216,8 @@ public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num =
     //交易識別資料
     $data['TransIdentifyNo']  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
 //    echo  $TransIdentifyNo;
+
+    //echo $Echo;
 
     $this->load->view('cep/test_webATM',$data);
 }
