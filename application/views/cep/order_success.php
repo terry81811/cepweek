@@ -46,7 +46,7 @@
                     <div class="alert alert-success alert-dismissable order-success">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <strong>訂購完成！</strong>
-                        <p>您已經訂購了<span class="success-count"><?php echo $TransNo; ?></span>個蛋糕<br>我們已經將相關資訊寄到<span class="success-email"><?php echo $email_to; ?></span></p>
+                        <p>您已經訂購了<span class="success-count"><?php echo $TransAmt; ?></span>個蛋糕<br>我們已經將相關資訊寄到<span class="success-email"><?php echo $email_to; ?></span></p>
                     </div>
                 </div>
             </div>

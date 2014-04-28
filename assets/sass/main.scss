@@ -596,7 +596,15 @@ body {
     span {
         color: #e9a026;
     }
+    .confirm-total-num {
+        font-size: 1.5em;
+        font-weight: 900;
+        margin: 0 3px;
+    }
     .confirm-total-price {
+        font-size: 1.5em;
+        font-weight: 900;
+        margin: 0 3px;
         &:before {
             content: "NT$";
             display: inline-block;

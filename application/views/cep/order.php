@@ -157,7 +157,7 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="confirm-info">
                                         <p>您總共訂了<span class="confirm-total-num">0</span>個蛋糕</p>
-                                        <p>合計<span class="confirm-total-price">0</span><span class="shipping-fee">（含運）</span></p>
+                                        <p>合計<span class="confirm-total-price">0</span><span class="shipping-fee">(含運)</span></p>
                                     </div>
                                 </div>
                             </div>

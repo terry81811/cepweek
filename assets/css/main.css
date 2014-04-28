@@ -1173,9 +1173,17 @@ body {
   color: #e9a026; }
 .confirm span {
   color: #e9a026; }
-.confirm .confirm-total-price:before {
-  content: "NT$";
-  display: inline-block; }
+.confirm .confirm-total-num {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 0 3px; }
+.confirm .confirm-total-price {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 0 3px; }
+  .confirm .confirm-total-price:before {
+    content: "NT$";
+    display: inline-block; }
 .confirm .submit-btn-row {
   text-align: center;
   margin-top: 20px; }
