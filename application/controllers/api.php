@@ -231,7 +231,7 @@ public function webATM_submit($order_id = NULL, $total_cost = NULL)
                         'Echo' => 'WebATM'
      );
 
-    $output = $this->curl->simple_post('https://netbank.esunbank.com.tw/webatm/payment/paymentUTF8.asp', $post_array, array(CURLOPT_BUFFERSIZE => 10, CURLOPT_USERAGENT => true));
+    $output = $this->curl->simple_post('https://netbank.esunbank.com.tw/webatm/payment/paymentUTF8.asp', $post_array);
     echo $output;
 }
 
@@ -269,6 +269,8 @@ public function webATM_return()
 
             //交易成功
             //記入DB
+            //寄email
+            $this->confirm_email();
 
             $data['TransNo'] = $TransNo;
             $data['TransAmt'] = $TransAmt;
@@ -281,7 +283,7 @@ public function webATM_return()
         else if($post_data['atmTradeState'] == 'F'){
 
 
-            $this->receive_model->delete(array('rec_order_id' => ($TransNo - 98080000)))
+            $this->receive_model->delete(array('rec_order_id' => ($TransNo - 98080000)));
 
             $data['atmErrNo'] = $atmErrNo;
             $data['atmErrDesc'] = $atmErrDesc;
