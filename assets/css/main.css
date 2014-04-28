@@ -290,6 +290,22 @@ body {
     width: 100%;
     height: 100%; }
 
+.contact-us {
+  background: url("../img/contact-us.png") no-repeat;
+  background-size: contain;
+  position: fixed;
+  z-index: 10;
+  width: 120px;
+  height: 116px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out; }
+  .contact-us a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
 /* =====================================
    header
    ===================================== */
@@ -350,6 +366,9 @@ body {
     .main-nav li.photos:hover {
       background: url("../img/btn-photos-hover.png") no-repeat center;
       background-size: contain; }
+
+.navbar-default {
+  background: rgba(255, 255, 255, 0.9); }
 
 /* =====================================
    index
@@ -479,22 +498,23 @@ body {
     .fund-raising .chart .percent {
       font-family: 'Rammetto One', cursive;
       font-size: 40px; }
-  .fund-raising .order-btn {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    background: url("../img/progress_order_button.png") center no-repeat;
+
+.order-btn {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  background: url("../img/progress_order_button.png") center no-repeat;
+  width: 266px;
+  height: 70px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left; }
+  .order-btn:hover {
+    background: url("../img/progress_order_button2.png") center no-repeat;
     width: 266px;
-    height: 70px;
-    text-indent: -119988px;
-    overflow: hidden;
-    text-align: left; }
-    .fund-raising .order-btn:hover {
-      background: url("../img/progress_order_button2.png") center no-repeat;
-      width: 266px;
-      height: 70px; }
-    .fund-raising .order-btn:active {
-      background-position: 1px 1px; }
+    height: 70px; }
+  .order-btn:active {
+    background-position: 1px 1px; }
 
 /* =====================================
    wall
@@ -507,7 +527,7 @@ body {
 .wall-cube,
 .wall-black,
 .wall-colorful {
-  width: 54.8px;
+  width: 54.7px;
   height: 72px; }
 
 .wall-black,
@@ -522,7 +542,7 @@ body {
 
 .wall-cube {
   display: inline-block;
-  margin-bottom: -0.35em; }
+  margin-bottom: -0.36em; }
 
 .wall-cube.active .wall-black {
   -webkit-transform: rotateY(180deg);
@@ -1152,11 +1172,54 @@ body {
   margin-top: 20px; }
 
 /* =====================================
+   photos
+   ===================================== */
+.masonry-container {
+  position: relative; }
+  .masonry-container .item {
+    max-width: 25%; }
+
+/* =====================================
+   footer
+   ===================================== */
+body > .container {
+  padding-bottom: 300px; }
+
+body {
+  position: relative; }
+
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -2px;
+  min-height: 300px;
+  padding-top: 110px;
+  background: url("../img/footer_background.png"); }
+  footer .container {
+    background: none; }
+  footer h3 {
+    vertical-align: top; }
+  footer img {
+    width: 100px; }
+  footer .x {
+    width: auto; }
+  footer .aws img {
+    width: 130px; }
+  footer .esunbank img {
+    width: 130px; }
+  footer .contact-us {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: underline; }
+
+/* =====================================
    media query
    ===================================== */
 @media (min-width: 992px) {
   .main-container {
-    width: 960px; }
+    width: 960px;
+    padding-bottom: 30px; }
 
   .container {
     width: 1040px;
@@ -1177,6 +1240,17 @@ body {
     transform: rotate(-90deg); }
     .facebook:hover {
       right: -50px; }
+
+  .contact-us {
+    bottom: 220px;
+    right: -78px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .contact-us:hover {
+      right: -73px; }
 
   .order-form .address {
     width: 472px; }
@@ -1217,11 +1291,31 @@ body {
     -o-transform: rotate(-90deg);
     transform: rotate(-90deg); }
     .facebook:hover {
-      right: -50px; } }
+      right: -50px; }
+
+  .contact-us {
+    bottom: 220px;
+    right: -78px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .contact-us:hover {
+      right: -73px; }
+
+  .masonry-container .item {
+    max-width: 48%;
+    margin-bottom: 10px; }
+
+  footer {
+    background: none; } }
 @media (max-width: 767px) {
+  body > .container {
+    padding-bottom: 500px; }
+
   .container {
-    padding-top: 20px;
-    padding-bottom: 20px; }
+    padding-top: 20px; }
 
   .facebook {
     position: fixed;
@@ -1234,9 +1328,18 @@ body {
     transform: rotate(0);
     width: 100px;
     height: 77px; }
-    .facebook:hover {
-      right: 10px;
-      bottom: -20px; }
+
+  .contact-us {
+    position: fixed;
+    bottom: -45px;
+    right: 109px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+    width: 100px;
+    height: 77px; }
 
   .main-nav {
     margin-top: 0; }
@@ -1272,4 +1375,13 @@ body {
     .index-intro .intro-text-highlight {
       margin-top: 20px; }
     .index-intro .sun {
-      margin-top: 20px; } }
+      margin-top: 20px; }
+
+  .masonry-container .item {
+    max-width: 95%;
+    margin-bottom: 10px; }
+
+  footer {
+    background: none;
+    padding-bottom: 30px;
+    padding-top: 0; } }

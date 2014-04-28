@@ -56,6 +56,18 @@ body {
         @include size(100%);
     }
 }
+.contact-us {
+    background: url('../img/contact-us.png') no-repeat;
+    background-size: contain;
+    position: fixed;
+    z-index: 10;
+    @include size(120px, 116px);
+    @include transition($transifion-effect);
+    a {
+        display: block;
+        @include size(100%);
+    }
+}
 
 /* =====================================
    header
@@ -106,6 +118,10 @@ body {
             }
         }
     }
+}
+
+.navbar-default {
+    background: rgba(255,255,255,0.9);
 }
 /* =====================================
    index
@@ -240,18 +256,18 @@ body {
             font-size: 40px;
         }
     }
-    .order-btn {
-        display: block;
-        position: relative;
-        margin: 0 auto;
-        @include background-via-img('../img/progress_order_button.png');
-        @include hide-text;
-        &:hover {
-            @include background-via-img('../img/progress_order_button2.png');
-        }
-        &:active {
-            background-position: 1px 1px;
-        }
+}
+.order-btn {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    @include background-via-img('../img/progress_order_button.png');
+    @include hide-text;
+    &:hover {
+        @include background-via-img('../img/progress_order_button2.png');
+    }
+    &:active {
+        background-position: 1px 1px;
     }
 }
 
@@ -262,11 +278,11 @@ body {
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
 }
-
+ 
 .wall-cube,
 .wall-black,
 .wall-colorful {
-    @include size(54.8px, 72px);
+    @include size(54.7px, 72px);
 }
 
 .wall-black,
@@ -278,7 +294,7 @@ body {
 }
 .wall-cube {
     display: inline-block;
-    margin-bottom: -0.35em;
+    margin-bottom: -0.36em;
 }
 
 .wall-cube.active {
@@ -578,11 +594,68 @@ body {
 }
 
 /* =====================================
+   photos
+   ===================================== */
+.masonry-container {
+    position: relative;
+    .item {
+        max-width: 25%;
+    }
+}
+
+
+
+/* =====================================
+   footer
+   ===================================== */
+body > .container {
+    padding-bottom: 300px;
+}
+body {
+    position: relative;
+}
+footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -2px;
+    min-height: 300px;
+    padding-top: 110px;
+    background: url('../img/footer_background.png');
+    .container {
+        background: none;
+    }
+    h3 {
+        vertical-align: top;
+    }
+    img {
+        width: 100px;
+    }
+    .x {
+        width: auto;
+    }
+    .aws img {
+        width: 130px;
+    }
+    .esunbank img {
+        width: 130px;
+    }
+    .contact-us {
+        font-size: 1.5em;
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+}
+
+
+/* =====================================
    media query
    ===================================== */
 @media (min-width: 992px) { 
     .main-container { 
         width: 960px;
+        padding-bottom: 30px;
     }
     .container {
         width: 1040px;
@@ -599,6 +672,14 @@ body {
         @include transform(rotate(-90deg));
         &:hover {
             right: -50px;
+        }
+    }
+    .contact-us {
+        bottom: 220px;
+        right: -78px;
+        @include transform(rotate(-90deg));
+        &:hover {
+            right: -73px;
         }
     }
     .order-form .address {
@@ -649,11 +730,30 @@ body {
             right: -50px;
         }
     }
+    .contact-us {
+        bottom: 220px;
+        right: -78px;
+        @include transform(rotate(-90deg));
+        &:hover {
+            right: -73px;
+        }
+    }
+    .masonry-container .item {
+        max-width: 48%;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background: none;
+    }
 }
 @media (max-width: 767px) { 
+    body > .container {
+        padding-bottom: 500px;
+    }
     .container {
         padding-top: 20px;
-        padding-bottom: 20px;
+        
     }
     .facebook {
         position: fixed;
@@ -661,10 +761,13 @@ body {
         right: 10px;
         @include transform(rotate(0));
         @include size(100px, 77px);
-        &:hover {
-            right: 10px;
-            bottom: -20px;
-        }
+    }
+    .contact-us {
+        position: fixed;
+        bottom: -45px;
+        right: 109px;
+        @include transform(rotate(0));
+        @include size(100px, 77px);
     }
     .main-nav {
         margin-top: 0;
@@ -700,5 +803,14 @@ body {
         .sun {
             margin-top: 20px;
         }
+    }
+    .masonry-container .item {
+        max-width: 95%;
+        margin-bottom: 10px;
+    }
+    footer {
+        background: none;
+        padding-bottom: 30px;
+        padding-top: 0;
     }
 }

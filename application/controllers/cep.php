@@ -57,6 +57,24 @@ class Cep extends CI_Controller {
         $this->load->view('cep/storyjs');
         $this->load->view('cep/partial/closehtml');
     }
+    public function product()
+    {
+        $data['title'] = "產品介紹 | 彩虹故鄉的願望";
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/product');
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/productjs');
+        $this->load->view('cep/partial/closehtml');
+    }
+    public function photos()
+    {
+        $data['title'] = "產品介紹 | 彩虹故鄉的願望";
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/photos');
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/photosjs');
+        $this->load->view('cep/partial/closehtml');
+    }
 
 /****************************************************************************
 APIs for Payment
