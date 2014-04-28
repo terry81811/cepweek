@@ -7,12 +7,25 @@ $(function() {
         $("#payment-webatm-radio").trigger("click");
         $(".payment-btn").removeClass("active");
         $(this).addClass("active");
+        $("#payment-webatm-radio").trigger("click");
+        $("#order-submit-btn").trigger("click");
     });
     $("#payment-credit_card-btn").on("click", function(e) {
         e.preventDefault();
+    //     $(".payment-btn").removeClass("active");
+    //     $(this).addClass("active");
+    //     $("#payment-credit_card-radio").trigger("click");
+    });
+    $("#remittance-btn").on("click", function(){
+        e.preventDefault();
+        $("#order-submit-btn").trigger("click");
+    })
+    $("#payment-remittance").on("click", function(e) {
+        e.preventDefault();
         $(".payment-btn").removeClass("active");
         $(this).addClass("active");
-        $("#payment-credit_card-radio").trigger("click");
+        $("#payment-remittance-radio").trigger("click");
+        $(".remittance").toggleClass("hidden");
     });
     $(".order-form").on("blur", ".num", function() {
         var total_order_num = 0;

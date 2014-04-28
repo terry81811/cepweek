@@ -1125,26 +1125,31 @@ body {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px; }
-  .payment a:hover, .payment a.active {
-    color: #e9a026;
-    background: #fff;
-    -webkit-box-shadow: 0 0 10px #e9a026;
-    -moz-box-shadow: 0 0 10px #e9a026;
-    box-shadow: 0 0 10px #e9a026;
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    transform: scale(1.05);
-    -webkit-transition: all 0.1s ease-in;
-    -moz-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in; }
-  .payment a:active {
-    background: #f7ddb1;
-    -webkit-box-shadow: 0 0 20px #e9a026;
-    -moz-box-shadow: 0 0 20px #e9a026;
-    box-shadow: 0 0 20px #e9a026; }
+.payment a.open:hover, .payment a.open.active {
+  color: #e9a026;
+  background: #fff;
+  -webkit-box-shadow: 0 0 10px #e9a026;
+  -moz-box-shadow: 0 0 10px #e9a026;
+  box-shadow: 0 0 10px #e9a026;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in; }
+.payment a.open:active {
+  background: #f7ddb1;
+  -webkit-box-shadow: 0 0 20px #e9a026;
+  -moz-box-shadow: 0 0 20px #e9a026;
+  box-shadow: 0 0 20px #e9a026; }
+.payment .closed {
+  text-align: center; }
+  .payment .closed a {
+    cursor: not-allowed;
+    background: #cdcdcd; }
 
 .get-receipt-or-not {
   display: none;
@@ -1162,6 +1167,8 @@ body {
   text-align: center;
   border: 3px solid #e9a026;
   padding: 20px; }
+  .confirm .confirm-info p {
+    margin: 5px 0; }
 .confirm .shipping-fee {
   color: #e9a026; }
 .confirm span {
@@ -1172,6 +1179,25 @@ body {
 .confirm .submit-btn-row {
   text-align: center;
   margin-top: 20px; }
+
+.remittance-info {
+  text-align: left;
+  border: 3px solid #e9a026;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-weight: 900;
+  color: #d0104c; }
+  .remittance-info p {
+    margin: 5px 0; }
+
+.remittance .info {
+  font-weight: 900;
+  color: #d0104c; }
+
+.order-fail,
+.order-success {
+  text-align: center;
+  font-size: 1.4em; }
 
 /* =====================================
    photos

@@ -43,7 +43,7 @@
                   </div>
                 </nav>
                 <div class="row">
-                    <div class="alert alert-danger alert-dismissable">
+                    <div class="alert alert-danger alert-dismissable order-fail">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <strong>交易失敗</strong>
                         <p><?php echo $atmErrDesc; ?></p>

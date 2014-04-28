@@ -91,19 +91,7 @@
 
                         <!-- payment -->
                         <div class="payment">
-                            <h3>付款方式</h3>
-                            <div class="row">
-                                <div class="col-xs-6 col-md-4 col-md-offset-2">
-                                    <a href="" role="button" class="payment-btn" id="payment-webatm-btn">WebATM</a>
-                                </div>
-                                <div class="col-xs-6 col-md-4">
-                                    <a href="" role="button" class="payment-btn" id="payment-credit_card-btn">線上刷卡</a>
-                                </div>
-                                <div style="display:none">
-                                    <input type="radio" name="payment" value="webatm" id="payment-webatm-radio">WebATM<br>
-                                    <input type="radio" name="payment" value="credit_card" id="payment-credit_card-radio">線上刷卡
-                                </div>
-                            </div>
+                            <h3>付款人資訊</h3>
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="subscriber-info">
@@ -129,7 +117,7 @@
                                         <div class="row mg10">
                                             <div class="receipt">
                                                 <input type="checkbox" name="get-receipt-or-not-checkbox" id="get-receipt-or-not-checkbox">
-                                                <label for="get-receipt-or-not-checkbox">是否索取發票？</label>
+                                                <label for="get-receipt-or-not-checkbox">是否索取收據？</label>
                                             </div>
                                         </div>
                                         <div class="get-receipt-or-not">
@@ -145,7 +133,7 @@
                                             </div>
                                             <div class="row mg10">
                                                 <div class="form-group">
-                                                    <label for="pay_title">發票抬頭：</label>
+                                                    <label for="pay_title">收據抬頭：</label>
                                                     <input class="form-control pay_title" type="text" name="pay_title" placeholder="" id="pay_title">
                                                 </div>
                                                 <div class="form-group">
@@ -157,6 +145,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                         <!-- end of .payment -->
 
@@ -171,15 +160,82 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mg10 submit-btn-row">
-                                <button type="submit" class="btn btn-warning btn-lg">送出</button>
-                            </div>
                         </div>
                         <!-- end of .confirm -->
+
+                        <!-- payment style-->
+                        <div class="payment mg10">
+                            <h3>付款方式</h3>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-4 ">
+                                    <a href="" role="button" class="payment-btn open" id="payment-webatm-btn">WebATM</a>
+                                </div>
+                                <div class="col-xs-6 col-md-4 closed">
+                                    <a href="" role="button" class="payment-btn" id="payment-credit_card-btn" disable>線上刷卡</a>
+                                    <span>* 預計5/5開放線上刷卡</span>
+                                </div>
+                                <div class="col-xs-6 col-md-4">
+                                    <a href="" role="button" class="payment-btn open" id="payment-remittance">匯款</a>
+                                </div>
+
+                                <div style="display:none">
+                                    <input type="radio" name="payment" value="webatm" id="payment-webatm-radio">WebATM<br>
+                                    <input type="radio" name="payment" value="credit_card" id="payment-credit_card-radio" >線上刷卡
+                                    <input type="radio" name="payment" value="remittance" id="payment-remittance-radio" >匯款
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of payment -->
+                        <div class="remittance mg10 hidden">
+                            <h3>匯款資料</h3>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="remittance-info">
+                                        <p>銀行代號：808 玉山銀行八德分行</p>
+                                        <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
+                                        <p>存戶帳號：0277-940-015066 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mg10">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group">
+                                        <label for="pay_title">戶名：</label>
+                                        <input class="form-control order_acc_name" type="text" name="order_acc_name" placeholder="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mg10">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group">
+                                        <label for="pay_title">帳戶末五碼：</label>
+                                        <input class="form-control order_last_id" type="text" name="order_last_id" placeholder="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mg10">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group">
+                                        <label for="pay_title">銀行代碼：</label>
+                                        <input class="form-control order_bank_id" type="text" name="order_bank_id" placeholder="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mg10">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="info">＊請於3日內匯款完成，否則取消訂單。</div>
+                                </div>
+                            </div>
+                            <a href="" id="remittance-btn" class="btn btn-danger">送出</a>
+                        </div>
                     </div>
                 </div>
 
-                
+                <div class="row mg10 submit-btn-row hidden">
+                    <button type="submit" class="btn btn-warning btn-lg" id="order-submit-btn">送出</button>
+                </div>
+
 
                 </form>
             </div>

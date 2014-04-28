@@ -545,6 +545,8 @@ body {
         text-align: center;
         text-decoration: none;
         @include border-radius(5px);
+    }
+    a.open {
         &:hover,
         &.active {
             color: #e9a026;
@@ -557,6 +559,14 @@ body {
             background: lighten(#e9a026,30);
             @include box-shadow(0 0 20px #e9a026);
         }
+
+    }
+    .closed {
+        a { 
+            cursor: not-allowed; 
+            background: #cdcdcd;
+        }
+        text-align: center;
     }
 }
 .get-receipt-or-not {
@@ -576,6 +586,9 @@ body {
         text-align: center;
         border: 3px solid #e9a026;
         padding: 20px;
+        p {
+            margin: 5px 0;
+        }
     }
     .shipping-fee {
         color: #e9a026;
@@ -594,6 +607,27 @@ body {
         text-align: center;
         margin-top: 20px;
     }
+}
+.remittance-info {
+    text-align: left;
+    border: 3px solid #e9a026;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-weight: 900;
+    color: rgb(208,16,76);
+    p {
+        margin: 5px 0;
+    }
+}
+.remittance .info {
+    font-weight: 900;
+    color: rgb(208,16,76);
+}
+
+.order-fail,
+.order-success {
+    text-align: center;
+    font-size: 1.4em;
 }
 
 /* =====================================

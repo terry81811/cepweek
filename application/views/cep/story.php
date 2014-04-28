@@ -97,15 +97,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="pic">
                                 <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.jpg" class="img-responsive">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="intro">
+                                <p>哈凱部落位於桃園縣復興鄉深山中，實地到部落探訪，眼前只見一條巷子，兩旁坐落著一間間低矮、僅十二坪的鐵皮組合屋，村民坐在屋前聊天、聚會；孩子在巷子玩樂打鬧。這片小小的土地，就是村民們安身立命近十一年的居所。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-7">
                             <div class="intro">
-                                <p>十一年前因為政府興建的攔砂壩，艾利颱風沖毀了祖靈留給我們的家園，從此，21戶人家被遺忘在復興鄉雲霧繚繞的山間。</p>
-                                <p>我們並沒有因此氣餒，走過將近10年漫漫長路，我們盼望的永久屋終於開始動工了。隔壁的亞姬(泰雅族語)奶奶在工地外張望，難掩欣喜，獨自撫養行動不便兒子30年的她，似乎看到那等待多年的，一個家。</p>
+                                <p>村民從1966年定居哈凱部落原址。1967年，石門水庫興建攔沙壩後導致水文改變、河川改道，種下哈凱部落的不安因子。<br>
+                                1996年賀伯颱風來襲，河川暴漲沖刷掉復興鄉山區地基，哈凱部落也從此被淹沒在沙土中。<br>
+                                村民等待政府興建新村落期間，暫居於組合屋中，未料一住就是十一年。經費問題導致遷村至礙難前，村民必須自行負擔20%修建與全額內裝費用，這對身處深山的哈凱部落的村民可以說是困難重重：無法負擔如此高額的整修費用，取得信用貸款更是困難。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="pic">
+                                <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.2.jpg" class="img-responsive">
                             </div>
                         </div>
                     </div>
@@ -145,7 +158,7 @@
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="after-subtitle">
-                                本次活動由寶田(微熱山丘社會企業子公司)贊助產品<br>
+                                本次活動由普仁基金會贊助產品，<br>
                                 玉山銀行協助金流後台，以及黑貓宅急便提供優惠運費。
                             </div>
                         </div>
