@@ -119,7 +119,7 @@ APIs for DB CRUD
                     'order_last_id' => $post_data['order_last_id']
                 ), $order_id);
 
-                $this->confirm_email($order_id, $total_cost, $total_num, $email_to);
+                $this->tran_email($order_id, $total_cost, $total_num, $email_to);
 
                 $data['title'] = "交易成功";
                 $this->load->view('cep/partial/head', $data);
@@ -144,7 +144,7 @@ APIs for Email
 // email after ordering
 // --------------------------------------------------------------------------
 
-public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
+private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
 {
     $this->load->library('email');
  
@@ -154,10 +154,10 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
         $this->email->subject($email_subject);
 
 //calculating shipping date
-        $date = '5/1';
+        $date = $this->count_date();
 
         $email_message = '<div><h1 style="text-align:center;color:red;">感謝您訂購</h1>
-        <p>您的訂單編號：'.$order_id + 98080000.'</p>
+        <p>您的訂單編號：'.($order_id + 98080000).'</p>
         <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
         <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3></div>';
 
@@ -171,10 +171,47 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
         echo $this->email->print_debugger();
 }
 
+public function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
+{
+    $this->load->library('email');
+ 
+        $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）請於三日內匯款';
+        $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+        $this->email->to($email_to); 
+        $this->email->subject($email_subject);
+
+//calculating shipping date
+        $date = $this->count_date();
+
+        $email_message = '<div><h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        <p>您的訂單編號：'.($order_id + 98080000).'</p>
+        <p>銀行代號：808 玉山銀行八德分行</p>
+        <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
+        <p>存戶帳號：0277-940-015066 </p>
+        <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
+        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3></div>';
+
+        $this->email->message($email_message); 
+
+        $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
+
+        $this->email->attach($path_to_the_file);
+
+        $this->email->send();
+        echo $this->email->print_debugger();
+}
+
+
 public function email_test()
 {
     $this->confirm_email(1,1,1,'terrytsai0811@gmail.com');
 }
+
+public function tran_email_test()
+{
+    $this->tran_email(1,1,1,'terrytsai0811@gmail.com');
+}
+
 
 private function count_date()
 {
