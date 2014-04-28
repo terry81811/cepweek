@@ -226,7 +226,7 @@ public function webATM_submit($order_id = NULL, $total_cost = NULL)
     $data['TransIdentifyNo']  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
 //    echo  $TransIdentifyNo;
 
-    $this->load->view('cep/test_webatm',$data);
+    $this->load->view('cep/test_webATM',$data);
 }
 
 public function webATM_return()
