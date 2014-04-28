@@ -198,8 +198,6 @@ APIs for Payment
 public function webATM_submit($order_id = NULL, $total_cost = NULL)
 {
 
-
-
     //請代入hashkey 資料
     $HASHKey="86A2C451B375D51039953841F8A6E5B1";
     //$data['HASHKey']="86A2C451B375D51039953841F8A6E5B1";

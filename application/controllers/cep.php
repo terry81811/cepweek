@@ -139,7 +139,7 @@ APIs for Payment
     public function test_ATM()
     {
 
-        $this->load->view('cep/test_webatm');
+        $this->load->view('cep/test_webATM');
     }
 
 }
