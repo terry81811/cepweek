@@ -211,7 +211,7 @@ public function webATM_submit($order_id = NULL, $total_cost = NULL)
     $IcpNo="39953841";
 
     //廠商接收WebATM交易訊息URL
-    $IcpConfirmTransURL="https://rainbowhope.tw/api/webATM_return";
+    $IcpConfirmTransURL="http://54.254.253.238/cepweek/api/webATM_return";
 
     //交易金額
     $TransAmt=$total_cost;
@@ -326,7 +326,7 @@ public function webATM_return()
         $TID = 'EC000001';
         $ONO = $order_id + 98080000;
         $TA = $total_cost;
-        $U = "https://rainbowhope.tw/api/credit_return";
+        $U = "http://54.254.253.238/cepweek/api/credit_return";
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
 
         echo $str;
