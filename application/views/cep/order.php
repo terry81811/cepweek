@@ -16,7 +16,7 @@
                     <div class="col-md-7">
                         <div class="cake-info">
                             <ul>
-                                <li>六村蛋糕，適合小家庭的午餐時光</li>
+                                <li>六吋蛋糕，適合小家庭的午餐時光</li>
                                 <li>南投土鳳梨飽滿果粒</li>
                                 <li>蜂蜜檸檬清爽無負擔</li>
                                 <li>微熱山丘嚴選清蛋白</li>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_num1">數量：</label>
-                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num">
+                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num1">
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_phone1">收件人電話：</label>

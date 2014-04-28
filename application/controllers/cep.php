@@ -50,7 +50,27 @@ class Cep extends CI_Controller {
         $this->load->view('cep/progressjs');
         $this->load->view('cep/partial/closehtml');
     }
+    public function order_success()
+    {
+        $data['TransNo'] = 02398410928734;
+        $data['email_to'] = "s92f002@hotmail.com";
 
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/order_success', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/order_successjs');
+        $this->load->view('cep/partial/closehtml');
+
+    }
+    public function order_fail()
+    {
+        $data['atmErrDesc'] = "您的帳戶沒有錢了！";
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/order_fail', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/order_failjs');
+        $this->load->view('cep/partial/closehtml');
+    }
     public function test_form()
     {
         $this->load->view('cep/test_form');
