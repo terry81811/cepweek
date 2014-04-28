@@ -68,7 +68,6 @@
                                 <p>我們不只募款，也誠心與您分享南投在地最美味的糕點。</p>
                                 <p>所得扣除成本後將全數捐出，</p>
                                 <p>幫助流離失所11年的哈凱部落重建家園。</p><br>
-                                <p>企業0獲利，學生秀創意！</p>
                                 <p>我們相信這份憨厚的人情，只在台灣看的見！</p>
                             </div>
                             <img src="<?php echo base_url(); ?>/assets/img/Home_text_background.png" class="img-responsive hidden-xs">
