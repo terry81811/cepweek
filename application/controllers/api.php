@@ -123,6 +123,8 @@ APIs for DB CRUD
 
                 $this->tran_email($order_id, $total_cost, $total_num, $email_to);
 
+                $data['email_to'] = $pay_email;
+                $data['TransAmt'] = $total_num;
                 $data['title'] = "交易成功";
                 $this->load->view('cep/partial/head', $data);
                 $this->load->view('cep/order_success', $data);
