@@ -198,41 +198,37 @@ APIs for Payment
 public function webATM_submit($order_id = NULL, $total_cost = NULL)
 {
 
+
+
     //請代入hashkey 資料
     $HASHKey="86A2C451B375D51039953841F8A6E5B1";
+    //$data['HASHKey']="86A2C451B375D51039953841F8A6E5B1";
 
     //請使用惟一值
-    $OrderNo= $order_id + 98080000;
+    $OrderNo = $order_id + 98080000;
+    $data['OrderNo']= $order_id + 98080000;
 
     //如有使用虛擬帳號請把虛擬帳號資料代入
     $VAccNo="";
+    $data['VAccNo']="";
 
     //廠商編號
     $IcpNo="39953841";
+    $data['IcpNo']="39953841";
 
     //廠商接收WebATM交易訊息URL
     $IcpConfirmTransURL="http://54.254.253.238/cepweek/api/webATM_return";
+    $data['IcpConfirmTransURL']="http://54.254.253.238/cepweek/api/webATM_return";
 
     //交易金額
-    $TransAmt=$total_cost;
+    $TransAmt = $total_cost;
+    $data['TransAmt']=$total_cost;
 
     //交易識別資料
-    $TransIdentifyNo  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
+    $data['TransIdentifyNo']  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
 //    echo  $TransIdentifyNo;
 
-    $post_array = array('IcpNo' => $IcpNo,
-                        'VAccNo' => $VAccNo,
-                        'IcpConfirmTransURL' => $IcpConfirmTransURL,
-                        'TransNo' => $OrderNo,
-                        'TransAmt' => $TransAmt,
-                        'TransDesc' => '消費',
-                        'StoreName' => 'WebATM',
-                        'TransIdentifyNo' => $TransIdentifyNo,
-                        'Echo' => 'WebATM'
-     );
-
-    $output = $this->curl->simple_post('https://netbank.esunbank.com.tw/webatm/payment/paymentUTF8.asp', $post_array);
-    echo $output;
+    $this->load->view('cep/test_webatm',$data);
 }
 
 public function webATM_return()
