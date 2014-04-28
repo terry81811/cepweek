@@ -170,7 +170,7 @@ private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num =
 //        $this->email->attach($path_to_the_file);
 
         $this->email->send();
-        echo $this->email->print_debugger();
+   //     echo $this->email->print_debugger();
 }
 
 private function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
@@ -203,7 +203,7 @@ private function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NU
 //        $this->email->attach($path_to_the_file);
 
         $this->email->send();
-        echo $this->email->print_debugger();
+   //     echo $this->email->print_debugger();
 }
 
 
