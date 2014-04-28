@@ -1192,7 +1192,8 @@ body {
 
 .remittance .info {
   font-weight: 900;
-  color: #d0104c; }
+  color: #d0104c;
+  margin-bottom: 20px; }
 
 .order-fail,
 .order-success {
@@ -1336,7 +1337,10 @@ footer {
     width: 158px; }
 
   .cake-intro-list {
-    margin-top: 70px; } }
+    margin-top: 70px; }
+
+  .remittance .order_acc_name {
+    width: 265px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .facebook {
     bottom: 100px;

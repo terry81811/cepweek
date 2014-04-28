@@ -56,6 +56,7 @@
                                 <div class="form-group rec_a">
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
+                                        <option value="不指定">不指定</option>
                                         <option value="白天">白天</option>
                                         <option value="晚上">晚上</option>
                                     </select>
@@ -72,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="row mg10 count">
-                                <div class="pull-left">運費：NT$150，單筆滿10個以上免運費。</div>
+                                <div class="pull-left">運費：10個以下一律NT$150，單筆滿10個以上免運費。</div>
                                 <div class="pull-right">小計：<span class="price">0</span></div>
                             </div>
                         </div>
@@ -225,9 +226,9 @@
                             <div class="row mg10">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="info">＊請於3日內匯款完成，否則取消訂單。</div>
+                                    <a href="" id="remittance-btn" class="btn btn-warning">送出</a>
                                 </div>
                             </div>
-                            <a href="" id="remittance-btn" class="btn btn-danger">送出</a>
                         </div>
                     </div>
                 </div>

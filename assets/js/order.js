@@ -2,31 +2,42 @@ $(function() {
     $("#get-receipt-or-not-checkbox").on("click",function() {
         $(".get-receipt-or-not").toggleClass("check");
     });
+    //webatm
     $("#payment-webatm-btn").on("click", function(e) {
         e.preventDefault();
-        $("#payment-webatm-radio").trigger("click");
-        $(".payment-btn").removeClass("active");
-        $(this).addClass("active");
-        $("#payment-webatm-radio").trigger("click");
-        $("#order-submit-btn").trigger("click");
+        if ( !$(".remittance").hasClass("hidden") ) {
+            $(".payment-btn").removeClass("active");
+            $(".remittance").addClass("hidden");
+        } else {
+            $("#payment-webatm-radio").trigger("click");
+            $(".payment-btn").removeClass("active");
+            $(this).addClass("active");
+            $("#order-submit-btn").trigger("click");
+        }
     });
+    //線上刷卡
     $("#payment-credit_card-btn").on("click", function(e) {
         e.preventDefault();
     //     $(".payment-btn").removeClass("active");
     //     $(this).addClass("active");
     //     $("#payment-credit_card-radio").trigger("click");
     });
-    $("#remittance-btn").on("click", function(){
-        e.preventDefault();
-        $("#order-submit-btn").trigger("click");
-    })
+    //匯款按鈕
     $("#payment-remittance").on("click", function(e) {
         e.preventDefault();
-        $(".payment-btn").removeClass("active");
-        $(this).addClass("active");
+        if ( $("#payment-remittance").hasClass("active") ) {
+            $(".payment-btn").removeClass("active");
+        } else {
+            $(this).addClass("active");
+        }
         $("#payment-remittance-radio").trigger("click");
         $(".remittance").toggleClass("hidden");
     });
+    //匯款確認按鈕
+    $("#remittance-btn").on("click", function(e){
+        e.preventDefault();
+        $("#order-submit-btn").trigger("click");
+    })
     $(".order-form").on("blur", ".num", function() {
         var total_order_num = 0;
         var total_order_price = 0;
@@ -131,7 +142,7 @@ $(function() {
             '        </div>',
             '    </div>',
             '    <div class="row mg10 count">',
-            '        <div class="pull-left">運費：NT$150，單筆滿10個免運費。</div>',
+            '        <div class="pull-left">運費：10個以下一律NT$150，單筆滿10個以上免運費。</div>',
             '        <div class="pull-right">小計：<span class="price">0</span></div>',
             '    </div>',
             '</div>'
