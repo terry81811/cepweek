@@ -75,13 +75,9 @@ APIs for DB CRUD
         
         if ($order_id) {
 
-
-
-
             $result = $this->order_model->update(array(
                 'order_cancel_hash' => hash('sha256', $order_id . SALT),
             ), $order_id);
-
 
             /*
             insert payment information in DB// RECEIVER_TABLE
@@ -117,6 +113,23 @@ APIs for DB CRUD
             else if($pay_payment_method == 'credit_card'){
                 $this->credit_submit($order_id,$total_cost);
             }
+            else if($pay_payment_method == 'remittance'){
+                $result = $this->order_model->update(array(
+                    'order_acc_name' => $post_data['order_acc_name'],
+                    'order_last_id' => $post_data['order_last_id']
+                ), $order_id);
+
+                $this->confirm_email($order_id, $total_cost, $total_num, $email_to);
+
+                $data['title'] = "交易成功";
+                $this->load->view('cep/partial/head', $data);
+                $this->load->view('cep/order_success', $data);
+                $this->load->view('cep/partial/repeatjs');
+                $this->load->view('cep/order_successjs');
+                $this->load->view('cep/partial/closehtml');
+
+
+            }
 
         }
 
@@ -143,9 +156,10 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
 //calculating shipping date
         $date = '5/1';
 
-        $email_message = '<h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        $email_message = '<div><h1 style="text-align:center;color:red;">感謝您訂購</h1>
+        <p>您的訂單編號：'.$order_id + 98080000.'</p>
         <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
-        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3>';
+        <img src="http://i.imgur.com/vRTNquY.jpg"><br><h3>台大創創學程感謝您</h3></div>';
 
         $this->email->message($email_message); 
 
@@ -159,7 +173,13 @@ public function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = 
 
 public function email_test()
 {
-    $this->confirm_email(2,1,1,'terrytsai0811@gmail.com');
+    $this->confirm_email(1,1,1,'terrytsai0811@gmail.com');
+}
+
+private function count_date()
+{
+    $date = '2014/5/8（日）';
+    return $date;
 }
 
 /****************************************************************************
@@ -254,6 +274,10 @@ public function webATM_return()
                 'order_success' => 1
                 ), ($TransNo - 98080000));
 
+            $result_rec = $this->receive_model->update(array(
+                'rec_pay_success' => 1
+                ), ['rec_order_id' => ($TransNo - 98080000)]);
+
             //交易成功
             //記入DB
             //寄email
@@ -267,7 +291,6 @@ public function webATM_return()
             $data['atmTradeDate'] = $atmTradeDate;
             $data['email_to'] = $email_to;
             $data['title'] = "交易成功";
-            //$this->load->view('',$data);
 
             $this->load->view('cep/partial/head', $data);
             $this->load->view('cep/order_success', $data);
@@ -290,7 +313,6 @@ public function webATM_return()
             $this->load->view('cep/partial/repeatjs');
             $this->load->view('cep/order_failjs');
             $this->load->view('cep/partial/closehtml');
-            //$this->load->view('',$data);
             //交易失敗
             //顯示失敗原因
         }
