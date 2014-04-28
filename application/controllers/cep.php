@@ -91,9 +91,9 @@ APIs for Payment
         $MID = "8089002793";
         $CID = "";
         $TID = "EC000001";
-        $ONO = "001";
+        $ONO = "98080001";
         $TA = "1";
-        $U = "https://cepweek.com";
+        $U = "https://rainbowhope.tw/api/credit_return";
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U;
         $M = do_hash($str, 'md5');
 

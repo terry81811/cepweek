@@ -195,11 +195,11 @@ APIs for Payment
 // --------
 
 
-private function webATM_submit($order_id = NULL, $total_cost = NULL)
+public function webATM_submit($order_id = NULL, $total_cost = NULL)
 {
 
     //請代入hashkey 資料
-    $HASHKey="W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+    $HASHKey="86A2C451B375D51039953841F8A6E5B1";
 
     //請使用惟一值
     $OrderNo= $order_id + 98080000;
@@ -208,7 +208,7 @@ private function webATM_submit($order_id = NULL, $total_cost = NULL)
     $VAccNo="";
 
     //廠商編號
-    $IcpNo="8089002793";
+    $IcpNo="39953841";
 
     //廠商接收WebATM交易訊息URL
     $IcpConfirmTransURL="https://rainbowhope.tw/api/webATM_return";
@@ -240,7 +240,7 @@ public function webATM_return()
  
     $post_data = $this->input->post(NULL, TRUE);
 
-    $HASHKey="W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT"; 
+    $HASHKey="86A2C451B375D51039953841F8A6E5B1"; 
       
     $IcpNo = $post_data["IcpNo"];
     $TransNo = $post_data["TransNo"];
@@ -263,11 +263,6 @@ public function webATM_return()
         //trade status {S,F,Z}
         if($post_data['atmTradeState'] == 'S'){
 
-
-            $result = $this->order_model->update(array(
-                'order_cancel_hash' => hash('sha256', $order_id . SALT),
-            ), $order_id);
-
             $result = $this->order_model->update(array(
                 'order_success' => 1
                 ), ($TransNo - 98080000));
@@ -284,6 +279,9 @@ public function webATM_return()
         }
 
         else if($post_data['atmTradeState'] == 'F'){
+
+
+            $this->receive_model->delete(array('rec_order_id' => ($TransNo - 98080000)))
 
             $data['atmErrNo'] = $atmErrNo;
             $data['atmErrDesc'] = $atmErrDesc;
@@ -308,6 +306,48 @@ public function webATM_return()
     {
 
 
+
+    }
+
+
+// --------------------------------------------------------------------------
+// credit
+// --------
+    
+    public function credit_submit($order_id = NULL, $total_cost = NULL)
+    {
+        $this->load->helper('security');
+        $key = "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+
+        $MID = 8089002793;
+        $CID = '';
+        $TID = 'EC000001';
+        $ONO = $order_id + 98080000;
+        $TA = $total_cost;
+        $U = "https://rainbowhope.tw/api/credit_return";
+        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
+
+        echo $str;
+        $M = do_hash($str, 'md5');
+        echo "<BR>".$M;
+
+        $post_array = array('MID' => $MID,
+                            'CID' => $CID,
+                            'TID' => $TID,
+                            'ONO' => $ONO,
+                            'TA' => $TA,
+                            'U' => $U,
+                            'M' => $M
+         );
+
+        $output = $this->curl->simple_post('https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm', $post_array, array(CURLOPT_USERAGENT => true));
+        echo $output;
+
+    }
+
+
+    public function credit_return()
+    {
 
     }
 
