@@ -10,6 +10,8 @@ class Api extends CI_Controller
         parent::__construct();
         $this->load->model('order_model');
         $this->load->model('receive_model');
+        $this->load->library('curl');
+
     }
 
 
@@ -72,6 +74,10 @@ APIs for DB CRUD
         ));
         
         if ($order_id) {
+
+
+
+
             $result = $this->order_model->update(array(
                 'order_cancel_hash' => hash('sha256', $order_id . SALT),
             ), $order_id);
@@ -102,6 +108,15 @@ APIs for DB CRUD
 
 
             echo "order ID = $order_id"."<BR>";
+
+            // --------------------------------------------------------------------------
+            //do purchase
+            if($pay_payment_method == 'webatm'){
+                $this->webATM_submit($order_id,$total_cost);
+            }
+            else if($pay_payment_method == 'credit_card'){
+                $this->credit_submit($order_id,$total_cost);
+            }
 
         }
 
@@ -176,16 +191,56 @@ APIs for Payment
 
 
 // --------------------------------------------------------------------------
-// webATM return
+// webATM
 // --------
 
+
+private function webATM_submit($order_id = NULL, $total_cost = NULL)
+{
+
+    //請代入hashkey 資料
+    $HASHKey="W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+
+    //請使用惟一值
+    $OrderNo= $order_id + 98080000;
+
+    //如有使用虛擬帳號請把虛擬帳號資料代入
+    $VAccNo="";
+
+    //廠商編號
+    $IcpNo="8089002793";
+
+    //廠商接收WebATM交易訊息URL
+    $IcpConfirmTransURL="https://rainbowhope.tw/api/webATM_return";
+
+    //交易金額
+    $TransAmt=$total_cost;
+
+    //交易識別資料
+    $TransIdentifyNo  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
+//    echo  $TransIdentifyNo;
+
+    $post_array = array('IcpNo' => $IcpNo,
+                        'VAccNo' => $VAccNo,
+                        'IcpConfirmTransURL' => $IcpConfirmTransURL,
+                        'TransNo' => $OrderNo,
+                        'TransAmt' => $TransAmt,
+                        'TransDesc' => '消費',
+                        'StoreName' => 'WebATM',
+                        'TransIdentifyNo' => $TransIdentifyNo,
+                        'Echo' => 'WebATM'
+     );
+
+    $output = $this->curl->simple_post('https://netbank.esunbank.com.tw/webatm/payment/paymentUTF8.asp', $post_array, array(CURLOPT_BUFFERSIZE => 10, CURLOPT_USERAGENT => true));
+    echo $output;
+}
 
 public function webATM_return()
 {
  
     $post_data = $this->input->post(NULL, TRUE);
 
-    $HASHKey="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; 
+    $HASHKey="W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT"; 
       
     $IcpNo = $post_data["IcpNo"];
     $TransNo = $post_data["TransNo"];
@@ -202,18 +257,38 @@ public function webATM_return()
 
     $checkatmIdentifyNo_New  = strtoupper(SHA1( $IcpNo . $TransNo . $TransAmt . $atmTradeNo . $atmTradeDate . $HASHKey . $atmTradeState));
 
+    //test hash值
     if($post_data['atmIdentifyNo_New'] == $checkatmIdentifyNo_New){
      
         //trade status {S,F,Z}
         if($post_data['atmTradeState'] == 'S'){
 
+
+            $result = $this->order_model->update(array(
+                'order_cancel_hash' => hash('sha256', $order_id . SALT),
+            ), $order_id);
+
+            $result = $this->order_model->update(array(
+                'order_success' => 1
+                ), ($TransNo - 98080000));
+
             //交易成功
             //記入DB
+
+            $data['TransNo'] = $TransNo;
+            $data['TransAmt'] = $TransAmt;
+            $data['atmTradeNo'] = $atmTradeNo;
+            $data['atmTradeDate'] = $atmTradeDate;
+            //$this->load->view('',$data);
 
         }
 
         else if($post_data['atmTradeState'] == 'F'){
 
+            $data['atmErrNo'] = $atmErrNo;
+            $data['atmErrDesc'] = $atmErrDesc;
+
+            //$this->load->view('',$data);
             //交易失敗
             //顯示失敗原因
         }
@@ -223,12 +298,17 @@ public function webATM_return()
         }
     
     }else{
+
+        redirect('/');
         //check hash值錯誤，可能是偽裝？
     }
+}
+
+    public function webATM_check($TransNo = NULL)
+    {
 
 
 
-
-
+    }
 
 }
