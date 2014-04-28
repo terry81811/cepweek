@@ -120,6 +120,7 @@ APIs for DB CRUD
                     'order_last_id' => $post_data['order_last_id']
                 ), $order_id);
 
+                $email_to = $pay_email;
                 $this->tran_email($order_id, $total_cost, $total_num, $email_to);
 
                 $data['email_to'] = $pay_email;
