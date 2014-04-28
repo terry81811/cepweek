@@ -172,7 +172,7 @@ private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num =
         echo $this->email->print_debugger();
 }
 
-public function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
+private function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
 {
     $this->load->library('email');
  
@@ -359,7 +359,18 @@ public function webATM_return()
         }
 
         else{
-            //其他狀況
+            $this->receive_model->delete(array('rec_order_id' => ($TransNo - 98080000)));
+
+            $data['atmErrNo'] = $atmErrNo;
+            $data['atmErrDesc'] = $atmErrDesc;
+            $data['title'] = "交易錯誤";
+            $this->load->view('cep/partial/head', $data);
+            $this->load->view('cep/order_fail', $data);
+            $this->load->view('cep/partial/repeatjs');
+            $this->load->view('cep/order_failjs');
+            $this->load->view('cep/partial/closehtml');
+            //交易失敗
+            //顯示失敗原因
         }
     
     }else{
