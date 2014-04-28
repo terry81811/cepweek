@@ -254,6 +254,7 @@ public function webATM_return()
             $data['atmTradeNo'] = $atmTradeNo;
             $data['atmTradeDate'] = $atmTradeDate;
             $data['email_to'] = $email_to;
+            $data['title'] = "交易成功";
             //$this->load->view('',$data);
 
             $this->load->view('cep/partial/head', $data);
@@ -271,7 +272,7 @@ public function webATM_return()
 
             $data['atmErrNo'] = $atmErrNo;
             $data['atmErrDesc'] = $atmErrDesc;
-
+            $data['title'] = "交易錯誤";
             $this->load->view('cep/partial/head', $data);
             $this->load->view('cep/order_fail', $data);
             $this->load->view('cep/partial/repeatjs');

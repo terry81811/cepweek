@@ -54,6 +54,7 @@ class Cep extends CI_Controller {
     {
         $data['TransNo'] = 02398410928734;
         $data['email_to'] = "s92f002@hotmail.com";
+        $data['title'] = "交易成功";
 
         $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/order_success', $data);
@@ -65,6 +66,7 @@ class Cep extends CI_Controller {
     public function order_fail()
     {
         $data['atmErrDesc'] = "您的帳戶沒有錢了！";
+        $data['title'] = "交易錯誤";
         $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/order_fail', $data);
         $this->load->view('cep/partial/repeatjs');
