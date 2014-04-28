@@ -55,7 +55,7 @@ APIs for DB CRUD
             }
         }
 
-        $total_cost = 1000000;
+        $total_cost = 1;
 
 
         $order_id = $this->order_model->insert(array(
