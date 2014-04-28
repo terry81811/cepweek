@@ -42,42 +42,12 @@
                     </div>
                   </div>
                 </nav>
-                <!-- <div class="row">
-                    <div class="alert alert-success alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>訂購完成！</strong>
-                        <p>您已經訂購了<span class="success-count">5</span>個蛋糕，我們已經將資訊寄到<span class="success-email">s92f002@gmail.com</span></p>
-                    </div>
-                </div> -->
-                <div class="banner">
-                    <img src="<?php echo base_url(); ?>/assets/img/Home_banner.png" class="img-responsive">
-                </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="video">
-                            <a class="youtube" href="http://www.youtube.com/embed/1OhgtYRFc9Y?rel=0&amp;wmode=transparent" role="button">
-                                <img src="<?php echo base_url(); ?>/assets/img/Home_video.png" class="img-responsive">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="index-intro">
-                            <div class="intro-text">
-                                <p>老師傅親手烘焙的限量蛋糕，</p>
-                                <p>散發來自南投山裡的清甜果香，</p>
-                                <p>綿密細緻如同春陽的呢喃。</p>   
-                            </div>
-                            <div class="intro-text-highlight">
-                                <p>這是一個台大創意創業學程學生與企業合作的募款計畫，</p>
-                                <p>我們不只募款，也誠心與您分享南投在地最美味的糕點。</p>
-                                <p>所得扣除成本後將全數捐出，</p>
-                                <p>幫助流離失所11年的哈凱部落重建家園。</p><br>
-                                <p>企業0獲利，學生秀創意！</p>
-                                <p>我們相信這份憨厚的人情，只在台灣看的見！</p>
-                            </div>
-                            <img src="<?php echo base_url(); ?>/assets/img/Home_text_background.png" class="img-responsive hidden-xs">
-                            <img src="<?php echo base_url(); ?>/assets/img/sun.png" class="sun">
-                        </div>
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>交易失敗</strong>
+                        <p><?php echo $atmErrDesc; ?></p>
+                        <p>請再重新嘗試一次，若狀況持續發生，請<a href="mailto:rainbowhope.service@gmail.com" target="_top">來信詢問</a>。</p>
                     </div>
                 </div>
             </div>

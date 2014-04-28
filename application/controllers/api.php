@@ -253,7 +253,14 @@ public function webATM_return()
             $data['TransAmt'] = $TransAmt;
             $data['atmTradeNo'] = $atmTradeNo;
             $data['atmTradeDate'] = $atmTradeDate;
+            $data['email_to'] = $email_to;
             //$this->load->view('',$data);
+
+            $this->load->view('cep/partial/head', $data);
+            $this->load->view('cep/order_success', $data);
+            $this->load->view('cep/partial/repeatjs');
+            $this->load->view('cep/order_successjs');
+            $this->load->view('cep/partial/closehtml');
 
         }
 
@@ -265,6 +272,11 @@ public function webATM_return()
             $data['atmErrNo'] = $atmErrNo;
             $data['atmErrDesc'] = $atmErrDesc;
 
+            $this->load->view('cep/partial/head', $data);
+            $this->load->view('cep/order_fail', $data);
+            $this->load->view('cep/partial/repeatjs');
+            $this->load->view('cep/order_failjs');
+            $this->load->view('cep/partial/closehtml');
             //$this->load->view('',$data);
             //交易失敗
             //顯示失敗原因
