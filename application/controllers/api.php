@@ -201,7 +201,7 @@ public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num =
 
     //Echo 自定訊息：訂購數量與email
     $Echo = $total_num."&".$pay_email;
-    $data['Echo'];
+    $data['Echo'] = $total_num."&".$pay_email;
 
     //交易識別資料
     $data['TransIdentifyNo']  = strtoupper(SHA1( $IcpNo . $VAccNo . $IcpConfirmTransURL . $OrderNo . $TransAmt . $HASHKey));
