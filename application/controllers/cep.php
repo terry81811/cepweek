@@ -40,8 +40,7 @@ class Cep extends CI_Controller {
 
     public function progress()
     {
-        //$data['count'] = $this->count_order;
-
+        $data['count'] = $this->count_order();
         $data['title'] = "募資進度 | 彩虹故鄉的願望";
         $data['remain_count'] = 499;
         $data['complete_percent'] = round(((4000 - 499) / 4000 ) * 100,2);
