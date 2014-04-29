@@ -26,7 +26,7 @@ APIs for DB CRUD
 	{
 
 		$post_data = $this->input->post(NULL, TRUE);
-
+        
 
         /*
         insert payment information in DB// ORDER_TABLE
@@ -34,7 +34,6 @@ APIs for DB CRUD
         $pay_payment_method = $post_data['payment'];
 
         $pay_name = $post_data['pay_name'];
-//        $pay_cost = $post_data['pay_cost'];
         $pay_phone = $post_data['pay_phone'];
         $pay_email = $post_data['pay_email'];
         $pay_title = $post_data['pay_title'];
@@ -43,101 +42,123 @@ APIs for DB CRUD
         $pay_add_num = $post_data['pay_post'];
         $pay_address = $post_data['pay_address'];
 
-        //calculating total number and cost of order
-        $total_num = 0;
-        $total_cost = 0;
-        foreach ($post_data['rec_name'] as $key => $value) {
-            $total_num += $post_data['rec_num'][$key];
-            if($post_data['rec_num'][$key] < 10){
-                $total_cost += ($post_data['rec_num'][$key] * 390 + 150);
-            }else{
-                $total_cost += ($post_data['rec_num'][$key] * 390);
-            }
+
+        //validating input
+        $input_err = 0;
+        if($pay_name == 0){
+            $data['atmErrNo'] = '0000';
+            $data['atmErrDesc'] = '請填寫付款人姓名';
+            $input_err = 1;
+        }if($pay_phone == 0){
+            $data['atmErrNo'] = '0000';
+            $data['atmErrDesc'] = '請填寫付款人電話';
+            $input_err = 1;
+        }if($pay_email == 0){
+            $data['atmErrNo'] = '0000';
+            $data['atmErrDesc'] = '請填寫付款人電子信箱';
         }
+        if($input_err == 1){
+            $data['title'] = "交易錯誤";
+            $this->load->view('cep/partial/head', $data);
+            $this->load->view('cep/order_fail', $data);
+            $this->load->view('cep/partial/repeatjs');
+            $this->load->view('cep/order_failjs');
+            $this->load->view('cep/partial/closehtml');  
+        }
+        else{
 
 
-
-        $order_id = $this->order_model->insert(array(
-            'order_name' => $pay_name,
-            'order_num' => $total_num,
-            'order_type' => $pay_payment_method,
-            'order_cost' => $total_cost,
-            'order_email' => $pay_email,
-            'order_phone' => $pay_phone,
-            'order_timestamp' => date("Y-m-d H:i:s"),
-
-            'order_title' => $pay_title,
-            'order_tax_id' => $pay_tax_id,
-
-            'order_add_num' => $pay_add_num,
-            'order_address' => $pay_address
-        ));
-        
-        if ($order_id) {
-
-            $result = $this->order_model->update(array(
-                'order_cancel_hash' => hash('sha256', $order_id . SALT),
-            ), $order_id);
-
-            /*
-            insert payment information in DB// RECEIVER_TABLE
-            */
-
-            $rec_count = sizeof($post_data['rec_name']);
+            //calculating total number and cost of order
+            $total_num = 0;
+            $total_cost = 0;
             foreach ($post_data['rec_name'] as $key => $value) {
-                # code...
-
-                $rec_id = $this->receive_model->insert(array(
-                    'rec_order_id' => $order_id,
-                    'rec_name' => $post_data['rec_name'][$key],
-                    'rec_num' => $post_data['rec_num'][$key],
-                    'rec_address_code' => $post_data['rec_add_num'][$key],
-                    'rec_address' => $post_data['rec_address'][$key],
-                    'rec_phone' => $post_data['rec_phone'][$key],
-                    'rec_arrive_time' => $post_data['rec_arrive_time'][$key],
-
-                    'rec_timestamp' => date("Y-m-d H:i:s")
-                ));
-
-//            echo "receive ID = $rec_id"."<BR>";
+                $total_num += $post_data['rec_num'][$key];
+                if($post_data['rec_num'][$key] < 10){
+                    $total_cost += ($post_data['rec_num'][$key] * 390 + 150);
+                }else{
+                    $total_cost += ($post_data['rec_num'][$key] * 390);
+                }
             }
 
+            $order_id = $this->order_model->insert(array(
+                'order_name' => $pay_name,
+                'order_num' => $total_num,
+                'order_type' => $pay_payment_method,
+                'order_cost' => $total_cost,
+                'order_email' => $pay_email,
+                'order_phone' => $pay_phone,
+                'order_timestamp' => date("Y-m-d H:i:s"),
 
-//            echo "order ID = $order_id"."<BR>";
+                'order_title' => $pay_title,
+                'order_tax_id' => $pay_tax_id,
 
-            // --------------------------------------------------------------------------
-            //do purchase
-            if($pay_payment_method == 'webatm'){
-                $this->webATM_submit($order_id,$total_cost,$total_num,$pay_email);
-            }
-            else if($pay_payment_method == 'credit_card'){
-                $this->credit_submit($order_id,$total_cost);
-            }
-            else if($pay_payment_method == 'remittance'){
+                'order_add_num' => $pay_add_num,
+                'order_address' => $pay_address
+            ));
+            
+            if ($order_id) {
+
                 $result = $this->order_model->update(array(
-                    'order_acc_name' => $post_data['order_acc_name'],
-                    'order_bank_id' => $post_data['order_bank_id'],
-                    'order_last_id' => $post_data['order_last_id']
+                    'order_cancel_hash' => hash('sha256', $order_id . SALT),
                 ), $order_id);
 
-                $email_to = $pay_email;
-                $this->tran_email($order_id, $total_cost, $total_num, $email_to);
+                /*
+                insert payment information in DB// RECEIVER_TABLE
+                */
 
-                $data['email_to'] = $pay_email;
-                $data['TransAmt'] = $total_num;
-                $data['title'] = "交易成功";
-                $this->load->view('cep/partial/head', $data);
-                $this->load->view('cep/order_success', $data);
-                $this->load->view('cep/partial/repeatjs');
-                $this->load->view('cep/order_successjs');
-                $this->load->view('cep/partial/closehtml');
+                $rec_count = sizeof($post_data['rec_name']);
+                foreach ($post_data['rec_name'] as $key => $value) {
+                    # code...
 
+                    $rec_id = $this->receive_model->insert(array(
+                        'rec_order_id' => $order_id,
+                        'rec_name' => $post_data['rec_name'][$key],
+                        'rec_num' => $post_data['rec_num'][$key],
+                        'rec_address_code' => $post_data['rec_add_num'][$key],
+                        'rec_address' => $post_data['rec_address'][$key],
+                        'rec_phone' => $post_data['rec_phone'][$key],
+                        'rec_arrive_time' => $post_data['rec_arrive_time'][$key],
+
+                        'rec_timestamp' => date("Y-m-d H:i:s")
+                    ));
+
+                }
+
+                // --------------------------------------------------------------------------
+                //do purchase
+                if($pay_payment_method == 'webatm'){
+                    $this->webATM_submit($order_id,$total_cost,$total_num,$pay_email);
+                }
+                else if($pay_payment_method == 'credit_card'){
+                    $this->credit_submit($order_id,$total_cost);
+                }
+                else if($pay_payment_method == 'remittance'){
+                    $result = $this->order_model->update(array(
+                        'order_acc_name' => $post_data['order_acc_name'],
+                        'order_bank_id' => $post_data['order_bank_id'],
+                        'order_last_id' => $post_data['order_last_id']
+                    ), $order_id);
+
+                    $email_to = $pay_email;
+                    $this->tran_email($order_id, $total_cost, $total_num, $email_to);
+
+                    $data['email_to'] = $pay_email;
+                    $data['TransAmt'] = $total_num;
+                    $data['title'] = "交易成功";
+                    $this->load->view('cep/partial/head', $data);
+                    $this->load->view('cep/order_success', $data);
+                    $this->load->view('cep/partial/repeatjs');
+                    $this->load->view('cep/order_successjs');
+                    $this->load->view('cep/partial/closehtml');
+
+
+                }
 
             }
 
+
         }
 
-    //        print_r($post_data);
 	}
 
 /****************************************************************************
