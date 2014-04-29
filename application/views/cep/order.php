@@ -43,15 +43,15 @@
                             <div class="row mg10">
                                 <div class="form-group">
                                     <label for="rec_name1">收件人：</label>
-                                    <input class="form-control rec-input" type="text" name="rec_name[]" placeholder="王小明" id="rec_name1">
+                                    <input class="form-control rec-input" type="text" name="rec_name[]" placeholder="王小明" id="rec_name1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_num1">數量：</label>
-                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num1">
+                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_phone1">收件人電話：</label>
-                                    <input class="form-control rec-phone" type="text" name="rec_phone[]" placeholder="09xx-xxx-xxx" id="rec_phone1">
+                                    <input class="form-control rec-phone" type="text" name="rec_phone[]" placeholder="09xx-xxx-xxx" id="rec_phone1" required>
                                 </div>
                                 <div class="form-group rec_a">
                                     <label for="rec_arrive_time1">到貨時間：</label>
@@ -65,11 +65,11 @@
                             <div class="row mg10">
                                 <div class="form-group">
                                     <label for="rec_add_num1">郵遞區號：</label>
-                                    <input class="form-control add_num" type="text" name="rec_add_num[]" placeholder="100" id="rec_add_num1">
+                                    <input class="form-control add_num" type="text" name="rec_add_num[]" placeholder="100" id="rec_add_num1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_address1">地址：</label>
-                                    <input class="form-control address" type="text" name="rec_address[]" placeholder="" id="rec_address1">
+                                    <input class="form-control address" type="text" name="rec_address[]" placeholder="" id="rec_address1" required>
                                 </div>
                             </div>
                             <div class="row mg10 count">
@@ -99,20 +99,20 @@
                                         <div class="row mg10">
                                             <div class="form-group">
                                                 <label for="pay_name">付款人：</label>
-                                                <input class="form-control pay_name" type="text" name="pay_name" placeholder="王大明" id="pay_name">
+                                                <input class="form-control pay_name" type="text" name="pay_name" placeholder="王大明" id="pay_name" required>
                                             </div>
 
                                         </div>
                                         <div class="row mg10">
                                             <div class="form-group">
                                                 <label for="pay_phone">付款人電話：</label>
-                                                <input class="form-control pay_phone" type="text" name="pay_phone" placeholder="09xx-xxx-xxx" id="pay_phone">
+                                                <input class="form-control pay_phone" type="text" name="pay_phone" placeholder="09xx-xxx-xxx" id="pay_phone" required>
                                             </div>
                                         </div>
                                         <div class="row mg10">
                                             <div class="form-group">
                                                 <label for="pay_email">E-mail：</label>
-                                                <input class="form-control pay_email" type="text" name="pay_email" placeholder="rainbowhope.service@gmail.com" id="pay_email">
+                                                <input class="form-control pay_email" type="email" name="pay_email" placeholder="rainbowhope.service@gmail.com" id="pay_email" required>
                                             </div>
                                         </div>
                                         <div class="row mg10">

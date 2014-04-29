@@ -13,7 +13,7 @@
         <meta property="og:title" content="彩虹故鄉的願望 | 將您的愛心送入天堂12坪"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="http://rainbowhope.tw"/>
-        <meta property="og:image" content="http://rainbowhope.tw/assets/img/og-image.png"/>
+        <meta property="og:image" content="http://rainbowhope.tw/assets/img/og-image.jpg"/>
         <meta property="fb:admins" content="100001196448561"/>
 
         <meta name="description" content="吃好料做好事，陽光蛋糕，溫暖哈凱部落新家園。台灣最有人情味的群眾募資計畫，由台大創創學程學生發起，透過和企業的合作，幫助哈凱部落籌措一百萬重建費用。">

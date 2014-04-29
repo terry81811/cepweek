@@ -1095,6 +1095,8 @@ body {
   background: #fff;
   font-size: 1.2em;
   padding-bottom: 20px; }
+  .order-form .error {
+    color: red; }
 
 .mg10 {
   margin: 10px; }
