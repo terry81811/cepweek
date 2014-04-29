@@ -50,7 +50,9 @@
                                 <h2>
                                     <img class="img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_cloud.png">
                                 </h2>
-                                <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture1.2.png">
+                                <img class="product-intro-img img-responsive hidden-xs" src="<?php echo base_url(); ?>/assets/img/Product_picture1.2.png">
+                                <img class="product-intro-img img-responsive visible-xs" src="<?php echo base_url(); ?>/assets/img/Product_picture_phone.png">
+
                                 
                             </div>
                         </div>

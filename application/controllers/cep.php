@@ -65,7 +65,7 @@ class Cep extends CI_Controller {
     }
     public function order_fail()
     {
-        $data['atmErrDesc'] = "您的帳戶沒有錢了！";
+        $data['atmErrDesc'] = "交易錯誤訊息回傳";
         $data['title'] = "交易錯誤";
         $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/order_fail', $data);

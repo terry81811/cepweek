@@ -13,7 +13,7 @@ $transifion-effect: all .15s ease-in-out;
    ===================================== */
 body {
     background: url('../img/bg-wood.png') fixed center;
-    background-size: contain;
+    background-size: cover;
     font-family: 黑體-繁, 'Heiti TC', 蘋果儷中黑, 'Apple LiGothic Medium', 微軟正黑體, 'Microsoft JhengHei';
 }
 
@@ -57,7 +57,7 @@ body {
     }
 }
 .contact-us {
-    background: url('../img/contact-us-1.png') no-repeat;
+    background: url('../img/contact-us-2.png') no-repeat;
     background-size: contain;
     position: fixed;
     z-index: 10;
@@ -104,6 +104,7 @@ body {
         padding-bottom: 5px;
     }
     li {
+        position: relative;
         a:hover {
             background: none;
         }
@@ -117,8 +118,15 @@ body {
                 }
             }
         }
-        &.target {
-            border-left: 10px solid #ff0;
+        &.target:before {
+            display: inline-block;
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: 0;
+            width: 10px;
+            height: 40px;
+            background: yellow;
         }
     }
 }
@@ -215,7 +223,9 @@ body {
     }
     .describe { 
         background: url('../img/progress_text.png') center top no-repeat;
+        background-size: contain;
         @include size(100%, image-height('../img/progress_text.png'));
+
     }
     .content {
         padding: 5px;
@@ -392,6 +402,9 @@ body {
         .story-foot-text {
             margin-top: 0;
         }
+        .center {
+            text-align: center;
+        }
     }
     &.second {
         background: #87b9b1;
@@ -452,6 +465,7 @@ body {
             @include background(url('../img/Story_gotofanpage2.png'));
         }
     }
+
 }
 
 
@@ -802,6 +816,12 @@ footer {
             width: 265px;
         }
     }
+    .student-pic {
+        float: left;
+        width: 60%;
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .facebook {
@@ -849,13 +869,10 @@ footer {
     }
     .contact-us {
         position: fixed;
-        bottom: -45px;
+        bottom: -44px;
         right: 109px;
         @include transform(rotate(0));
         @include size(100px, 77px);
-    }
-    .main-nav {
-        margin-top: 0;
     }
     .header .logo {
         height: auto;
@@ -901,6 +918,7 @@ footer {
             background-size: contain;
         } 
     }
+
     footer {
         background: none;
         padding-bottom: 30px;

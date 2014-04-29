@@ -16,7 +16,7 @@
                     <div class="col-md-7">
                         <div class="cake-info">
                             <ul>
-                                <li>六吋蛋糕，適合小家庭的午餐時光</li>
+                                <li>六吋蛋糕，適合小家庭的午茶時光</li>
                                 <li>南投土鳳梨飽滿果粒</li>
                                 <li>蜂蜜檸檬清爽無負擔</li>
                                 <li>微熱山丘嚴選清蛋白</li>
@@ -225,7 +225,7 @@
                             </div>
                             <div class="row mg10">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <div class="info">＊請於3日內匯款完成，否則取消訂單。</div>
+                                    <div class="info">＊三日內匯款成功，系統方計入訂單</div>
                                     <a href="" id="remittance-btn" class="btn btn-warning">送出</a>
                                 </div>
                             </div>

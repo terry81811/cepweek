@@ -58,16 +58,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <div class="pic">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="pic student-pic">
                                 <img src="<?php echo base_url(); ?>/assets/photo/Story_picture1.jpg" class="img-responsive">
                             </div>
-                        </div>
-                        <div class="col-md-7">
                             <div class="intro">
                                 <p>來自台大不同科系，對藝術、創業與社會懷抱熱情，<br>我們用最樂觀的眼光看待台灣，用最大的努力使她更好。 </p>
                                 <p>當彩虹故鄉的居民在大海般的網路投下許願瓶，<br>我們無意間拾起，20人的團隊就這樣將山裡的願望帶回了山下，<br>我們搭起企業與社會的橋樑，做一個不以營利為目的的生意。</p>
-                                <p>由企業提供優質產品，<br>網站、影片、文案、視覺設計、訂貨系統都由學生自行完成。</p>
+                                <p class="center">由企業提供優質產品，<br>網站、影片、文案、視覺設計、訂貨系統都由學生自行完成。</p>
                             </div>
                         </div>
                     </div>
@@ -97,28 +95,36 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="pic">
-                                <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.jpg" class="img-responsive">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="intro">
-                                <p>哈凱部落位於桃園縣復興鄉深山中，實地到部落探訪，眼前只見一條巷子，兩旁坐落著一間間低矮、僅十二坪的鐵皮組合屋，村民坐在屋前聊天、聚會；孩子在巷子玩樂打鬧。這片小小的土地，就是村民們安身立命近十一年的居所。</p>
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="pic">
+                                        <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.jpg" class="img-responsive">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="intro">
+                                        <p>哈凱部落位於桃園縣復興鄉深山中，實地到部落探訪，眼前只見一條巷子，兩旁坐落著一間間低矮、僅十二坪的鐵皮組合屋，村民坐在屋前聊天、聚會；孩子在巷子玩樂打鬧。<br>這片小小的土地，就是村民們安身立命近十一年的居所。</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-7">
-                            <div class="intro">
-                                <p>村民從1966年定居哈凱部落原址。1967年，石門水庫興建攔沙壩後導致水文改變、河川改道，種下哈凱部落的不安因子。<br>
-                                1996年賀伯颱風來襲，河川暴漲沖刷掉復興鄉山區地基，哈凱部落也從此被淹沒在沙土中。<br>
-                                村民等待政府興建新村落期間，暫居於組合屋中，未料一住就是十一年。經費問題導致遷村至礙難前，村民必須自行負擔20%修建與全額內裝費用，這對身處深山的哈凱部落的村民可以說是困難重重：無法負擔如此高額的整修費用，取得信用貸款更是困難。</p>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="pic">
-                                <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.2.jpg" class="img-responsive">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="intro">
+                                        <p>村民從1966年定居哈凱部落原址。1967年，石門水庫興建攔沙壩後導致水文改變、河川改道，種下哈凱部落的不安因子。</p>
+                                        <p>1996年賀伯颱風來襲，河川暴漲沖刷掉復興鄉山區地基，哈凱部落也從此被淹沒在沙土中。</p>
+                                        <p>村民等待政府興建新村落期間，暫居於組合屋中，未料一住就是十一年。經費問題導致遷村至礙難前，村民必須自行負擔20%修建與全額內裝費用，這對身處深山的哈凱部落的村民可以說是困難重重：無法負擔如此高額的整修費用，取得信用貸款更是困難。</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="pic">
+                                        <img src="<?php echo base_url(); ?>/assets/photo/Story_picture2.2.jpg" class="img-responsive">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

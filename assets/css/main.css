@@ -239,7 +239,7 @@ textarea {
    ===================================== */
 body {
   background: url("../img/bg-wood.png") fixed center;
-  background-size: contain;
+  background-size: cover;
   font-family: 黑體-繁, 'Heiti TC', 蘋果儷中黑, 'Apple LiGothic Medium', 微軟正黑體, 'Microsoft JhengHei'; }
 
 #loading {
@@ -291,7 +291,7 @@ body {
     height: 100%; }
 
 .contact-us {
-  background: url("../img/contact-us-1.png") no-repeat;
+  background: url("../img/contact-us-2.png") no-repeat;
   background-size: contain;
   position: fixed;
   z-index: 10;
@@ -340,34 +340,43 @@ body {
     height: 50px;
     padding-top: 5px;
     padding-bottom: 5px; }
-  .main-nav li a:hover {
-    background: none; }
-  .main-nav li.story {
-    background: url("../img/btn-story.png") no-repeat center;
-    background-size: contain; }
-    .main-nav li.story:hover {
-      background: url("../img/btn-story-hover.png") no-repeat center;
+  .main-nav li {
+    position: relative; }
+    .main-nav li a:hover {
+      background: none; }
+    .main-nav li.story {
+      background: url("../img/btn-story.png") no-repeat center;
       background-size: contain; }
-  .main-nav li.product {
-    background: url("../img/btn-product.png") no-repeat center;
-    background-size: contain; }
-    .main-nav li.product:hover {
-      background: url("../img/btn-product-hover.png") no-repeat center;
+      .main-nav li.story:hover {
+        background: url("../img/btn-story-hover.png") no-repeat center;
+        background-size: contain; }
+    .main-nav li.product {
+      background: url("../img/btn-product.png") no-repeat center;
       background-size: contain; }
-  .main-nav li.progresss {
-    background: url("../img/btn-progresss.png") no-repeat center;
-    background-size: contain; }
-    .main-nav li.progresss:hover {
-      background: url("../img/btn-progresss-hover.png") no-repeat center;
+      .main-nav li.product:hover {
+        background: url("../img/btn-product-hover.png") no-repeat center;
+        background-size: contain; }
+    .main-nav li.progresss {
+      background: url("../img/btn-progresss.png") no-repeat center;
       background-size: contain; }
-  .main-nav li.photos {
-    background: url("../img/btn-photos.png") no-repeat center;
-    background-size: contain; }
-    .main-nav li.photos:hover {
-      background: url("../img/btn-photos-hover.png") no-repeat center;
+      .main-nav li.progresss:hover {
+        background: url("../img/btn-progresss-hover.png") no-repeat center;
+        background-size: contain; }
+    .main-nav li.photos {
+      background: url("../img/btn-photos.png") no-repeat center;
       background-size: contain; }
-  .main-nav li.target {
-    border-left: 10px solid #ff0; }
+      .main-nav li.photos:hover {
+        background: url("../img/btn-photos-hover.png") no-repeat center;
+        background-size: contain; }
+    .main-nav li.target:before {
+      display: inline-block;
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 0;
+      width: 10px;
+      height: 40px;
+      background: yellow; }
 
 .navbar-default {
   background: rgba(255, 255, 255, 0.9); }
@@ -458,6 +467,7 @@ body {
     height: 100%; }
   .fund-raising .describe {
     background: url("../img/progress_text.png") center top no-repeat;
+    background-size: contain;
     width: 100%;
     height: 161px; }
   .fund-raising .content {
@@ -991,6 +1001,8 @@ body {
     background: #eea094; }
     .story-frame.first .story-foot-text {
       margin-top: 0; }
+    .story-frame.first .center {
+      text-align: center; }
   .story-frame.second {
     background: #87b9b1; }
     .story-frame.second .title img {
@@ -1348,7 +1360,13 @@ footer {
     margin-top: 70px; }
 
   .remittance .order_acc_name {
-    width: 265px; } }
+    width: 265px; }
+
+  .student-pic {
+    float: left;
+    width: 60%;
+    margin-right: 30px;
+    margin-bottom: 10px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .facebook {
     bottom: 100px;
@@ -1403,7 +1421,7 @@ footer {
 
   .contact-us {
     position: fixed;
-    bottom: -45px;
+    bottom: -44px;
     right: 109px;
     -webkit-transform: rotate(0);
     -moz-transform: rotate(0);
@@ -1412,9 +1430,6 @@ footer {
     transform: rotate(0);
     width: 100px;
     height: 77px; }
-
-  .main-nav {
-    margin-top: 0; }
 
   .header .logo {
     height: auto;
