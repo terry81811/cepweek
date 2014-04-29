@@ -120,6 +120,7 @@ APIs for DB CRUD
                     'order_last_id' => $post_data['order_last_id']
                 ), $order_id);
 
+                $email_to = $pay_email;
                 $this->tran_email($order_id, $total_cost, $total_num, $email_to);
 
                 $data['email_to'] = $pay_email;
@@ -324,10 +325,11 @@ public function webATM_return()
             //交易成功
             //記入DB
             //寄email
-            list($total_num, $email_to) = explode("&", $Echo);
 
-            echo "email = $email_to";
-            echo "totalnum = $total_num";
+            $order = $this->user_model->get($TransNo - 98080000);
+            $email_to = $order[0]['order_email'];
+            $total_num = $order[0]['order_num'];
+
             $this->confirm_email(($TransNo - 98080000), $TransAmt, $total_num, $email_to);
 
             $data['TransNo'] = $TransNo;
