@@ -42,10 +42,11 @@ APIs for DB CRUD
         $pay_add_num = $post_data['pay_post'];
         $pay_address = $post_data['pay_address'];
 
+//echo "$pay_email";
 
         //validating input
         $input_err = 0;
-        if($pay_name == 0){
+        if($pay_name == ''){
             $data['atmErrNo'] = '0000';
             $data['atmErrDesc'] = '請填寫付款人姓名';
             $input_err = 1;
@@ -53,9 +54,10 @@ APIs for DB CRUD
             $data['atmErrNo'] = '0000';
             $data['atmErrDesc'] = '請填寫付款人電話';
             $input_err = 1;
-        }if($pay_email == 0){
+        }if($pay_email == ''){
             $data['atmErrNo'] = '0000';
             $data['atmErrDesc'] = '請填寫付款人電子信箱';
+            $input_err = 1;
         }
         if($input_err == 1){
             $data['title'] = "交易錯誤";
