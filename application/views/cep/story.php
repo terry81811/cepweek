@@ -1,10 +1,11 @@
     <body>
         <div id="loading"></div>
-        <div class="call-to-action visible-md visible-lg" role="button">
+        <div class="call-to-action hidden-xs" role="button">
             <a href="<?php echo base_url(); ?>order"></a>
         </div>
         <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
         <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
+        <div class="order"><a href="<?php echo base_url(); ?>order"></a></div>
         <div class="container">
             <div class="main-container">
                 <header class="header">
