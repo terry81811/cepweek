@@ -511,6 +511,18 @@ body {
         font-size: 1.7em;
         text-align: center;
     }
+    .notice {
+        margin-top: 20px;
+        padding: 5px 0;
+        border-top: 3px solid #ee9b29;
+        border-bottom: 3px solid #ee9b29;
+        background: #fff;
+        text-align: center;
+        font-size: 1.5em;
+        ul {
+            margin: 0;
+        }
+    }
 }
 .order-form {
     background: #fff;
@@ -547,7 +559,9 @@ body {
     cursor: pointer;
     font-size: 1.5em;
 }
-
+.focus {
+    color: #fe762d;
+}
 .payment {
     a {
         display: block;
@@ -583,6 +597,8 @@ body {
             cursor: not-allowed; 
             background: #cdcdcd;
         }
+    }
+    .col-md-4 {
         text-align: center;
     }
 }
@@ -785,7 +801,7 @@ footer {
         width: 95px;
     }
     .order-form .rec-phone {
-        width: 160px;
+        width: 130px;
     }
     .subscriber-info {
         margin-top: 20px;
