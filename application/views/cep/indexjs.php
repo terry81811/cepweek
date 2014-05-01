@@ -7,6 +7,5 @@
             });
             $(function() {
                 $(".youtube").colorbox({iframe:true, innerWidth:853, innerHeight:480});
-                alertify.alert("Message");
             })
         </script>
