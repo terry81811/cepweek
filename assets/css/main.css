@@ -257,6 +257,9 @@ body {
 .call-to-action {
   background: url("../img/call-to-action.png");
   background-size: contain;
+  position: fixed;
+  top: 50px;
+  right: 50px;
   width: 120px;
   height: 120px; }
   .call-to-action a {
@@ -1314,11 +1317,6 @@ footer {
     width: 1040px;
     padding: 20px 40px; }
 
-  .call-to-action {
-    position: fixed;
-    top: 50px;
-    right: 50px; }
-
   .facebook {
     bottom: 100px;
     right: -55px;
@@ -1405,6 +1403,10 @@ footer {
     .contact-us:hover {
       right: -73px; }
 
+  .call-to-action {
+    top: 20px;
+    right: 20px; }
+
   .masonry-container .item {
     max-width: 48%;
     margin-bottom: 10px; }
@@ -1445,6 +1447,19 @@ footer {
     transform: rotate(0);
     width: 100px;
     height: 77px; }
+
+  .order {
+    background: url("../img/order.png");
+    background-size: contain;
+    position: fixed;
+    bottom: -45px;
+    right: 208px;
+    width: 100px;
+    height: 77px; }
+    .order a {
+      display: block;
+      width: 100%;
+      height: 100%; }
 
   .header .logo {
     height: auto;
