@@ -1454,6 +1454,7 @@ footer {
     position: fixed;
     bottom: -45px;
     right: 208px;
+    z-index: 10;
     width: 100px;
     height: 77px; }
     .order a {

@@ -903,6 +903,7 @@ footer {
         position: fixed;
         bottom: -45px;
         right: 208px;
+        z-index: 10;
         @include size(100px, 77px);
         a {
             display: block;
