@@ -9,15 +9,20 @@ class Cep extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('order_model');
+        $this->load->model('receive_model');
 
     }
 
     // ------------------------------------------------------------------------
 
-    private function count_order() 
+    public function count_order() 
     {
         $order = $this->order_model->get(array('order_success' => '1'));
-        $count = sizeof($order);
+
+        $count = 0;
+        foreach ($order as $_key => $_value) {
+            $count += $_value['order_num'];
+        }
         return $count;
     }
 
@@ -125,8 +130,53 @@ class Cep extends CI_Controller {
     }
 
 /****************************************************************************
-APIs for Payment
+APIs for internal user
 *****************************************************************************/
+    public function db_cep()
+    {
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+
+
+        //匯款資料
+        $order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'remittance'));
+        foreach ($order_success_array as $_key => $_value) {
+            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_success_array[$_key]['rec_num'] = sizeof($rec_num);
+        }
+
+        $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
+        foreach ($order_not_success_array as $_key => $_value) {
+            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_not_success_array[$_key]['rec_num'] = sizeof($rec_num);
+        }
+
+        //webatm資料
+        $webatm_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'webatm'));
+        foreach ($webatm_order_success_array as $_key => $_value) {
+            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_success_array[$_key]['rec_num'] = sizeof($rec_num);
+        }
+
+        $webatm_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'webatm'));
+        foreach ($webatm_order_not_success_array as $_key => $_value) {
+            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_not_success_array[$_key]['rec_num'] = sizeof($rec_num);
+        }
+
+
+
+        $data['order_success_array'] = $order_success_array;
+        $data['order_not_success_array'] = $order_not_success_array;
+        $data['webatm_order_success_array'] = $webatm_order_success_array;
+        $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
+
+
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/db_cep', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/partial/closehtml');        
+    }
+    
 
 
 

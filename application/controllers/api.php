@@ -369,7 +369,7 @@ public function webATM_return()
             //test if hash key passed
             if($M == $M_check){
                 $order_id = $ONO - 98080000;
-                $order = $this->user_model->get($order_id);
+                $order = $this->order_model->get($order_id);
 
                 $result = $this->order_model->update(array(
                     'order_success' => 1
@@ -449,8 +449,6 @@ public function webATM_return()
 
             $this->email->message($email_message); 
 
-            $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
-
             $this->email->send();
     }
 
@@ -478,8 +476,6 @@ public function webATM_return()
             <br><h3>台大創創學程感謝您</h3></div>';
 
             $this->email->message($email_message); 
-
-            $path_to_the_file = realpath(APPPATH.'../assets/cepweek_db.sql');
 
             $this->email->send();
     }
@@ -561,5 +557,87 @@ public function webATM_return()
 
         return $err_desc;
     }
+
+    /****************************************************************************
+    APIs for internal user
+    *****************************************************************************/
+
+    public function confirm_remmitance()
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+        $paid = $post_data['paid'];
+
+        $confirm = array();
+        foreach ($paid as $_key => $_value) {
+
+            $array = $this->order_model->get($_value);
+            $confirm[] = $array[0];
+            # code...
+        }
+
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+        $data['confirm'] = $confirm;
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/confirm_remmitance', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/partial/closehtml');     
+
+    }
+
+
+    public function reconfirm_remmitance()
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+        foreach ($post_data['paid'] as $_key => $_value) {
+
+            $result = $this->order_model->update(array(
+                'order_success' => 1
+                ), $_value);
+
+            $result_rec = $this->receive_model->update(array(
+                'rec_pay_success' => 1
+                ), array('rec_order_id' => $_value));
+
+
+        }
+        redirect('/db_cep');
+    }
+
+
+    public function email($email_to)
+    {
+        $email_to = urldecode($email_to);
+
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+        $data['email_to'] = $email_to;
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/email_to', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/partial/closehtml');   
+
+    }
+
+    public function send_email()
+    {
+
+            $this->load->library('email');
+            $post_data = $this->input->post(NULL, TRUE);
+            $email_to = $post_data['email_to'];
+            $email_subject = $post_data['email_subject'];;
+            $email_msg = $post_data['email_msg'];;
+            
+            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+            $this->email->to($email_to); 
+            $this->email->subject($email_subject);
+            $this->email->message($email_msg); 
+
+            echo $email_to;
+            echo $email_subject;
+            echo $email_msg;
+
+            $this->email->send();
+            redirect('/db_cep');
+    }
+
 
 }
