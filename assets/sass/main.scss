@@ -34,6 +34,9 @@ body {
 .call-to-action {
     background: url('../img/call-to-action.png');
     background-size: contain;
+    position: fixed;
+    top: 50px;
+    right: 50px;
     @include size(120px);
     a {
         display: block;
@@ -68,6 +71,7 @@ body {
         @include size(100%);
     }
 }
+
 
 /* =====================================
    header
@@ -511,6 +515,18 @@ body {
         font-size: 1.7em;
         text-align: center;
     }
+    .notice {
+        margin-top: 20px;
+        padding: 5px 0;
+        border-top: 3px solid #ee9b29;
+        border-bottom: 3px solid #ee9b29;
+        background: #fff;
+        text-align: center;
+        font-size: 1.5em;
+        ul {
+            margin: 0;
+        }
+    }
 }
 .order-form {
     background: #fff;
@@ -547,7 +563,9 @@ body {
     cursor: pointer;
     font-size: 1.5em;
 }
-
+.focus {
+    color: #fe762d;
+}
 .payment {
     a {
         display: block;
@@ -583,6 +601,8 @@ body {
             cursor: not-allowed; 
             background: #cdcdcd;
         }
+    }
+    .col-md-4 {
         text-align: center;
     }
 }
@@ -753,11 +773,7 @@ footer {
         width: 1040px;
         padding: 20px 40px;
     }
-    .call-to-action {
-        position: fixed;
-        top: 50px;
-        right: 50px;
-    }
+    
     .facebook {
         bottom: 100px;
         right: -55px;
@@ -785,7 +801,7 @@ footer {
         width: 95px;
     }
     .order-form .rec-phone {
-        width: 160px;
+        width: 130px;
     }
     .subscriber-info {
         margin-top: 20px;
@@ -843,6 +859,10 @@ footer {
             right: -73px;
         }
     }
+    .call-to-action {
+        top: 20px;
+        right: 20px;
+    }
     .masonry-container .item {
         max-width: 48%;
         margin-bottom: 10px;
@@ -876,6 +896,19 @@ footer {
         right: 109px;
         @include transform(rotate(0));
         @include size(100px, 77px);
+    }
+    .order {
+        background: url('../img/order.png');
+        background-size: contain;
+        position: fixed;
+        bottom: -45px;
+        right: 208px;
+        z-index: 10;
+        @include size(100px, 77px);
+        a {
+            display: block;
+            @include size(100%);
+        }
     }
     .header .logo {
         height: auto;

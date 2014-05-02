@@ -145,7 +145,7 @@ APIs for DB CRUD
                     $data['email_to'] = $pay_email;
                     $data['TransAmt'] = $total_num;
                     $data['title'] = "交易成功";
-                    $this->load->view('cep/partial/head', $data);
+                    $this->load->view('cep/partial/order_success_head', $data);
                     $this->load->view('cep/order_success', $data);
                     $this->load->view('cep/partial/repeatjs');
                     $this->load->view('cep/order_successjs');

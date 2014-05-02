@@ -24,13 +24,16 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/odometer-theme-train-station.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/colorbox/colorbox.css" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/bootstrapValidator.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/alertify/alertify.default.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
-        
-        <!-- Facebook Conversion Code for 結帳 -->
+
+        <!-- Facebook Conversion Code for shopping cart -->
+
         <script type="text/javascript">
         var fb_param = {};
-        fb_param.pixel_id = '6016500099111';
+        fb_param.pixel_id = '6016500146111';
+
         fb_param.value = '0.01';
         fb_param.currency = 'USD';
         (function(){
@@ -41,6 +44,7 @@
         ref.parentNode.insertBefore(fpw, ref);
         })();
         </script>
-        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6016500099111&amp;value=0.01&amp;currency=USD" /></noscript>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6016500146111&amp;value=0.01&amp;currency=USD" /></noscript>
+        
     </head>
     

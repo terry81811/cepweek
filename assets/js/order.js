@@ -8,11 +8,18 @@ $(function() {
         if ( !$(".remittance").hasClass("hidden") ) {
             $(".payment-btn").removeClass("active");
             $(".remittance").addClass("hidden");
-        } else {
-            $("#payment-webatm-radio").trigger("click");
-            $(".payment-btn").removeClass("active");
-            $(this).addClass("active");
-            $("#order-submit-btn").trigger("click");
+        } else { //確認送出WebATM訂單
+            alertify.confirm("確認送出訂單？將會進入WebATM刷卡頁面", function (e) {
+                if (e) {
+                    // user clicked "ok"
+                    $("#payment-webatm-radio").trigger("click");
+                    $(".payment-btn").removeClass("active");
+                    $(this).addClass("active");
+                    $("#order-submit-btn").trigger("click");
+                } else {
+                    alertify.error("訂單尚未送出");
+                }
+            });
         }
     });
     //線上刷卡
@@ -36,7 +43,15 @@ $(function() {
     //匯款確認按鈕
     $("#remittance-btn").on("click", function(e){
         e.preventDefault();
-        $("#order-submit-btn").trigger("click");
+        alertify.confirm("確認送出匯款訂單？", function (e) {
+            if (e) {
+                // user clicked "ok"
+                $("#order-submit-btn").trigger("click");
+            } else {
+                // user clicked "Cancel"
+                alertify.error("訂單尚未送出");
+            }
+        });
     })
     $(".order-form").on("blur", ".num", function() {
         var total_order_num = 0;
@@ -47,6 +62,14 @@ $(function() {
         // local
         if (local_order_num >= 10) { // 免運費
             local_order_price = local_order_num * 390;
+        } else if (isNaN(local_order_num)) {
+            alertify.alert("訂購數量請填入數字！");
+        } else if (local_order_num == 0) {
+            $(this).val("");
+            alertify.alert("訂購數量不得為0！");
+        } else if (local_order_num < 0 ) {
+            $(this).val("");
+            alertify.alert("訂購數量不得小於0！");
         } else {
             local_order_price = local_order_num * 390 + 150;
         }
@@ -117,7 +140,7 @@ $(function() {
             '        </div>',
             '        <div class="form-group">',
             '            <label for="rec_num'+index+'">數量：</label>',
-            '            <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num'+index+'" required>',
+            '            <input class="form-control num" type="number" name="rec_num[]" placeholder="10" id="rec_num'+index+'" required>',
             '        </div>',
             '        <div class="form-group">',
             '            <label for="rec_phone'+index+'">收件人電話：</label>',
@@ -126,8 +149,13 @@ $(function() {
             '        <div class="form-group rec_a">',
             '            <label for="rec_arrive_time'+index+'">到貨時間：</label>',
             '            <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time'+index+'">',
-            '                <option value="白天">白天</option>',
-            '                <option value="晚上">晚上</option>',
+            '               <option value="不指定">不指定</option>',
+            '               <option value="5/9(五)白天">5/9(五)白天</option>',
+            '               <option value="5/9(五)晚上">5/9(五)晚上</option>',
+            '               <option value="5/10(六)白天">5/10(六)白天</option>',
+            '               <option value="5/10(六)晚上">5/10(六)晚上</option>',
+            '               <option value="5/11(日)白天">5/11(日)白天</option>',
+            '               <option value="5/11(日)晚上">5/11(日)晚上</option>',
             '            </select>',
             '        </div>',
             '    </div>',

@@ -1,10 +1,11 @@
     <body>
         <div id="loading"></div>
-        <div class="call-to-action visible-md visible-lg" role="button">
+        <div class="call-to-action hidden-xs" role="button">
             <a href="<?php echo base_url(); ?>order"></a>
         </div>
         <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
         <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
+        <div class="order"><a href="<?php echo base_url(); ?>order"></a></div>
         <div class="container">
             <div class="main-container">
                 <header class="header">
@@ -139,7 +140,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="go-to-facebook">
-                                <a href="https://www.facebook.com/253825544806259" class="pull-right">
+                                <a href="https://www.facebook.com/218589151491994" class="pull-right" target="_blank">
                                 </a>
                             </div>
                         </div>      
@@ -157,15 +158,7 @@
                         <div class="col-md-10 col-md-offset-1">
                             <div class="subtitle">
                                 台灣第一次，企業與學生聯合的百萬募款，企業零獲利，學生秀創意。<br>
-                                由企業協助執行，一同實現學生對公益的想像。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="after-subtitle">
-                                本次活動由普仁基金會贊助產品，<br>
-                                玉山銀行協助金流後台，以及黑貓宅急便提供優惠運費。
+                                由企業協助執行，一同實現學生對公益的想像力。
                             </div>
                         </div>
                     </div>
@@ -188,6 +181,14 @@
                                        
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="story-foot-text">
+                                本次活動由普仁基金會贊助產品，<br>
+                                玉山銀行協助金流後台，以及黑貓宅急便提供優惠運費。
                             </div>
                         </div>
                     </div>

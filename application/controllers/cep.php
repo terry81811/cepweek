@@ -44,7 +44,8 @@ class Cep extends CI_Controller {
         $data['count'] = $count;
         $data['title'] = "募資進度 | 彩虹故鄉的願望";
         $data['complete_percent'] = round((($count) / 4000 ) * 100 , 2);
-        $this->load->view('cep/partial/head', $data);
+        // $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/partial/progress_head', $data);
         $this->load->view('cep/progress', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/progressjs');
@@ -56,7 +57,8 @@ class Cep extends CI_Controller {
         $data['email_to'] = "s92f002@hotmail.com";
         $data['title'] = "交易成功";
 
-        $this->load->view('cep/partial/head', $data);
+        // $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/partial/order_success_head', $data);
         $this->load->view('cep/order_success', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/order_successjs');
@@ -87,7 +89,7 @@ class Cep extends CI_Controller {
         $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
         
         // $this->load->view('cep/partial/head', $data);
-        $this->load->view('cep/partial/orderhead', $data);
+        $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/order');
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/orderjs');
@@ -105,7 +107,8 @@ class Cep extends CI_Controller {
     public function product()
     {
         $data['title'] = "產品介紹 | 彩虹故鄉的願望";
-        $this->load->view('cep/partial/head', $data);
+        // $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/partial/product_head', $data);
         $this->load->view('cep/product');
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/productjs');
@@ -113,7 +116,7 @@ class Cep extends CI_Controller {
     }
     public function photos()
     {
-        $data['title'] = "產品介紹 | 彩虹故鄉的願望";
+        $data['title'] = "彩虹相簿 | 彩虹故鄉的願望";
         $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/photos');
         $this->load->view('cep/partial/repeatjs');

@@ -964,3 +964,33 @@
 2014-04-29 12:28:20 overwrite css/main.css 
 2014-04-29 12:28:46 overwrite css/main.css 
 2014-04-29 19:41:46 overwrite css/main.css 
+2014-05-01 14:40:38 overwrite css/main.css 
+2014-05-01 14:40:51 overwrite css/main.css 
+2014-05-01 14:41:49 overwrite css/main.css 
+2014-05-01 14:46:33     error sass/main.scss (Line 516: Invalid CSS after "        font-size:": expected pseudoclass or pseudoelement, was " 1.2em;")
+2014-05-01 14:46:33 overwrite css/main.css 
+2014-05-01 14:46:43     error sass/main.scss (Line 515: Invalid CSS after "        @include ": expected identifier, was ".present")
+2014-05-01 14:46:43 overwrite css/main.css 
+2014-05-01 14:46:46     error sass/main.scss (Line 515: Invalid CSS after "        @include ": expected identifier, was ".present;")
+2014-05-01 14:46:46 overwrite css/main.css 
+2014-05-01 14:46:50 overwrite css/main.css 
+2014-05-01 14:47:04 overwrite css/main.css 
+2014-05-01 14:47:43 overwrite css/main.css 
+2014-05-01 14:57:44 overwrite css/main.css 
+2014-05-01 14:59:05 overwrite css/main.css 
+2014-05-01 15:30:24 overwrite css/main.css 
+2014-05-01 15:30:49 overwrite css/main.css 
+2014-05-01 15:31:01 overwrite css/main.css 
+2014-05-01 15:36:18 overwrite css/main.css 
+2014-05-01 15:36:26 overwrite css/main.css 
+2014-05-01 16:35:33 overwrite css/main.css 
+2014-05-01 16:36:16 overwrite css/main.css 
+2014-05-01 16:36:19 identical css/main.css 
+2014-05-01 16:36:24 overwrite css/main.css 
+2014-05-01 16:36:45 overwrite css/main.css 
+2014-05-01 16:37:30 overwrite css/main.css 
+2014-05-01 16:37:44 overwrite css/main.css 
+2014-05-01 16:41:09 overwrite css/main.css 
+2014-05-01 16:42:03 overwrite css/main.css 
+2014-05-01 16:42:15 overwrite css/main.css 
+2014-05-01 16:50:10 overwrite css/main.css 

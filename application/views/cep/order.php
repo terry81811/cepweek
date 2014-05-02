@@ -32,6 +32,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="notice">
+                                <ul class="list-unstyled">
+                                    <li>預購的蛋糕會統一在<span class="focus">5/9（五）</span>開始出貨<br></li>
+                                    <li>請於到貨後<span class="focus">4日</span>內食用，並以<span class="focus">低溫冷藏</span>方式保存</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="order-form">
                 <form action="api/order" method="post" role="form" class="form-inline" id="order-form-validator">
@@ -47,7 +57,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_num1">數量：</label>
-                                    <input class="form-control num" type="text" name="rec_num[]" placeholder="10" id="rec_num1" required>
+                                    <input class="form-control num" type="number" name="rec_num[]" placeholder="10" id="rec_num1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_phone1">收件人電話：</label>
@@ -57,8 +67,12 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="白天">白天</option>
-                                        <option value="晚上">晚上</option>
+                                        <option value="5/9(五)白天">5/9(五)白天</option>
+                                        <option value="5/9(五)晚上">5/9(五)晚上</option>
+                                        <option value="5/10(六)白天">5/10(六)白天</option>
+                                        <option value="5/10(六)晚上">5/10(六)晚上</option>
+                                        <option value="5/11(日)白天">5/11(日)白天</option>
+                                        <option value="5/11(日)晚上">5/11(日)晚上</option>
                                     </select>
                                 </div>
                             </div>
@@ -168,8 +182,9 @@
                         <div class="payment mg10">
                             <h3>付款方式</h3>
                             <div class="row">
-                                <div class="col-xs-6 col-md-4 ">
+                                <div class="col-xs-6 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-webatm-btn">WebATM</a>
+                                    <span>* 需自備讀卡機</span>
                                 </div>
                                 <div class="col-xs-6 col-md-4 closed">
                                     <a href="" role="button" class="payment-btn" id="payment-credit_card-btn" disable>線上刷卡</a>
