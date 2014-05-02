@@ -27,5 +27,11 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/bootstrapValidator.min.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
 
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="../../assets/js/lib/html5shiv.min.js"></script>
+          <script src="../../assets/js/lib/respond.min.js"></script>
+        <![endif]-->
+
     </head>
     
