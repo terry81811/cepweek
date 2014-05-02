@@ -249,7 +249,7 @@ public function webATM_return()
             //記入DB
             //寄email
 
-            $order = $this->user_model->get($TransNo - 98080000);
+            $order = $this->order_model->get($TransNo - 98080000);
             $email_to = $order[0]['order_email'];
             $total_num = $order[0]['order_num'];
 
