@@ -16,7 +16,7 @@
 			echo $M."<br>";
 
 		?>
-	<form action="https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
+	<form id="credit_form" action="https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
 		
 
 
@@ -30,6 +30,11 @@
 
 		<input type="submit" name="bttSubmit" value="送出">
 	</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $( "#credit_form" ).submit();
+</script>
 
 </body>
 </html>

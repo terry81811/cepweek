@@ -125,45 +125,7 @@ class Cep extends CI_Controller {
 APIs for Payment
 *****************************************************************************/
 
-// --------------------------------------------------------------------------
-// credit card
-// --------
 
-    public function test_credit()
-    {
-    
-        $this->load->helper('security');
-        $MID = "8089002793";
-        $CID = "";
-        $TID = "EC000001";
-        $ONO = "98080001";
-        $TA = "1";
-        $U = "https://rainbowhope.tw/api/credit_return";
-        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U;
-        $M = do_hash($str, 'md5');
-
-
-        $data['MID'] = $MID;
-        $data['CID'] = $CID;
-        $data['TID'] = $TID;
-        $data['ONO'] = $ONO;
-        $data['TA'] = $TA;
-        $data['U'] = $U;
-        $data['M'] = $M;
-
-        $this->load->view('cep/test_credit',$data);
-    }
-
-
-// --------------------------------------------------------------------------
-// webATM
-// --------
-
-    public function test_ATM()
-    {
-
-        $this->load->view('cep/test_webATM');
-    }
 
 }
 
