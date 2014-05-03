@@ -617,6 +617,23 @@ public function webATM_return()
 
     }
 
+    public function confirm_delivery()
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+//        echo $post_data['order_id'];
+        foreach ($post_data['delivered'] as $_key => $_value) {
+
+//            echo $_value;
+            $result_rec = $this->receive_model->update(array(
+                'rec_on_the_way' => 1
+                ), $_value);
+            # code...
+        }
+        redirect('/delivery/'.$post_data['order_id']);
+    }
+
+
+
     public function send_email()
     {
 
