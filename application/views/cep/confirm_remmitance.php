@@ -37,7 +37,7 @@
 						echo "<td>".$order['order_acc_name']."</td>";
 						echo "<td>".$order['order_bank_id']."</td>";
 						echo "<td>".$order['order_last_id']."</td>";
-						echo "<td><a href='/api/email/".$order['order_email']."'>".$order['order_email']."</a></td>";
+						echo "<td><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 						echo "</tr>";
 					}
 
