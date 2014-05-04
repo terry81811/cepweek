@@ -335,8 +335,9 @@ public function webATM_return()
 
     public function credit_test()
     {
-        $this->load->view('cep/credit');
+        $this->load->view('cep/credit_test');
     }
+
 
     public function credit_submit($order_id = NULL, $total_cost = NULL)
     {
@@ -352,7 +353,24 @@ public function webATM_return()
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
         $data['M'] = do_hash($str, 'md5');
 
-        $this->load->view('cep/test_credit',$data);
+        $this->load->view('cep/credit_submit2',$data);
+    }
+
+    public function credit_submit2($order_id = NULL, $total_cost = NULL)
+    {
+        $this->load->helper('security');
+        $key= "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+
+        $data['MID'] = $MID = 8089002793;
+        $data['CID'] = $CID = '';
+        $data['TID'] = $TID = 'EC000001';
+        $data['ONO'] = $ONO = $order_id + 98080000;
+        $data['TA'] = $TA = $total_cost;
+        $data['U'] = $U = "/api/credit_return";
+        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
+        $data['M'] = do_hash($str, 'md5');
+
+        $this->load->view('cep/credit_submit2',$data);
     }
 
     public function credit_return()
