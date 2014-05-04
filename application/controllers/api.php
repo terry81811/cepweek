@@ -321,9 +321,21 @@ public function webATM_return()
 // --------
     
 
+    public function credit_post()
+    {
+
+        echo $this->curl->simple_get('https://acqtest.esunbank.com.tw/');
+    }
+
+    public function credit_post2()
+    {
+
+        echo $this->curl->simple_get('https://acq.esunbank.com.tw/');
+    }
+
     public function credit_test()
     {
-        $this->webATM_submit(100,1);
+        $this->load->view('cep/credit');
     }
 
     public function credit_submit($order_id = NULL, $total_cost = NULL)

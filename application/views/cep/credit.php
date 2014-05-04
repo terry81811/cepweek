@@ -1,10 +1,4 @@
-
-<?php
-
-$str = '8089002793&&EC000001&98080001&1&/api/credit&W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT';
-$M = md5($str);
-?>
-
+<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -12,20 +6,18 @@ $M = md5($str);
 </head>
 <body>
 
-	<form action="https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
+	<form id="credit_form" action="https://acqtest.esunbank.com.tw/" method="post">
 		
 
 
-		<input type="hidden" name="MID" value="8089002793">
-		<input type="hidden" name="CID" value="">
-		<input type="hidden" name="TID" value="EC000001">
-		<input type="hidden" name="ONO" value="98080001">
-		<input type="hidden" name="TA" value="1">
-		<input type="hidden" name="U" value="/api/credit">
-		<input type="hidden" name="M" value="<? echo $M;?>">
 
-		<input type="submit" value="送出">
+		<input type="submit" name="bttSubmit" value="送出">
 	</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $( "#credit_form" ).submit();
+</script>
 
 </body>
 </html>
