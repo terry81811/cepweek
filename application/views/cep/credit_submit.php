@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>信用卡付款測試頁</title>
-</head>
-<body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		<?php 
 			echo $MID."<br>";
@@ -36,5 +30,3 @@
     $( "#credit_form" ).submit();
 </script>
 
-</body>
-</html>
