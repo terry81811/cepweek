@@ -353,7 +353,7 @@ public function webATM_return()
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
         $data['M'] = do_hash($str, 'md5');
 
-        $this->load->view('cep/credit_submit2',$data);
+        $this->load->view('cep/credit_submit',$data);
     }
 
     public function credit_submit2($order_id = NULL, $total_cost = NULL)
