@@ -562,6 +562,33 @@ public function webATM_return()
     APIs for internal user
     *****************************************************************************/
 
+    private function _require_login()
+    {
+        if($this->session->userdata('cep_login') == 1){
+            return 1;
+        }else{
+            redirect('/cep_login');
+        }
+    }
+
+    public function cep_login()
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+        if($post_data['id'] == 'cep2014' && $post_data['pw'] == '2014cep')
+        {
+            $this->session->set_userdata('cep_login', '1');
+            redirect('/db_cep');
+        }else{
+            redirect('/cep_login');
+        }
+    }
+
+    public function cep_logout()
+    {
+        $this->session->unset_userdata('cep_login');
+        redirect('/cep_login');        
+    }
+
     public function confirm_remmitance()
     {
         $post_data = $this->input->post(NULL, TRUE);
@@ -629,7 +656,7 @@ public function webATM_return()
                 ), $_value);
             # code...
         }
-        redirect('/delivery/'.$post_data['order_id']);
+        redirect('/db_cep');
     }
 
 

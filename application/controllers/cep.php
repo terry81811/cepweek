@@ -133,40 +133,71 @@ class Cep extends CI_Controller {
 APIs for internal user
 *****************************************************************************/
 
+    private function _require_login()
+    {
+        if($this->session->userdata('cep_login') == 1){
+            return 1;
+        }else{
+            redirect('/cep_login');
+        }
+    }
+
     public function cep_login()
     {
-
+        if($this->session->userdata('cep_login') == 1){
+            redirect('/db_cep');
+        }else{
+            $data['title'] = "彩虹後台 ｜ 創創內部使用";
+            $this->load->view('cep/partial/head', $data);
+            $this->load->view('cep/cep_login', $data);
+            $this->load->view('cep/partial/repeatjs');
+            $this->load->view('cep/partial/closehtml');   
+        }
     }
 
     public function db_cep()
     {
+        $this->_require_login();
         $data['title'] = "彩虹後台 ｜ 創創內部使用";
 
 
         //匯款資料
         $order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'remittance'));
         foreach ($order_success_array as $_key => $_value) {
-            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $order_success_array[$_key]['rec_num'] = sizeof($rec_num);
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $order_success_array[$_key]['rec'] = $rec;
+
+
         }
 
         $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
         foreach ($order_not_success_array as $_key => $_value) {
-            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $order_not_success_array[$_key]['rec_num'] = sizeof($rec_num);
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $order_not_success_array[$_key]['rec'] = $rec;
+
         }
 
         //webatm資料
         $webatm_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'webatm'));
         foreach ($webatm_order_success_array as $_key => $_value) {
-            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $webatm_order_success_array[$_key]['rec_num'] = sizeof($rec_num);
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $webatm_order_success_array[$_key]['rec'] = $rec;
+
         }
 
         $webatm_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'webatm'));
         foreach ($webatm_order_not_success_array as $_key => $_value) {
-            $rec_num = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $webatm_order_not_success_array[$_key]['rec_num'] = sizeof($rec_num);
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $webatm_order_not_success_array[$_key]['rec'] = $rec;
+
         }
 
 
@@ -177,9 +208,10 @@ APIs for internal user
         $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
 
 
-        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/db_cep', $data);
         $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/deliveryjs');
         $this->load->view('cep/partial/closehtml');        
     }
     
