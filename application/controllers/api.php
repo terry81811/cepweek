@@ -331,7 +331,15 @@ public function webATM_return()
     public function credit_post2()
     {
 
-        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm',array('foo'=>'bar'));
+        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm',
+            array(  'MID'=>'808900279',
+                    'CID'=>'',
+                    'TID'=>'EC000001',
+                    'ONO'=>'98080001',
+                    'TA'=>'1',
+                    'U'=>'/api/credit_return'
+
+                ));
     }
 
 
