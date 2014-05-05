@@ -328,6 +328,13 @@ public function webATM_return()
         echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/');
     }
 
+    public function credit_post()
+    {
+
+        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm');
+    }
+
+
     public function credit_get()
     {
 
