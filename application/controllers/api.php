@@ -405,6 +405,7 @@ public function webATM_return()
 
     public function credit_return()
     {
+        echo "in credit_return";
         $this->load->helper('security');
         $key = "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
     
