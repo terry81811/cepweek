@@ -495,19 +495,7 @@ public function webATM_return()
     private function confirm_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
     {
 
-$config = Array(
-    'protocol' => 'smtp',
-    'smtp_host' => 'ssl://smtp.googlemail.com',
-    'smtp_port' => 465,
-    'smtp_user' => 'rainbowhope.service@gmail.com',
-    'smtp_pass' => 'ntucepweek',
-    'mailtype'  => 'html', 
-    'charset'   => 'iso-8859-1'
-);
-$this->load->library('email', $config);
-$this->email->set_newline("\r\n");
-
-//        $this->load->library('email');
+        $this->load->library('email');
      
             $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）！';
             $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
