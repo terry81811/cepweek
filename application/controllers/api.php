@@ -396,6 +396,13 @@ public function webATM_return()
         $this->load->view('cep/credit_submit2',$data);
     }
 
+    public function credit_submit3($order_id = NULL, $total_cost = NULL)
+    {
+
+        $this->load->view('cep/credit_submit3');
+    }
+
+
     public function credit_return()
     {
         $this->load->helper('security');
