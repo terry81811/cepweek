@@ -321,13 +321,20 @@ public function webATM_return()
 // --------
     
 
+
     public function credit_post()
+    {
+
+        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/');
+    }
+
+    public function credit_get()
     {
 
         echo $this->curl->simple_get('https://acqtest.esunbank.com.tw/');
     }
 
-    public function credit_post2()
+    public function credit_get2()
     {
 
         echo $this->curl->simple_get('https://acq.esunbank.com.tw/');

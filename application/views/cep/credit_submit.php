@@ -1,15 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-		<?php 
-			echo $MID."<br>";
-			echo $CID."<br>";
-			echo $TID."<br>";
-			echo $ONO."<br>";
-			echo $TA."<br>";
-			echo $U."<br>";
-			echo $M."<br>";
 
-		?>
 	<form id="credit_form" action="https://acqtest.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
 		
 
