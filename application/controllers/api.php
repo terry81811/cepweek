@@ -339,7 +339,8 @@ public function webATM_return()
                     'TA'=>'1',
                     'U'=>'/api/credit_return'
 
-                ));
+                ),
+            array(CURLOPT_BUFFERSIZE => 10));
     }
 
 
