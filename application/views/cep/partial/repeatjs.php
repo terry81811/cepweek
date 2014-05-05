@@ -14,3 +14,8 @@
   ga('send', 'pageview');
 
 </script>
+<script>
+    $(function(){
+        $('#credit_modal').modal();
+    })
+</script>

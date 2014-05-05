@@ -17,7 +17,10 @@ body {
     font-family: 黑體-繁, 'Heiti TC', 蘋果儷中黑, 'Apple LiGothic Medium', 微軟正黑體, 'Microsoft JhengHei';
 }
 
-
+#credit_modal .modal-body p{
+    font-size: 1.2em;
+    text-align: justify;
+}
 #loading {
     @include size(100%);
     position: fixed;
@@ -535,6 +538,9 @@ body {
     .error {
         color: red;
     }
+    h3 {
+        margin-top: 1em;
+    }
 }
 .mg10 {
     margin: 10px;
@@ -562,6 +568,7 @@ body {
 .add-receiver {
     cursor: pointer;
     font-size: 1.5em;
+    color: #fe762d;
 }
 .focus {
     color: #fe762d;

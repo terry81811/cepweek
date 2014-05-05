@@ -1,4 +1,5 @@
 $(function() {
+    $(".add-receiver").tooltip();
     $("#get-receipt-or-not-checkbox").on("click",function() {
         $(".get-receipt-or-not").toggleClass("check");
     });
@@ -132,7 +133,7 @@ $(function() {
         var index = $(".receiver").length + 1;
         receiver_template += [
             '<div class="receiver">',
-            '    <h3>收貨人資訊</h3>',
+            '    <h3>【收貨人資訊】</h3>',
             '    <div class="row mg10">',
             '        <div class="form-group">',
             '            <label for="rec_name'+index+'">收件人：</label>',

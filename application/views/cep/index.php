@@ -6,6 +6,30 @@
         <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
         <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
         <div class="order"><a href="<?php echo base_url(); ?>order"></a></div>
+        <!-- Modal -->
+        <div class="modal fade" id="credit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">【金流緊急通知】</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>親愛的朋友您好：<br><br>　　很抱歉，信用卡付費的方式由於在技術上還需要和玉山銀行做最後的安全測試，在時程上必須再延誤幾天的時間，會在最快的時間內完成測試並開放服務。</p>
+
+                        <p>　　另外這星期的收單截止時間到<span class="focus">5/6中午12:00截止</span>，想要<a href="<?php echo base_url(); ?>order">訂購</a>陽光蛋糕作為母親節蛋糕的朋友們，可以在這段時間內使用<span class="focus">WebATM</span>和<span class="focus">匯款</span>的方式訂購。</p>
+
+                        <p>　　我們會在最快的時間內提供大家更便利的服務，並為哈凱部落重建家園的目標持續努力著，非常謝謝大家的支持：）</p>
+
+                        <p>彩虹故鄉的願望　團隊　敬上</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">了解</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
         <div class="container">
             <div class="main-container">
                 <header class="header">
