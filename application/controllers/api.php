@@ -465,6 +465,7 @@ public function webATM_return()
         else{
             //交易失敗
             $ONO = $get_data['ONO'];
+            $RC_code = $get_data['RC'];
             $err_desc = $this->credit_err_desc($RC_code);
 
             $this->receive_model->delete(array('rec_order_id' => ($ONO - 98080000)));
