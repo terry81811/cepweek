@@ -321,47 +321,6 @@ public function webATM_return()
 // --------
     
 
-
-    public function credit_post()
-    {
-
-        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/');
-    }
-
-    public function credit_post2()
-    {
-
-        echo $this->curl->simple_post('https://acqtest.esunbank.com.tw/acq_online/online/sale42'.'.htm',
-            array(  'MID'=>'808900279',
-                    'CID'=>'',
-                    'TID'=>'EC000001',
-                    'ONO'=>'98080001',
-                    'TA'=>'1',
-                    'U'=>'/api/credit_return'
-
-                ),
-            array(CURLOPT_BUFFERSIZE => 10));
-    }
-
-
-    public function credit_get()
-    {
-
-        echo $this->curl->simple_get('https://acqtest.esunbank.com.tw/');
-    }
-
-    public function credit_get2()
-    {
-
-        echo $this->curl->simple_get('https://acq.esunbank.com.tw/');
-    }
-
-    public function credit_test()
-    {
-        $this->load->view('cep/credit_test');
-    }
-
-
     public function credit_submit($order_id = NULL, $total_cost = NULL)
     {
         $this->load->helper('security');
@@ -379,28 +338,6 @@ public function webATM_return()
         $this->load->view('cep/credit_submit',$data);
     }
 
-    public function credit_submit2($order_id = NULL, $total_cost = NULL)
-    {
-        $this->load->helper('security');
-        $key= "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
-
-        $data['MID'] = $MID = 8089002793;
-        $data['CID'] = $CID = '';
-        $data['TID'] = $TID = 'EC000001';
-        $data['ONO'] = $ONO = $order_id + 98080000;
-        $data['TA'] = $TA = $total_cost;
-        $data['U'] = $U = "https://rainbowhope.tw/api/credit_return";
-        $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
-        $data['M'] = do_hash($str, 'md5');
-
-        $this->load->view('cep/credit_submit2',$data);
-    }
-
-    public function credit_submit3($order_id = NULL, $total_cost = NULL)
-    {
-
-        $this->load->view('cep/credit_submit3');
-    }
 
 
     public function credit_return()
