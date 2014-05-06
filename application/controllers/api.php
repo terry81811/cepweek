@@ -556,7 +556,7 @@ public function webATM_return()
 
     private function count_date()
     {
-        $date = '2014/5/8（四）- 2014/5/11（日）';
+        $date = '2014/5/16（五）- 2014/5/18（日）';
         return $date;
     }
 
