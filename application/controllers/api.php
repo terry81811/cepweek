@@ -447,7 +447,7 @@ public function webATM_return()
                 $this->confirm_email($order_id, $total_cost, $total_num, $email_to);
 
                 $data['TransNo'] = $ONO;
-                $data['TransAmt'] = $total_cost;
+                $data['TransAmt'] = $total_num;
                 $data['email_to'] = $email_to;
                 $data['title'] = "交易成功";
 
