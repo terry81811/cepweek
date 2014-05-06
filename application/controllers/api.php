@@ -497,7 +497,7 @@ public function webATM_return()
 
         $this->load->library('email');
      
-            $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）！';
+            $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）！'; 
             $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
             $this->email->to($email_to); 
             $this->email->subject($email_subject);
