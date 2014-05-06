@@ -11,9 +11,7 @@
 		<input type="hidden" name="ONO" value="<? echo $ONO;?>">
 		<input type="hidden" name="TA" value="<? echo $TA;?>">
 		<input type="hidden" name="U" value="<? echo $U;?>">
-		<input type="hidden" name="M" value="<? echo $U;?>">
-
-		<input type="submit" name="bttSubmit" value="送出">
+		<input type="hidden" name="M" value="<? echo $M;?>">
 	</form>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
