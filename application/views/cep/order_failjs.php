@@ -4,5 +4,5 @@
             });
             setTimeout(function(){ 
                 window.location.replace("<?php echo base_url(); ?>");
-            },5000);
+            },10000);
         </script>
