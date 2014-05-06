@@ -26,9 +26,11 @@ $(function() {
     //線上刷卡
     $("#payment-credit_card-btn").on("click", function(e) {
         e.preventDefault();
-    //     $(".payment-btn").removeClass("active");
-    //     $(this).addClass("active");
-    //     $("#payment-credit_card-radio").trigger("click");
+         $(".payment-btn").removeClass("active");
+         $(this).addClass("active");
+         $("#payment-credit_card-radio").trigger("click");
+        $("#order-submit-btn").trigger("click");
+
     });
     //匯款按鈕
     $("#payment-remittance").on("click", function(e) {
