@@ -747,4 +747,20 @@ public function webATM_return()
     }
 
 
+    /****************************************************************************
+    APIs for internal updating
+    *****************************************************************************/
+
+    public function update()
+    {
+        $orders = $this->order_model->get(array('order_success' => '1'))
+        foreach ($orders as $_key => $_order) {
+            $order_id = $_order['order_id'];
+            $this->receive_model->update(['rec_pay_success' => '1'], ['rec_order_id' => $order_id]);
+        }
+
+    }
+
+
+
 }
