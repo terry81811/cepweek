@@ -30,4 +30,19 @@
         });
     })  
 
+
+
+    $("#delivery_btn4").on("click", function(e){
+        e.preventDefault();
+        alertify.confirm("確認更改送貨結果？一送出即無法更改", function (e) {
+            if (e) {
+                // user clicked "ok"
+                $("#delivery_form4").submit();
+            } else {
+                // user clicked "Cancel"
+                alertify.error("貨單尚未送出");
+            }
+        });
+    })  
+
 </script>

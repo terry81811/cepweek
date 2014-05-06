@@ -15,7 +15,18 @@ class Cep extends CI_Controller {
 
     // ------------------------------------------------------------------------
 
-    public function count_order() 
+    private function count_income() 
+    {
+        $order = $this->order_model->get(array('order_success' => '1'));
+
+        $count = 0;
+        foreach ($order as $_key => $_value) {
+            $count += $_value['order_cost'];
+        }
+        return $count;
+    }
+
+    private function count_order() 
     {
         $order = $this->order_model->get(array('order_success' => '1'));
 
@@ -175,6 +186,15 @@ APIs for internal user
         $data['title'] = "彩虹後台 ｜ 創創內部使用";
 
 
+
+        $orders = $this->order_model->get();
+        $data['total_num'] = $this->count_order();
+        $data['total_income'] = $this->count_income();
+        $data['total_order'] = sizeof($orders);
+
+        $orders_success = $this->order_model->get(array('order_success' => '1'));
+        $data['total_success'] = sizeof($orders_success);
+
         //匯款資料
         $order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'remittance'));
         foreach ($order_success_array as $_key => $_value) {
@@ -216,10 +236,26 @@ APIs for internal user
 
 
 
+        //credit card資料
+        $credit_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'credit_card'));
+        foreach ($credit_order_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $credit_order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $credit_order_success_array[$_key]['rec'] = $rec;
+
+        }
+
+        $credit_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'credit_card'));
+
         $data['order_success_array'] = $order_success_array;
         $data['order_not_success_array'] = $order_not_success_array;
+
         $data['webatm_order_success_array'] = $webatm_order_success_array;
         $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
+
+        $data['credit_order_success_array'] = $credit_order_success_array;
+        $data['credit_order_not_success_array'] = $credit_order_not_success_array;
 
 
         $this->load->view('cep/partial/order_head', $data);
