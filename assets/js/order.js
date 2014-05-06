@@ -26,11 +26,23 @@ $(function() {
     //線上刷卡
     $("#payment-credit_card-btn").on("click", function(e) {
         e.preventDefault();
-         $(".payment-btn").removeClass("active");
-         $(this).addClass("active");
-         $("#payment-credit_card-radio").trigger("click");
-        $("#order-submit-btn").trigger("click");
-
+        if ( !$(".remittance").hasClass("hidden") ) {
+            $(".payment-btn").removeClass("active");
+            $(".remittance").addClass("hidden");
+        } else { //確認送出線上刷卡
+            alertify.confirm("確認送出訂單？將會進入線上刷卡頁面", function (e) {
+                if (e) {
+                    // user clicked "ok"
+                    $(".payment-btn").removeClass("active");
+                    $(this).addClass("active");
+                    $("#payment-credit_card-radio").trigger("click");
+                    $("#order-submit-btn").trigger("click");
+                } else {
+                    // user clicked "Cancel"
+                    alertify.error("訂單尚未送出");
+                }
+            });
+        }
     });
     //匯款按鈕
     $("#payment-remittance").on("click", function(e) {
@@ -153,12 +165,12 @@ $(function() {
             '            <label for="rec_arrive_time'+index+'">到貨時間：</label>',
             '            <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time'+index+'">',
             '               <option value="不指定">不指定</option>',
-            '               <option value="5/9(五)白天">5/9(五)白天</option>',
-            '               <option value="5/9(五)晚上">5/9(五)晚上</option>',
-            '               <option value="5/10(六)白天">5/10(六)白天</option>',
-            '               <option value="5/10(六)晚上">5/10(六)晚上</option>',
-            '               <option value="5/11(日)白天">5/11(日)白天</option>',
-            '               <option value="5/11(日)晚上">5/11(日)晚上</option>',
+            '               <option value="5/16(五)白天">5/16(五)白天</option>',
+            '               <option value="5/16(五)晚上">5/16(五)晚上</option>',
+            '               <option value="5/17(六)白天">5/17(六)白天</option>',
+            '               <option value="5/17(六)晚上">5/17(六)晚上</option>',
+            '               <option value="5/18(日)白天">5/18(日)白天</option>',
+            '               <option value="5/18(日)晚上">5/18(日)晚上</option>',
             '            </select>',
             '        </div>',
             '    </div>',
