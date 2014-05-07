@@ -330,7 +330,7 @@ public function webATM_return()
         $data['CID'] = $CID = '';
         $data['TID'] = $TID = 'EC000001';
         $data['ONO'] = $ONO = $order_id + 98080000;
-        $data['TA'] = $TA = $total_cost;
+        $data['TA'] = $TA = 1;
         $data['U'] = $U = "https://rainbowhope.tw/api/credit_return";
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
         $data['M'] = do_hash($str, 'md5');
