@@ -324,9 +324,9 @@ public function webATM_return()
     public function credit_submit($order_id = NULL, $total_cost = NULL)
     {
         $this->load->helper('security');
-        $key= "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+        $key= "SDUQVJ6G5NUNC3G1WNAIESAHJUHLMHLL";
 
-        $data['MID'] = $MID = 8089002793;
+        $data['MID'] = $MID = 8080095672;
         $data['CID'] = $CID = '';
         $data['TID'] = $TID = 'EC000001';
         $data['ONO'] = $ONO = $order_id + 98080000;
