@@ -344,7 +344,7 @@ public function webATM_return()
     {
 //        echo "in credit_return";
         $this->load->helper('security');
-        $key = "W8FGAZYNTJA7NGIZBZZJLEIFWAJUMQDT";
+        $key = "SDUQVJ6G5NUNC3G1WNAIESAHJUHLMHLL";
     
         $get_data = $this->input->get(NULL,TRUE);
 
