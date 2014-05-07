@@ -330,7 +330,7 @@ public function webATM_return()
         $data['CID'] = $CID = '';
         $data['TID'] = $TID = 'EC000001';
         $data['ONO'] = $ONO = $order_id + 98080000;
-        $data['TA'] = $TA = 1;
+        $data['TA'] = $TA = $total_cost;
         $data['U'] = $U = "https://rainbowhope.tw/api/credit_return";
         $str = $MID."&".$CID."&".$TID."&".$ONO."&".$TA."&".$U."&".$key;
         $data['M'] = do_hash($str, 'md5');
@@ -395,6 +395,15 @@ public function webATM_return()
                 $this->load->view('cep/partial/closehtml');
             }
             else{
+
+                $data['atmErrNo'] = '000';
+                $data['atmErrDesc'] = 'hash值錯誤，如重複發生，請聯絡創創信箱';
+                $data['title'] = "交易錯誤";
+                $this->load->view('cep/partial/head', $data);
+                $this->load->view('cep/order_fail', $data);
+                $this->load->view('cep/partial/repeatjs');
+                $this->load->view('cep/order_failjs');
+                $this->load->view('cep/partial/closehtml');                
                 //hash key 比對錯誤，可能是被spoofing？
             }
 

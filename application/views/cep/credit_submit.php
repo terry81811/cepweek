@@ -4,8 +4,6 @@
 	<form id="credit_form" action="https://acq.esunbank.com.tw/acq_online/online/sale42.htm" method="post">
 		
 
-<?php $TA = 1;?>
-
 		<input type="hidden" name="MID" value="<? echo $MID;?>">
 		<input type="hidden" name="CID" value="<? echo $CID;?>">
 		<input type="hidden" name="TID" value="<? echo $TID;?>">
