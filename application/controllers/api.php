@@ -349,7 +349,7 @@ public function webATM_return()
         $get_data = $this->input->get(NULL,TRUE);
 
         //test if 交易成功(code 00),且商家號碼=本店
-        if($get_data['RC'] == '00' && $get_data['MID'] == '8089002793')
+        if($get_data['RC'] == '00' && $get_data['MID'] == '8080095672')
         {
             $RC = $get_data['RC'];
             $MID = $get_data['MID'];
