@@ -97,6 +97,8 @@
                                         <option value="5/17(六)晚上">5/17(六)晚上</option>
                                         <option value="5/18(日)白天">5/18(日)白天</option>
                                         <option value="5/18(日)晚上">5/18(日)晚上</option>
+                                        <option value="5/19(一)白天">5/19(一)白天</option>
+                                        <option value="5/19(一)晚上">5/19(一)晚上</option>
                                     </select>
                                 </div>
                             </div>
