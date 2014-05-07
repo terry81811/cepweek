@@ -265,23 +265,15 @@ APIs for internal user
         $this->load->view('cep/partial/closehtml');        
     }
     
-    public function delivery($order_id)
+    public function db_cep_edit($order_id)
     {
-
-        $delivery_array = $this->receive_model->get(array('rec_order_id' => $order_id));
-
-        $data['title'] = "彩虹後台 ｜ 創創內部使用";
-        $data['order_id'] = $order_id;
-        $data['delivery_array'] = $delivery_array;
-
-        $this->load->view('cep/partial/order_head', $data);
-        $this->load->view('cep/delivery', $data);
-        $this->load->view('cep/partial/repeatjs');
-        $this->load->view('cep/deliveryjs');
-        $this->load->view('cep/partial/closehtml');
 
     }
 
+    public function date()
+    {
+        echo date('Y/m/d H:i:s');   
+    }
 
 }
 
