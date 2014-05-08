@@ -214,7 +214,6 @@
                                 </div>
                                 <div class="col-xs-6 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-credit_card-btn">線上刷卡</a>
-                                    <span class="focus">* 最後測試階段，近期開放。</span>
                                 </div>
                                 <div class="col-xs-6 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-remittance">匯款</a>

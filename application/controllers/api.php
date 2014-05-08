@@ -67,7 +67,6 @@ APIs for DB CRUD
         }
         else{
 
-
             //calculating total number and cost of order
             $total_num = 0;
             $total_cost = 0;
@@ -108,7 +107,6 @@ APIs for DB CRUD
 
                 $rec_count = sizeof($post_data['rec_name']);
                 foreach ($post_data['rec_name'] as $key => $value) {
-                    # code...
 
                     $rec_id = $this->receive_model->insert(array(
                         'rec_order_id' => $order_id,
@@ -168,11 +166,6 @@ APIs for Payment
 // --------------------------------------------------------------------------
 // webATM
 // --------
-
-public function webATM_test()
-{
-    $this->webATM_submit(2,1,1,'terrytsai0811@gmail.com');
-}
 
 public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num = NULL, $pay_email = NULL)
 {
@@ -290,7 +283,7 @@ public function webATM_return()
             $this->receive_model->delete(array('rec_order_id' => ($TransNo - 98080000)));
 
             $data['atmErrNo'] = $atmErrNo;
-            $data['atmErrDesc'] = $atmErrDesc;
+            $data['atmErrDesc'] = '發生無法預期的錯誤，請聯絡創創學程';
             $data['title'] = "交易錯誤";
             $this->load->view('cep/partial/head', $data);
             $this->load->view('cep/order_fail', $data);
@@ -302,17 +295,21 @@ public function webATM_return()
         }
     
     }else{
-
         redirect('/');
-        //check hash值錯誤，可能是偽裝？
     }
 }
 
-    public function webATM_check($TransNo = NULL)
+    public function webATM_check($order_id = NULL)
     {
+        //請使用惟一值
+        $TransNo = $order_id + 98080000;
+        $data['TransNo']= $order_id + 98080000;
 
+        //廠商編號
+        $IcpNo="39953841";
+        $data['IcpNo']="39953841";
 
-
+        $this->load->view('cep/webATM_check',$data);
     }
 
 
@@ -320,7 +317,6 @@ public function webATM_return()
 // credit
 // --------
     
-
     public function credit_submit($order_id = NULL, $total_cost = NULL)
     {
         $this->load->helper('security');
@@ -427,7 +423,6 @@ public function webATM_return()
             //交易失敗
             //顯示失敗原因
 
-
         }
 
     }
@@ -502,7 +497,7 @@ public function webATM_return()
             $this->email->send();
     }
 
-
+/*
     public function email_test()
     {
         $this->confirm_email(1,1,1,'terrytsai0811@gmail.com');
@@ -512,7 +507,7 @@ public function webATM_return()
     {
         $this->tran_email(1,1,1,'terrytsai0811@gmail.com');
     }
-
+*/
     private function count_date()
     {
         $date = '2014/5/16（五）- 2014/5/18（日）';
@@ -611,6 +606,7 @@ public function webATM_return()
         redirect('/cep_login');        
     }
 
+    //確認匯款
     public function confirm_remmitance()
     {
         $post_data = $this->input->post(NULL, TRUE);
@@ -634,6 +630,7 @@ public function webATM_return()
     }
 
 
+    //再次確認匯款
     public function reconfirm_remmitance()
     {
         $post_data = $this->input->post(NULL, TRUE);
@@ -646,8 +643,6 @@ public function webATM_return()
             $result_rec = $this->receive_model->update(array(
                 'rec_pay_success' => 1
                 ), array('rec_order_id' => $_value));
-
-
         }
         redirect('/db_cep');
     }
@@ -669,14 +664,11 @@ public function webATM_return()
     public function confirm_delivery()
     {
         $post_data = $this->input->post(NULL, TRUE);
-//        echo $post_data['order_id'];
         foreach ($post_data['delivered'] as $_key => $_value) {
 
-//            echo $_value;
             $result_rec = $this->receive_model->update(array(
                 'rec_on_the_way' => 1
                 ), $_value);
-            # code...
         }
         redirect('/db_cep');
     }
@@ -710,6 +702,7 @@ public function webATM_return()
     APIs for internal updating
     *****************************************************************************/
 
+//取出所有order中已付款的單，更新貨單為已付款
     public function update()
     {
         $orders = $this->order_model->get(array('order_success' => '1'));
