@@ -432,6 +432,19 @@ public function webATM_return()
 
     }
 
+    public function credit_cancel($order_id = NULL)
+    {
+        $this->load->helper('security');
+        $key= "SDUQVJ6G5NUNC3G1WNAIESAHJUHLMHLL";
+
+        $data['MID'] = $MID = 8080095672;
+        $data['ONO'] = $ONO = $order_id + 98080000;
+        $data['INFO'] = $INFO = 'cepweek';
+        $str = $MID."&".$ONO."&".$INFO."&".$key;
+        $data['M'] = do_hash($str, 'md5');
+
+        $this->load->view('cep/credit_cancel',$data);
+    }
 
 
     /****************************************************************************
