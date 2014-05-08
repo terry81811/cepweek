@@ -1,30 +1,9 @@
 <body>
     <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
     <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
-    <!-- Modal -->
-    <div class="modal fade" id="credit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">【金流緊急通知】</h4>
-                </div>
-                <div class="modal-body">
-                        <p>親愛的朋友您好：<br><br>　　很抱歉，信用卡付費的方式由於在技術上還需要和玉山銀行做最後的安全測試，在時程上必須再延誤幾天的時間，會在最快的時間內完成測試並開放服務。</p>
-
-                        <p>　　本週收單已經截止，歡迎您繼續使用<span class="focus">WebATM</span>和<span class="focus">匯款</span>的方式<a href="<?php echo base_url(); ?>order">訂購</a>，我們將在下週出貨。</p>
-
-                        <p>　　我們會繼續提供大家更便利的服務，並為哈凱部落重建家園的目標持續努力著，非常謝謝大家的支持：）</p>
-
-                        <p>彩虹故鄉的願望　團隊　敬上</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">了解</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- modal -->
+    
+    <!-- end of modal -->
     <div class="container">
         <div class="main-container">
             <header class="header">
@@ -212,9 +191,8 @@
                                     <a href="" role="button" class="payment-btn open" id="payment-webatm-btn">WebATM</a>
                                     <span>* 需自備讀卡機</span>
                                 </div>
-                                <div class="col-xs-6 col-md-4 closed">
-                                    <a href="" role="button" class="payment-btn" id="payment-credit_card-btn" disable>線上刷卡</a>
-                                    <span class="focus">* 最後測試階段，近期開放。</span>
+                                <div class="col-xs-6 col-md-4">
+                                    <a href="" role="button" class="payment-btn open" id="payment-credit_card-btn">線上刷卡</a>
                                 </div>
                                 <div class="col-xs-6 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-remittance">匯款</a>
@@ -299,7 +277,9 @@
                         </h3>
                     </div>
                     <div class="col-md-3">
-                        <!-- h3 a.aws img-->
+                        <h3>贊助：
+                            <a class="aws" href="http://aws.amazon.com/" target="_blank"><img src="<?php echo base_url(); ?>/assets/img/Footer_aws.png" alt="Amazon Web Services"></a>
+                        </h3>
                     </div>
                 </div>
             </div>
