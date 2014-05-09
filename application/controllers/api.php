@@ -489,7 +489,7 @@ public function webATM_return()
             <p style="color:red;">請勿使用無卡存款，以免對帳失敗</p>
             
             <p>存戶帳號：0277-940-015066 </p>
-            <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
+            <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.'</p>
             <br><h3>台大創創學程感謝您</h3></div>';
 
             $this->email->message($email_message); 
@@ -643,8 +643,51 @@ public function webATM_return()
             $result_rec = $this->receive_model->update(array(
                 'rec_pay_success' => 1
                 ), array('rec_order_id' => $_value));
+
+            //send confirm_pay email;
+            $this->send_confirm_remmitance_email($_value);
         }
         redirect('/db_cep');
+    }
+
+    //確認匯款後自動寄信
+    private function send_confirm_remmitance_email($order_id)
+    {
+        $this->load->library('email');
+
+            //取得order資料
+            $order = $this->order_model->get($order_id);
+
+            //取得order的receive資料
+            $rec = $this->receive_model->get(array('rec_order_id' => $order_id));
+
+            //calculating shipping date
+            $date = $this->count_date();
+
+            $email_subject = '【匯款成功】感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）';
+            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+            $this->email->to($order[0]['order_email']); 
+            $this->email->subject($email_subject);
+
+            $email_message = '<div><h1">感謝您的訂購與支持，我們已收到您的匯款</h1>
+            <p>您的訂單編號：'.($order_id + 98080000).'</p>
+            <p>訂購數量：'.$order[0]['order_num'].' 價錢：'.$order[0]['order_cost'].' 預計出貨日：'.$date.'</p><br>
+            <p>蛋糕將會寄送到下列地址：</p>';
+            
+            foreach ($rec as $_key => $_value) {
+                $email_message = $email_message."<p>".$_value['rec_address']."</p>";
+                # code...
+            }
+
+            '<br><h3>台大創創學程感謝您</h3></div>';
+
+            $this->email->message($email_message); 
+/*
+            echo $email_subject."<BR>";
+            echo $order[0]['order_email']."<BR>";
+            echo $email_message."<BR>";
+*/
+            $this->email->send();        
     }
 
 
