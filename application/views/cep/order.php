@@ -148,7 +148,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pay_address">地址：</label>
-                                                    <input class="form-control pay_address" type="text" name="pay_address" placeholder="" id="pay_address">
+                                                    <input class="form-control pay_address" type="text" name="pay_address" placeholder="ex.台北市xx區xx路" id="pay_address">
                                                 </div>
                                             </div>
                                             <div class="row mg10">
