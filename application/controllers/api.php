@@ -671,15 +671,15 @@ public function webATM_return()
 
             $email_message = '<div><h1">感謝您的訂購與支持，我們已收到您的匯款</h1>
             <p>您的訂單編號：'.($order_id + 98080000).'</p>
-            <p>訂購數量：'.$order[0]['order_num'].' 價錢：'.$order[0]['order_cost'].' 預計出貨日：'.$date.'</p><br>
+            <p>訂購數量：'.$order[0]['order_num'].' 價錢：'.$order[0]['order_cost'].'</p>
             <p>蛋糕將會寄送到下列地址：</p>';
             
             foreach ($rec as $_key => $_value) {
-                $email_message = $email_message."<p>".$_value['rec_address']."</p>";
+                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."</p>";
                 # code...
             }
 
-            '<br><h3>台大創創學程感謝您</h3></div>';
+            $email_message = $email_message.'<h3>感謝您的訂購<br>台大創創學程 敬上</h3></div>';
 
             $this->email->message($email_message); 
 /*
