@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rec_address1">地址：</label>
-                                    <input class="form-control address" type="text" name="rec_address[]" placeholder="" id="rec_address1" required>
+                                    <input class="form-control address" type="text" name="rec_address[]" placeholder="ex.台北市xx區xx路x號" id="rec_address1" required>
                                 </div>
                             </div>
                             <div class="row mg10 count">
