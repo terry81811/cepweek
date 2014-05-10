@@ -15,3 +15,6 @@ application/config/email.php
 application/models/WebATM_php/*
 
 logs/*
+
+config.codekit
+assets/sass/.sass-cache
