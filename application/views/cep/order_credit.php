@@ -10,11 +10,8 @@
                     <h4 class="modal-title" id="myModalLabel">【金流緊急通知】</h4>
                 </div>
                 <div class="modal-body">
-                        <p>親愛的朋友您好：<br><br>　　很抱歉，信用卡付費的方式由於在技術上還需要和玉山銀行做最後的安全測試，在時程上必須再延誤幾天的時間，會在最快的時間內完成測試並開放服務。</p>
-
-                        <p>　　本週收單已經截止，歡迎您繼續使用<span class="focus">WebATM</span>和<span class="focus">匯款</span>的方式<a href="<?php echo base_url(); ?>order">訂購</a>，我們將在下週出貨。</p>
-
-                        <p>　　我們會繼續提供大家更便利的服務，並為哈凱部落重建家園的目標持續努力著，非常謝謝大家的支持：）</p>
+                        <p>親愛的朋友您好：<br><br>　　
+                        線上刷卡的機制已經可以囉！
 
                         <p>彩虹故鄉的願望　團隊　敬上</p>
                 </div>
