@@ -43,7 +43,8 @@
 				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
-				echo "<td width='10%'>".$order['order_err_desc']."</td>";
+				echo "<td width='10%'><a href='/api/webATM_check/".$order['order_id']."'>".$order['order_err_desc'].' | 查看'."</a></td>";
+
 ?>
 	  		</tr>
 	  	</table>
