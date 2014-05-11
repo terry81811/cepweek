@@ -14,6 +14,23 @@ class Api extends CI_Controller
 
     }
 
+/****************************************************************************
+CONSTANTS
+*****************************************************************************/
+
+    private function count_date()
+    {
+        $date = '2014/5/16（五）- 2014/5/18（日）';
+        return $date;
+    }
+
+
+    private function tran_date()
+    {
+        $date = '5/12（一）24:00';
+        return $date;
+    }
+
 
 /****************************************************************************
 APIs for DB CRUD
@@ -27,7 +44,6 @@ APIs for DB CRUD
 
 		$post_data = $this->input->post(NULL, TRUE);
         
-
         /*
         insert payment information in DB// ORDER_TABLE
         */
@@ -96,11 +112,11 @@ APIs for DB CRUD
             ));
             
             if ($order_id) {
-
+/*
                 $result = $this->order_model->update(array(
                     'order_cancel_hash' => hash('sha256', $order_id . SALT),
                 ), $order_id);
-
+*/
                 /*
                 insert payment information in DB// RECEIVER_TABLE
                 */
@@ -167,7 +183,7 @@ APIs for Payment
 // webATM
 // --------
 
-public function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num = NULL, $pay_email = NULL)
+private function webATM_submit($order_id = NULL, $total_cost = NULL, $total_num = NULL, $pay_email = NULL)
 {
 
     //請代入hashkey 資料
@@ -295,6 +311,7 @@ public function webATM_return()
         }
     
     }else{
+        //hash 值失敗，可能是偽裝？
         redirect('/');
     }
 }
@@ -317,7 +334,7 @@ public function webATM_return()
 // credit
 // --------
     
-    public function credit_submit($order_id = NULL, $total_cost = NULL)
+    private function credit_submit($order_id = NULL, $total_cost = NULL)
     {
         $this->load->helper('security');
         $key= "SDUQVJ6G5NUNC3G1WNAIESAHJUHLMHLL";
@@ -450,6 +467,8 @@ public function webATM_return()
     {
 
         $this->load->library('email');
+            //取得order的receive資料
+            $rec = $this->receive_model->get(array('rec_order_id' => $order_id));
      
             $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）！'; 
             $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
@@ -461,8 +480,14 @@ public function webATM_return()
 
             $email_message = '<div><h1">感謝您的訂購</h1>
             <p>您的訂單編號：'.($order_id + 98080000).'</p>
-            <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.' 預計出貨日：'.$date.'</p>
-            <br><h3>台大創創學程感謝您</h3></div>';
+            <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.'</p>
+            <p>蛋糕將會寄送到下列地址：</p>';
+            
+            foreach ($rec as $_key => $_value) {
+                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."<br>數量：".$_value['rec_num']."</p>";
+            }
+
+            $email_message = $email_message.'<br><h3>台大創創學程感謝您</h3></div>';
 
             $this->email->message($email_message); 
 
@@ -472,8 +497,11 @@ public function webATM_return()
     private function tran_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL)
     {
         $this->load->library('email');
+            //取得order的receive資料
+            $rec = $this->receive_model->get(array('rec_order_id' => $order_id));
      
-            $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）請於三日內匯款';
+            $tran_date = $this->tran_date();
+            $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）請於'.$tran_date.'前匯款';
             $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
             $this->email->to($email_to); 
             $this->email->subject($email_subject);
@@ -485,11 +513,19 @@ public function webATM_return()
             <p>您的訂單編號：'.($order_id + 98080000).'</p>
             <p>銀行代號：808 玉山銀行八德分行</p>
             <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
+            <p>存戶帳號：0277-940-015066 </p>
             <p style="color:red;">提醒您，若為臨櫃存款，請記得填上存款人姓名</p>
             <p style="color:red;">請勿使用無卡存款，以免對帳失敗</p>
             
-            <p>存戶帳號：0277-940-015066 </p>
             <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.'</p>
+            <p>蛋糕將會寄送到下列地址：</p>';
+            
+            foreach ($rec as $_key => $_value) {
+                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."<br>數量：".$_value['rec_num']."</p>";
+            }
+
+            $email_message = $email_message.
+            '<p>提醒您，請於'.$tran_date.'前匯款，以利蛋糕製作<br>若於該時間後匯款，蛋糕將遞延於下一週的指定時間出貨</p>
             <br><h3>台大創創學程感謝您</h3></div>';
 
             $this->email->message($email_message); 
@@ -497,24 +533,16 @@ public function webATM_return()
             $this->email->send();
     }
 
-/*
-    public function email_test()
+
+    public function email_test($order_id)
     {
-        $this->confirm_email(1,1,1,'terrytsai0811@gmail.com');
+        $this->confirm_email($order_id,1,1,'terrytsai0811@gmail.com');
     }
 
-    public function tran_email_test()
+    public function tran_email_test($order_id)
     {
-        $this->tran_email(1,1,1,'terrytsai0811@gmail.com');
+        $this->tran_email($order_id,1,1,'terrytsai0811@gmail.com');
     }
-*/
-    private function count_date()
-    {
-        $date = '2014/5/16（五）- 2014/5/18（日）';
-        return $date;
-    }
-
-
 
 
 
@@ -574,6 +602,64 @@ public function webATM_return()
 
         return $err_desc;
     }
+
+    /****************************************************************************
+    APIs for 虛擬帳戶
+    *****************************************************************************/
+
+    public function virtual_account($order_id,$order_cost)
+    {
+        //訂單金額
+        $order_cost_array = str_split($order_cost);
+
+        //訂單編號，四碼
+        $order_id_string = str_pad($order_id, 4, '0', STR_PAD_LEFT);
+        $order_id_array = str_split($order_id_string);
+
+        //商家代碼，五碼
+        $storeNo = '12345';
+        $storeNo_array = str_split($storeNo);
+
+        //繳款截止日，四碼
+        $date = $this->_virtual_account_date();
+        $date_array = str_split($date);
+
+        //檢查碼，一碼
+        $checkNo = 0;
+        
+        $checkNo += $storeNo_array[0]*4;
+        $checkNo += $storeNo_array[1]*3;
+        $checkNo += $storeNo_array[2]*2;
+        $checkNo += $storeNo_array[3]*1;
+        $checkNo += $storeNo_array[4]*9;
+        $checkNo += $date_array[0]*8;
+        $checkNo += $date_array[1]*7;
+        $checkNo += $date_array[2]*6;
+        $checkNo += $date_array[3]*5;
+        $checkNo += $order_id_array[0]*4;
+        $checkNo += $order_id_array[1]*3;
+        $checkNo += $order_id_array[2]*2;
+        $checkNo += $order_id_array[3]*1;
+
+        //減查碼，金額檢查
+        $checkNo_Amt = 0;
+        for($i = 0; $i < sizeof($order_cost_array); $i++)
+        {
+            $checkNo_Amt += $order_cost_array[$i] * (sizeof($order_cost_array) - $i);
+        }
+        echo $checkNo_Amt."<br>";
+        echo $checkNo;
+
+        $checkNo = str_split($checkNo + $checkNo_Amt);
+        $checkNo = $checkNo[sizeof($checkNo)];
+
+//        $virtual_account_num = $storeNo.$date.$order_id.
+    }
+
+    private function _virtual_account_date()
+    {
+        return date('md', strtotime("+3 day", strtotime(date("Y-m-d H:i:s"))));
+    }   
 
     /****************************************************************************
     APIs for internal user
@@ -675,18 +761,14 @@ public function webATM_return()
             <p>蛋糕將會寄送到下列地址：</p>';
             
             foreach ($rec as $_key => $_value) {
-                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."</p>";
+                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."<br>數量：".$_value['rec_num']."</p>";
                 # code...
             }
+            $email_message = $email_message."<p>提醒您，若匯款時間已超過".$this->tran_date()."則蛋糕會於再下一週的指定時間送達，敬請見諒</p>";
 
             $email_message = $email_message.'<h3>感謝您的訂購<br>台大創創學程 敬上</h3></div>';
 
             $this->email->message($email_message); 
-/*
-            echo $email_subject."<BR>";
-            echo $order[0]['order_email']."<BR>";
-            echo $email_message."<BR>";
-*/
             $this->email->send();        
     }
 
