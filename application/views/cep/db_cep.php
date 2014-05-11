@@ -1,6 +1,6 @@
 <body style="background-color:white;">
 	<div class="well">
-		<p style="text-align:right"><a href="/api/cep_logout">登出</a></p>
+		<p style="text-align:right"><a href="/db_cep_fail">錯誤訂單</a>｜<a href="/api/cep_logout">登出</a></p>
 		<h1>創創後台，請勿將網址給團隊外部人士</h1>
 
 	</div>
