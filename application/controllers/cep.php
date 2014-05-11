@@ -226,13 +226,6 @@ APIs for internal user
         }
 
         $webatm_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'webatm'));
-        foreach ($webatm_order_not_success_array as $_key => $_value) {
-            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $webatm_order_not_success_array[$_key]['rec_num'] = sizeof($rec);
-
-            $webatm_order_not_success_array[$_key]['rec'] = $rec;
-
-        }
 
 
 
@@ -257,14 +250,50 @@ APIs for internal user
         $data['credit_order_success_array'] = $credit_order_success_array;
         $data['credit_order_not_success_array'] = $credit_order_not_success_array;
 
-
         $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/db_cep', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/deliveryjs');
         $this->load->view('cep/partial/closehtml');        
     }
-    
+
+
+    public function db_cep_fail()
+    {
+        $this->_require_login();
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+
+        //wevATM失敗資料
+        $webatm_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'webatm'));
+        foreach ($webatm_order_not_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $webatm_order_not_success_array[$_key]['rec'] = $rec;
+
+        }
+
+        //credit card失敗資料
+        $credit_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'credit_card'));
+        foreach ($credit_order_not_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $credit_order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $credit_order_not_success_array[$_key]['rec'] = $rec;
+
+        }    
+
+        $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
+        $data['credit_order_not_success_array'] = $credit_order_not_success_array;
+
+        $this->load->view('cep/partial/order_head', $data);
+        $this->load->view('cep/db_cep_fail', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/deliveryjs');
+        $this->load->view('cep/partial/closehtml');   
+
+    }
+
     public function db_cep_edit($order_id)
     {
 

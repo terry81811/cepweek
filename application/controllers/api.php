@@ -408,6 +408,10 @@ public function webATM_return()
                 $this->load->view('cep/partial/closehtml');
             }
             else{
+                $order_id = $ONO - 98080000;
+                $result = $this->order_model->update(array(
+                    'order_err_desc' => 'hash值錯誤'
+                    ), $order_id);
 
                 $data['atmErrNo'] = '000';
                 $data['atmErrDesc'] = 'hash值錯誤，如重複發生，請聯絡創創信箱';
@@ -427,7 +431,13 @@ public function webATM_return()
             $RC_code = $get_data['RC'];
             $err_desc = $this->credit_err_desc($RC_code);
 
-            $this->receive_model->delete(array('rec_order_id' => ($ONO - 98080000)));
+            $order_id = $ONO - 98080000;
+            $result = $this->order_model->update(array(
+                'order_err_desc' => $err_desc
+                ), $order_id);
+
+
+//            $this->receive_model->delete(array('rec_order_id' => ($ONO - 98080000)));
 
             $data['atmErrNo'] = '000';
             $data['atmErrDesc'] = $err_desc;
@@ -458,6 +468,22 @@ public function webATM_return()
         $this->load->view('cep/credit_cancel',$data);
     }
 
+    public function credit_query($order_id = NULL, $TYP = NULL)
+    {
+        $this->load->helper('security');
+        $key= "SDUQVJ6G5NUNC3G1WNAIESAHJUHLMHLL";
+
+        $data['MID'] = $MID = 8080095672;
+        $data['ONO'] = $ONO = $order_id + 98080000;
+        $data['TYP'] = $TYP;
+        $data['TRANSNUM'] = $TRANSNUM = '';
+        $data['VERSION'] = $VERSION ='01';
+        $str = $MID."&".$ONO."&".$TYP."&".$TRANSNUM."&".$VERSION."&".$key;
+        $data['M'] = do_hash($str, 'md5');
+
+        $this->load->view('cep/credit_query',$data);
+
+    }
 
     /****************************************************************************
     APIs for Email
