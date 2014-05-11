@@ -429,6 +429,7 @@ public function webATM_return()
             //交易失敗
             $ONO = $get_data['ONO'];
             $RC_code = $get_data['RC'];
+            $err_desc = '未知的錯誤';
             $err_desc = $this->credit_err_desc($RC_code);
 
             $order_id = $ONO - 98080000;
