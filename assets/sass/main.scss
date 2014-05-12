@@ -482,14 +482,15 @@ body {
    order
    ===================================== */
 .order-intro-frame {
-    border-top: 10px solid #ee9b29;
-    border-bottom: 10px solid #ee9b29;
+    border-top: 10px solid #fbb060;
+    border-bottom: 10px solid #fbb060;
     padding: 20px 0;
     margin-top: 20px;
     .cake-info {
         padding: 30px 0;
         font-size: 1.7em;
-        color: #d83627;
+        color: #fe762d;
+        background: rgba(255,255,255,0.85);
         li {
             margin-bottom: 5px;
         }
@@ -512,8 +513,8 @@ body {
     .present {
         margin-top: 20px;
         padding: 5px 0;
-        border-top: 3px solid #ee9b29;
-        border-bottom: 3px solid #ee9b29;
+        border-top: 3px solid #fbb060;
+        border-bottom: 3px solid #fbb060;
         background: #fff;
         font-size: 1.7em;
         text-align: center;
@@ -521,8 +522,8 @@ body {
     .notice {
         margin-top: 20px;
         padding: 5px 0;
-        border-top: 3px solid #ee9b29;
-        border-bottom: 3px solid #ee9b29;
+        border-top: 3px solid #fbb060;
+        border-bottom: 3px solid #fbb060;
         background: #fff;
         text-align: center;
         font-size: 1.7em;
@@ -583,7 +584,7 @@ body {
         line-height: 80px;
         font-size: 30px;
         color: #fff;
-        background:  #e9a026;
+        background:  #fbb060;
         text-align: center;
         text-decoration: none;
         @include border-radius(5px);
@@ -591,15 +592,15 @@ body {
     a.open {
         &:hover,
         &.active {
-            color: #e9a026;
+            color: #fbb060;
             background: #fff;
-            @include box-shadow(0 0 10px #e9a026);
+            @include box-shadow(0 0 10px #fbb060);
             @include transform(scale(1.05));
             @include transition(all .1s ease-in); 
         }
         &:active {
-            background: lighten(#e9a026,30);
-            @include box-shadow(0 0 20px #e9a026);
+            background: lighten(#fbb060,30);
+            @include box-shadow(0 0 20px #fbb060);
         }
 
     }
@@ -628,17 +629,17 @@ body {
     .confirm-info {
         font-size: 1.2em;
         text-align: center;
-        border: 3px solid #e9a026;
+        border: 3px solid #fbb060;
         padding: 20px;
         p {
             margin: 5px 0;
         }
     }
     .shipping-fee {
-        color: #e9a026;
+        color: #fbb060;
     }
     span {
-        color: #e9a026;
+        color: #fbb060;
     }
     .confirm-total-num {
         font-size: 1.5em;
@@ -662,7 +663,7 @@ body {
 }
 .remittance-info {
     text-align: left;
-    border: 3px solid #e9a026;
+    border: 3px solid #fbb060;
     padding: 10px 20px;
     margin-bottom: 10px;
     font-weight: 900;
@@ -862,6 +863,13 @@ footer {
     }
     .cake-intro-list {
         margin-top: 70px;
+    }
+    .order-intro-frame .cake-info {
+        padding: 30px 0 60px;
+    }
+    .order-intro-frame .sale-price {
+        top: 10px;
+        right: 20px;
     }
     .remittance {
         .order_acc_name {

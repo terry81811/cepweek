@@ -39,6 +39,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="notice">
                                 <ul class="list-unstyled">
+                                    <li>即刻預購的蛋糕會統一在<span class="focus">5/23（五）</span>開始出貨<br></li>
                                     <li>請於到貨後<span class="focus">4日</span>內食用，並以<span class="focus">低溫冷藏</span>方式保存</li>
                                 </ul>
                         </div>
@@ -69,14 +70,14 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="5/16(五)白天">5/16(五)白天</option>
-                                        <option value="5/16(五)晚上">5/16(五)晚上</option>
-                                        <option value="5/17(六)白天">5/17(六)白天</option>
-                                        <option value="5/17(六)晚上">5/17(六)晚上</option>
-                                        <option value="5/18(日)白天">5/18(日)白天</option>
-                                        <option value="5/18(日)晚上">5/18(日)晚上</option>
-                                        <option value="5/19(一)白天">5/19(一)白天</option>
-                                        <option value="5/19(一)晚上">5/19(一)晚上</option>
+                                        <option value="5/23(五)白天">5/23(五)白天</option>
+                                        <option value="5/23(五)晚上">5/23(五)晚上</option>
+                                        <option value="5/24(六)白天">5/24(六)白天</option>
+                                        <option value="5/24(六)晚上">5/24(六)晚上</option>
+                                        <option value="5/25(日)白天">5/25(日)白天</option>
+                                        <option value="5/25(日)晚上">5/25(日)晚上</option>
+                                        <option value="5/26(一)白天">5/26(一)白天</option>
+                                        <option value="5/26(一)晚上">5/26(一)晚上</option>
                                     </select>
                                 </div>
                             </div>

@@ -20,14 +20,14 @@ CONSTANTS
 
     private function count_date()
     {
-        $date = '2014/5/16（五）- 2014/5/18（日）';
+        $date = '2014/5/23（五）- 2014/5/26（一）';
         return $date;
     }
 
 
     private function tran_date()
     {
-        $date = '5/12（一）24:00';
+        $date = '5/19（一）24:00';
         return $date;
     }
 
