@@ -99,7 +99,6 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
     background: rgba(255,255,255,0.9);
-    background: red;
     @include clearfix;
     a {
         padding: none;
@@ -526,7 +525,7 @@ body {
         border-bottom: 3px solid #ee9b29;
         background: #fff;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.7em;
         ul {
             margin: 0;
         }
@@ -684,6 +683,32 @@ body {
     text-align: center;
     font-size: 1.4em;
 }
+.order-success-frame {
+    background: #e8eef4;
+    background: #f6f5ef;
+    border: 1px solid #7c8081;
+    padding: 15px;
+    text-align: center;
+    p {
+        font-size: 1.4em;
+    }
+}
+
+/* =====================================
+   order_virtual_account
+   ===================================== */
+.virtual-account {
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    color: #ed4e46;
+    font-size: 1.5em;
+}
+.virtual-account-focus {
+    font-weight: bold;
+    color: #ed4e46;
+}
+
+
 
 /* =====================================
    photos
@@ -799,7 +824,7 @@ footer {
         }
     }
     .order-form .address {
-        width: 472px;
+        width: 489px;
     }
     .order-form .add_num,
     .order-form .num {
@@ -925,6 +950,9 @@ footer {
     .payment .payment-btn {
         font-size: 1.4em;
         width: 100%;
+    }
+    .payment .col-xs-12 {
+        margin-bottom: 20px;
     }
     .cake-info .sale-price:before {
         display: none;

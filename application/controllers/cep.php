@@ -91,6 +91,22 @@ class Cep extends CI_Controller {
         $this->load->view('cep/order_failjs');
         $this->load->view('cep/partial/closehtml');
     }
+    public function order_virtual_account_success()
+    {
+        // $data['TransNo'] = 02398410928734;
+        $data['TransAmt'] = 2;
+        $data['email_to'] = "s92f002@hotmail.com";
+        $data['title'] = "交易成功";
+        $data['Virtual_account'] = "8332940-3829010";
+        $data['date_before_pay'] = "5/12（一）24:00前";
+
+        $this->load->view('cep/partial/order_success_head', $data);
+        $this->load->view('cep/order_virtual_account_success', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/order_virtual_successjs');
+        $this->load->view('cep/partial/closehtml');
+
+    }
     public function test_form()
     {
         $this->load->view('cep/test_form');

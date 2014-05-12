@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="present">
-                            每盒蛋糕均附贈部落歌曲原聲帶 ＋ 部落藝術家手繪明信片套組
+                            每盒蛋糕均附贈<span class="focus">部落歌曲原聲帶</span> ＋ 部落藝術家<span class="focus">手繪明信片套組</span>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,6 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="notice">
                                 <ul class="list-unstyled">
-                                    <li>預購的蛋糕會統一在<span class="focus">5/9（五）</span>開始出貨<br></li>
                                     <li>請於到貨後<span class="focus">4日</span>內食用，並以<span class="focus">低溫冷藏</span>方式保存</li>
                                 </ul>
                         </div>
@@ -187,14 +186,14 @@
                         <div class="payment mg10">
                             <h3>【付款方式】</h3>
                             <div class="row">
-                                <div class="col-xs-6 col-md-4">
+                                <div class="col-xs-12 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-webatm-btn">WebATM</a>
                                     <span>* 需自備讀卡機</span>
                                 </div>
-                                <div class="col-xs-6 col-md-4">
+                                <div class="col-xs-12 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-credit_card-btn">線上刷卡</a>
                                 </div>
-                                <div class="col-xs-6 col-md-4">
+                                <div class="col-xs-12 col-md-4">
                                     <a href="" role="button" class="payment-btn open" id="payment-remittance">匯款</a>
                                 </div>
 
