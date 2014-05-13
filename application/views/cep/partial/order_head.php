@@ -52,7 +52,7 @@
         </script>
         <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6016500146111&amp;value=0.01&amp;currency=USD" /></noscript>
         <style>
-        a[data-toggle="collepse"] {
+        a[data-toggle="collapse"] {
             width: 100%;
             display: block;
         }
