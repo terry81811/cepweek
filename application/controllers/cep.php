@@ -104,6 +104,7 @@ class Cep extends CI_Controller {
         $this->load->view('cep/order_virtual_account_success', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/order_virtual_successjs');
+        $this->load->view('cep/order_successjs');
         $this->load->view('cep/partial/closehtml');
 
     }

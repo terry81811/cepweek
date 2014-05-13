@@ -2,6 +2,8 @@
     var addClassToWall = 0;
     $(function() {
         $(".main-nav .progresss").addClass("target");
+    });
+    $(window).load(function() {
         setTimeout(function() {
             $(".call-to-action").addClass("animated swing");
         }, 3000);

@@ -1115,3 +1115,15 @@
 2014-05-13 11:32:45 overwrite css/main.css 
 2014-05-13 11:33:03 overwrite css/main.css 
 2014-05-13 11:33:07 identical css/main.css 
+2014-05-13 15:52:23 overwrite css/main.css 
+2014-05-13 15:52:32 overwrite css/main.css 
+2014-05-13 16:08:15 identical css/main.css 
+2014-05-13 16:14:25 identical css/main.css 
+2014-05-13 16:14:39 identical css/main.css 
+2014-05-13 16:19:17     error sass/main.scss (Line 604: Invalid CSS after "...  stanlui-11646": expected "{", was "@email.esunbank...")
+2014-05-13 16:19:17 overwrite css/main.css 
+2014-05-13 16:19:24 overwrite css/main.css 
+2014-05-13 16:22:05 identical css/main.css 
+2014-05-13 16:28:52 overwrite css/main.css 
+2014-05-13 16:30:05 overwrite css/main.css 
+2014-05-13 16:30:18 overwrite css/main.css 

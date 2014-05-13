@@ -277,9 +277,7 @@
                         </h3>
                     </div>
                     <div class="col-md-3">
-                        <h3>贊助：
-                            <a class="aws" href="http://aws.amazon.com/" target="_blank"><img src="<?php echo base_url(); ?>/assets/img/Footer_aws.png" alt="Amazon Web Services"></a>
-                        </h3>
+                        
                     </div>
                 </div>
             </div>
