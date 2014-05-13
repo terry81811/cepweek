@@ -2,6 +2,9 @@
     var addClassToWall = 0;
     $(function() {
         $(".main-nav .progresss").addClass("target");
+        setTimeout(function() {
+            $(".call-to-action").addClass("animated swing");
+        }, 3000);
     });
     
     $(window).scroll(function() {

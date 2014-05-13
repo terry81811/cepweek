@@ -461,6 +461,9 @@
                                             <div class="percent"><?php echo $complete_percent; ?>%</div>
                                         </div>
                                     </div>
+                                    <div class="cake-count">
+                                        已賣出了<span><?php echo $count; ?></span>個蛋糕
+                                    </div>
                                 </div>
                             </div>
                             <a href="<?php echo base_url(); ?>order" role="button" class="order-btn">我要訂購</a>

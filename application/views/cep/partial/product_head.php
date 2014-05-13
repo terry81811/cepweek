@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/odometer-theme-train-station.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/colorbox/colorbox.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/bootstrapValidator.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lib/animate.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

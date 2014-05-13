@@ -517,6 +517,17 @@ body {
     .fund-raising .chart .percent {
       font-family: 'Rammetto One', cursive;
       font-size: 40px; }
+  .fund-raising .cake-count {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.4em; }
+    .fund-raising .cake-count span {
+      font-family: 'Rammetto One', cursive;
+      font-size: 40px;
+      color: #42b3e2;
+      color: #82b838;
+      text-shadow: 1px 3px #333;
+      margin: 0 5px 0 5px; }
 
 .order-btn {
   display: block;

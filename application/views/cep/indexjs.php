@@ -7,5 +7,8 @@
             });
             $(function() {
                 $(".youtube").colorbox({iframe:true, innerWidth:853, innerHeight:480});
+                setTimeout(function() {
+                    $(".call-to-action").addClass("animated wobble");
+                }, 4000);
             })
         </script>
