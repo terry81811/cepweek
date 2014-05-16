@@ -264,6 +264,7 @@ body {
   position: fixed;
   top: 50px;
   right: 50px;
+  z-index: 10;
   width: 120px;
   height: 120px; }
   .call-to-action a {
