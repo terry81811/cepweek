@@ -4,8 +4,8 @@ class Cep extends CI_Controller {
 
 
     // ------------------------------------------------------------------------
-    
-    public function __construct() 
+
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('order_model');
@@ -15,7 +15,7 @@ class Cep extends CI_Controller {
 
     // ------------------------------------------------------------------------
 
-    private function count_income() 
+    private function count_income()
     {
         $order = $this->order_model->get(array('order_success' => '1'));
 
@@ -26,7 +26,7 @@ class Cep extends CI_Controller {
         return $count;
     }
 
-    private function count_order() 
+    private function count_order()
     {
         $order = $this->order_model->get(array('order_success' => '1'));
 
@@ -104,7 +104,6 @@ class Cep extends CI_Controller {
         $this->load->view('cep/order_virtual_account_success', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/order_virtual_successjs');
-        $this->load->view('cep/order_successjs');
         $this->load->view('cep/partial/closehtml');
 
     }
@@ -117,10 +116,10 @@ class Cep extends CI_Controller {
     {
         $this->load->view('cep/test_email');
     }
-    public function order() 
+    public function order()
     {
         $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
-        
+
         // $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/order');
@@ -158,10 +157,10 @@ class Cep extends CI_Controller {
     }
 
 
-    public function order_credit() 
+    public function order_credit()
     {
         $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
-        
+
         // $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/order_credit');
@@ -193,7 +192,7 @@ APIs for internal user
             $this->load->view('cep/partial/head', $data);
             $this->load->view('cep/cep_login', $data);
             $this->load->view('cep/partial/repeatjs');
-            $this->load->view('cep/partial/closehtml');   
+            $this->load->view('cep/partial/closehtml');
         }
     }
 
@@ -271,7 +270,7 @@ APIs for internal user
         $this->load->view('cep/db_cep', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/deliveryjs');
-        $this->load->view('cep/partial/closehtml');        
+        $this->load->view('cep/partial/closehtml');
     }
 
 
@@ -298,7 +297,7 @@ APIs for internal user
 
             $credit_order_not_success_array[$_key]['rec'] = $rec;
 
-        }    
+        }
 
         $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
         $data['credit_order_not_success_array'] = $credit_order_not_success_array;
@@ -307,7 +306,7 @@ APIs for internal user
         $this->load->view('cep/db_cep_fail', $data);
         $this->load->view('cep/partial/repeatjs');
         $this->load->view('cep/deliveryjs');
-        $this->load->view('cep/partial/closehtml');   
+        $this->load->view('cep/partial/closehtml');
 
     }
 
@@ -318,7 +317,7 @@ APIs for internal user
 
     public function date()
     {
-        echo date('Y/m/d H:i:s');   
+        echo date('Y/m/d H:i:s');
     }
 
 }
