@@ -4,7 +4,7 @@
    ===================================== */
 @import 'h5bp';
 @import 'compass';
-@import 'mixin'; 
+@import 'mixin';
 
 $transifion-effect: all .15s ease-in-out;
 
@@ -82,9 +82,9 @@ body {
    ===================================== */
 .header {
     min-height: 100px;
-    @include clearfix; 
+    @include clearfix;
     .logo {
-        display: block; 
+        display: block;
         @include size(image-width('../img/logo.png'), image-height('../img/logo.png'));
 
     }
@@ -95,7 +95,7 @@ body {
    ===================================== */
 .main-nav {
     height: 50px;
-    border-top: 1px solid #bbb; 
+    border-top: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -104,7 +104,7 @@ body {
     a {
         padding: none;
         text-align: center;
-        @include hide-text; 
+        @include hide-text;
     }
     ul {
         height: 50px;
@@ -224,12 +224,12 @@ body {
 .fund-raising {
     background: #fff;
     padding: 20px;
-    .content-bg { 
+    .content-bg {
         background: #e9e3e2;
         position: relative;
         @include size(100%);
     }
-    .describe { 
+    .describe {
         background: url('../img/progress_text.png') center top no-repeat;
         background-size: contain;
         @include size(100%, image-height('../img/progress_text.png'));
@@ -238,7 +238,7 @@ body {
     .content {
         padding: 5px;
         margin-top: 20px;
-        margin-bottom: 20px;  
+        margin-bottom: 20px;
         outline: 1px solid #a8a8a8;
         min-height: 300px;
         @include clearfix;
@@ -257,8 +257,8 @@ body {
     .money {
         position: relative;
         top: -2px;
-        left: 5px;  
-        margin-right: 5px; 
+        left: 5px;
+        margin-right: 5px;
     }
     .chart {
         position: relative;
@@ -312,7 +312,7 @@ body {
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
 }
- 
+
 .wall-cube,
 .wall-black,
 .wall-colorful {
@@ -332,11 +332,11 @@ body {
 }
 
 .wall-cube.active {
-    .wall-black { 
-        @include transform(rotateY(180deg)); 
+    .wall-black {
+        @include transform(rotateY(180deg));
     }
-    .wall-colorful { 
-        @include transform(rotateY(0deg)); 
+    .wall-colorful {
+        @include transform(rotateY(0deg));
         z-index: 2;
     }
 }
@@ -350,9 +350,9 @@ body {
     @include transform(rotateY(-180deg));
     background: url('../img/wall.png');
     z-index: 1;
-} 
+}
 @for $i from 1 through 100 {
-    .wall-cube-position:nth-child(#{$i}) { 
+    .wall-cube-position:nth-child(#{$i}) {
         @if $i < 11 {
             .wall-black,
             .wall-colorful {
@@ -611,7 +611,7 @@ body {
             background: #fff;
             @include box-shadow(0 0 10px #fbb060);
             @include transform(scale(1.05));
-            @include transition(all .1s ease-in); 
+            @include transition(all .1s ease-in);
         }
         &:active {
             background: lighten(#fbb060,30);
@@ -620,8 +620,8 @@ body {
 
     }
     .closed {
-        a { 
-            cursor: not-allowed; 
+        a {
+            cursor: not-allowed;
             background: #cdcdcd;
         }
     }
@@ -633,7 +633,7 @@ body {
     display: none;
     // visibility: hidden;
     height: 0;
-    @include transition(all .1s ease-in); 
+    @include transition(all .1s ease-in);
     &.check {
         // visibility: visible;
         display: inherit;
@@ -806,15 +806,15 @@ footer {
         color: #fff;
         text-decoration: underline;
     }
-    
+
 }
 
 
 /* =====================================
    media query
    ===================================== */
-@media (min-width: 992px) { 
-    .main-container { 
+@media (min-width: 992px) {
+    .main-container {
         width: 960px;
         padding-bottom: 30px;
     }
@@ -822,7 +822,7 @@ footer {
         width: 1040px;
         padding: 20px 40px;
     }
-    
+
     .facebook {
         bottom: 100px;
         right: -55px;
@@ -858,10 +858,10 @@ footer {
             width: 160px;
         }
         .pay_name {
-            width: 95px;
+            width: 193px;
         }
         .pay_email {
-            width: 250px;
+            width: 196px;
         }
     }
     .get-receipt-or-not {
@@ -870,7 +870,7 @@ footer {
         }
         .pay_address {
             width: 290px;
-        } 
+        }
         .pay_title,
         .pay_tax_id {
             width: 158px;
@@ -931,13 +931,13 @@ footer {
         background: none;
     }
 }
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     body > .container {
         padding-bottom: 500px;
     }
     .container {
         padding-top: 20px;
-        
+
     }
     .facebook {
         position: fixed;

@@ -127,6 +127,16 @@ class Cep extends CI_Controller {
         $this->load->view('cep/orderjs');
         $this->load->view('cep/partial/closehtml');
     }
+    public function order_test()
+    {
+        $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
+
+        $this->load->view('cep/partial/order_head', $data);
+        $this->load->view('cep/order_test');
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/orderjs_test');
+        $this->load->view('cep/partial/closehtml');
+    }
     public function story()
     {
         $data['title'] = "我們的故事 | 彩虹故鄉的願望";

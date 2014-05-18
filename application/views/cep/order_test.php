@@ -213,48 +213,6 @@
                             </div>
                         </div>
                         <!-- end of payment -->
-                        <div class="remittance mg10 hidden">
-                            <h3>匯款資料</h3>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="remittance-info">
-                                        <p>銀行代號：808 玉山銀行八德分行</p>
-                                        <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
-                                        <p>存戶帳號：0277-940-015066 </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">戶名：</label>
-                                        <input class="form-control order_acc_name" type="text" name="order_acc_name" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">帳戶末五碼：</label>
-                                        <input class="form-control order_last_id" type="text" name="order_last_id" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">銀行代碼：</label>
-                                        <input class="form-control order_bank_id" type="text" name="order_bank_id" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="info">＊三日內匯款成功，系統方計入訂單</div>
-                                    <a href="" id="remittance-btn" class="btn btn-warning">送出</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
