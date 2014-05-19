@@ -238,8 +238,6 @@ APIs for internal user
         $this->_require_login();
         $data['title'] = "彩虹後台 ｜ 創創內部使用";
 
-
-
         $orders = $this->order_model->get();
         $data['total_num'] = $this->count_order();
         $data['total_income'] = $this->count_income();
@@ -255,18 +253,18 @@ APIs for internal user
             $order_success_array[$_key]['rec_num'] = sizeof($rec);
 
             $order_success_array[$_key]['rec'] = $rec;
-
-
         }
+
+        $order_success_array_not_rec = $this->order_model->get(array('order_success' => '1', 'order_type' => 'remittance'));
+        foreach ($order_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $order_success_array[$_key]['rec'] = $rec;
+        }
+
 
         $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
-        foreach ($order_not_success_array as $_key => $_value) {
-            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $order_not_success_array[$_key]['rec_num'] = sizeof($rec);
-
-            $order_not_success_array[$_key]['rec'] = $rec;
-
-        }
 
         //webatm資料
         $webatm_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'webatm'));
@@ -275,7 +273,14 @@ APIs for internal user
             $webatm_order_success_array[$_key]['rec_num'] = sizeof($rec);
 
             $webatm_order_success_array[$_key]['rec'] = $rec;
+        }
 
+        $webatm_order_success_array_not_rec = $this->order_model->get(array('order_success' => '1', 'order_type' => 'webatm'));
+        foreach ($webatm_order_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $webatm_order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $webatm_order_success_array[$_key]['rec'] = $rec;
         }
 
         $webatm_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'webatm'));
@@ -289,8 +294,16 @@ APIs for internal user
             $credit_order_success_array[$_key]['rec_num'] = sizeof($rec);
 
             $credit_order_success_array[$_key]['rec'] = $rec;
-
         }
+
+        $credit_order_success_array_not_rec = $this->order_model->get(array('order_success' => '1', 'order_type' => 'credit_card'));
+        foreach ($credit_order_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $credit_order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $credit_order_success_array[$_key]['rec'] = $rec;
+        }
+
 
         $credit_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'credit_card'));
 
@@ -346,6 +359,63 @@ APIs for internal user
         $this->load->view('cep/partial/closehtml');
 
     }
+
+    public function db_cep_waiting()
+    {
+        $this->_require_login();
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+
+        $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
+        foreach ($order_not_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $order_not_success_array[$_key]['rec'] = $rec;
+
+        }
+
+        $data['order_not_success_array'] = $order_not_success_array;
+
+        $this->load->view('cep/partial/order_head', $data);
+        $this->load->view('cep/db_cep_waiting', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/deliveryjs');
+        $this->load->view('cep/partial/closehtml');
+
+    }
+
+    public function db_cep_ship()
+    {
+        $this->_require_login();
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
+
+        $shipped = array();
+        $not_shipped = array();
+
+        $orders = $this->order_model->get(array('order_success' => '1'));
+            foreach ($orders as $_key => $_value) {
+                $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+                if($rec){
+                    if($rec[0]['rec_on_the_way'] == 1){
+                        $shipped[] = $_value;
+                    }else{
+                        $not_shipped[] = $_value;
+                    }                    
+                }
+            }
+
+
+        $data['shipped'] = $shipped;
+        $data['not_shipped'] = $not_shipped;
+
+        $this->load->view('cep/partial/order_head', $data);
+        $this->load->view('cep/db_cep_ship', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/deliveryjs');
+        $this->load->view('cep/partial/closehtml');
+
+    }
+
 
     public function db_cep_edit($order_id)
     {
