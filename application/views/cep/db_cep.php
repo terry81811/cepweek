@@ -49,16 +49,17 @@
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
 			  			<td width='10%'>訂單編號</td>
-			  			<td width='5%'>付款人</td>
+			  			<td width='8%'>付款人</td>
 			  			<td width='5%'>數量</td>
 			  			<td width='5%'>總價</td>
-			  			<td width='10%'>匯款戶名</td>
+			  			<td width='5%'>匯款戶名</td>
 			  			<td width='5%'>銀行代碼</td>
-			  			<td width='10%'>帳號末五碼</td>
+			  			<td width='5%'>帳號末五碼</td>
 			  			<td width='20%'>付款email（點我寄email）</td>
 			  			<td width='5%'>貨單數量</td>
 			  			<td width='5%'>確認繳費</td>
 			  			<td width='15%'>訂單時間</td>
+			  			<td width='15%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -74,16 +75,17 @@
 			<tr>
 <?php
 				echo "<td width='10%'>訂單編號：".$order['order_id']."</td>";
-				echo "<td width='5%'>".$order['order_name']."</td>";
+				echo "<td width='8%'>".$order['order_name']."</td>";
 				echo "<td width='5%'>".$order['order_num']."</td>";
 				echo "<td width='5%'>".$order['order_cost']."</td>";
-				echo "<td width='10%'>".$order['order_acc_name']."</td>";
+				echo "<td width='5%'>".$order['order_acc_name']."</td>";
 				echo "<td width='5%'>".$order['order_bank_id']."</td>";
-				echo "<td width='10%'>".$order['order_last_id']."</td>";
+				echo "<td width='5%'>".$order['order_last_id']."</td>";
 				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
 				echo "<td width='5%'><input type='checkbox' name='paid[]' value='".$order['order_id']."'></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
+				echo "<td width='15%'>".$order['order_note']."<a href='#'> +</a></td>";
 ?>
 	  		</tr>
 	  	</table>
@@ -107,15 +109,15 @@
 	    			<?php
 						foreach ($order['rec'] as $key => $rec) {
 							echo "<tr>";
-							echo "<td>".$rec['rec_id']."</td>";
-							echo "<td>".$rec['rec_pay_success']."</td>";
-							echo "<td>".$rec['rec_name']."</td>";
-							echo "<td>".$rec['rec_num']."</td>";
-							echo "<td>".$rec['rec_address_code']."</td>";
-							echo "<td>".$rec['rec_address']."</td>";
-							echo "<td>".$rec['rec_phone']."</td>";
-							echo "<td>".$rec['rec_arrive_time']."</td>";
-							echo "<td>".$rec['rec_on_the_way']."</td>";
+							echo "<td width='5%'>".$rec['rec_id']."</td>";
+							echo "<td width='5%'>".$rec['rec_pay_success']."</td>";
+							echo "<td width='5%'>".$rec['rec_name']."</td>";
+							echo "<td width='5%'>".$rec['rec_num']."</td>";
+							echo "<td width='5%'>".$rec['rec_address_code']."</td>";
+							echo "<td width='25%'>".$rec['rec_address']."</td>";
+							echo "<td width='10%'>".$rec['rec_phone']."</td>";
+							echo "<td width='10%'>".$rec['rec_arrive_time']."</td>";
+							echo "<td width='5%'>".$rec['rec_on_the_way']."</td>";
 							echo "</tr>";
 						}
 
@@ -136,17 +138,10 @@
 
 
 
+<div class="well">
+	<a class="btn btn-primary" data-toggle='collapse' data-parent='#accordion' href='.collapse-open'>展開/收合貨單</a>
 
-
-
-
-
-
-
-
-
-
-<div class="well"><h2>已付款匯款訂單 <?php echo sizeof($order_success_array);?> 筆</h2>
+	<h2>已付款匯款訂單 <?php echo sizeof($order_success_array);?> 筆</h2>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
 			  			<td width='10%'>訂單編號</td>
@@ -190,7 +185,7 @@
 	  	</table>
     </div>
 
-    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse">
+    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse collapse-open">
       <div class="panel-body">
 
 	    		<table class="table table-hover">
@@ -291,7 +286,7 @@
 	  	</table>
     </div>
 
-    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse">
+    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse collapse-open">
       <div class="panel-body">
 
 	    		<table class="table table-hover">
@@ -394,7 +389,7 @@
 	  	</table>
     </div>
 
-    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse">
+    <div id="<?php echo "collapse".$order['order_id'] ; ?>" class="panel-collapse collapse collapse-open">
       <div class="panel-body">
 
 	    		<table class="table table-hover">

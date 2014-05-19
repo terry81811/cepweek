@@ -140,13 +140,40 @@ APIs for DB CRUD
 
                 // --------------------------------------------------------------------------
                 //do purchase
+                //webATM
                 if($pay_payment_method == 'webatm'){
                     $this->webATM_submit($order_id,$total_cost,$total_num,$pay_email);
                 }
+
+                //信用卡
                 else if($pay_payment_method == 'credit_card'){
                     $this->credit_submit($order_id,$total_cost);
                 }
+
+                //人工轉帳
                 else if($pay_payment_method == 'remittance'){
+                    $result = $this->order_model->update(array(
+                        'order_acc_name' => $post_data['order_acc_name'],
+                        'order_bank_id' => $post_data['order_bank_id'],
+                        'order_last_id' => $post_data['order_last_id']
+                    ), $order_id);
+
+                    $email_to = $pay_email;
+                    $this->tran_email($order_id, $total_cost, $total_num, $email_to);
+
+                    $data['email_to'] = $pay_email;
+                    $data['TransAmt'] = $total_num;
+                    $data['title'] = "交易成功";
+                    $this->load->view('cep/partial/order_success_head', $data);
+                    $this->load->view('cep/order_success', $data);
+                    $this->load->view('cep/partial/repeatjs');
+                    $this->load->view('cep/order_successjs');
+                    $this->load->view('cep/partial/closehtml');
+                }
+
+                //虛擬帳戶
+                else if($pay_payment_method == 'virtual'){
+
                     $result = $this->order_model->update(array(
                         'order_acc_name' => $post_data['order_acc_name'],
                         'order_bank_id' => $post_data['order_bank_id'],
@@ -571,6 +598,9 @@ public function webATM_return()
         $this->tran_email($order_id,1,1,'terrytsai0811@gmail.com');
     }
 
+    /****************************************************************************
+    CONSTANTS
+    *****************************************************************************/
 
 
     private function credit_err_desc($RC_code)
@@ -640,11 +670,11 @@ public function webATM_return()
         $order_cost_array = str_split($order_cost);
 
         //訂單編號，四碼
-        $order_id_string = str_pad($order_id, 4, '0', STR_PAD_LEFT);
+        $order_id_string = $order_id + 98080000;
         $order_id_array = str_split($order_id_string);
 
         //商家代碼，五碼
-        $storeNo = '12345';
+        $storeNo = '94614';
         $storeNo_array = str_split($storeNo);
 
         //繳款截止日，四碼
@@ -659,14 +689,14 @@ public function webATM_return()
         $checkNo += $storeNo_array[2]*2;
         $checkNo += $storeNo_array[3]*1;
         $checkNo += $storeNo_array[4]*9;
-        $checkNo += $date_array[0]*8;
-        $checkNo += $date_array[1]*7;
-        $checkNo += $date_array[2]*6;
-        $checkNo += $date_array[3]*5;
-        $checkNo += $order_id_array[0]*4;
-        $checkNo += $order_id_array[1]*3;
-        $checkNo += $order_id_array[2]*2;
-        $checkNo += $order_id_array[3]*1;
+        $checkNo += $order_id_array[0]*8;
+        $checkNo += $order_id_array[1]*7;
+        $checkNo += $order_id_array[2]*6;
+        $checkNo += $order_id_array[3]*5;
+        $checkNo += $order_id_array[4]*4;
+        $checkNo += $order_id_array[5]*3;
+        $checkNo += $order_id_array[6]*2;
+        $checkNo += $order_id_array[7]*1;
 
         //減查碼，金額檢查
         $checkNo_Amt = 0;
@@ -675,12 +705,17 @@ public function webATM_return()
             $checkNo_Amt += $order_cost_array[$i] * (sizeof($order_cost_array) - $i);
         }
         echo $checkNo_Amt."<br>";
-        echo $checkNo;
+        echo $checkNo."<BR>";
+        echo $checkNo+$checkNo_Amt."<BR>";
 
         $checkNo = str_split($checkNo + $checkNo_Amt);
-        $checkNo = $checkNo[sizeof($checkNo)];
+        $checkNo = $checkNo[sizeof($checkNo)-1];
+        echo $checkNo."<BR>";
 
-//        $virtual_account_num = $storeNo.$date.$order_id.
+        $virtual_account_num = $storeNo.$order_id_string.$checkNo;
+        echo $virtual_account_num;
+
+        return $virtual_account_num;
     }
 
     private function _virtual_account_date()
