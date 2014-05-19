@@ -68,8 +68,8 @@ $(function() {
         alertify.confirm("確認送出匯款訂單？", function (e) {
             if (e) {
                 // user clicked "ok"
-                $("#order-submit-btn").trigger("click");
                 $("#payment-remittance-radio").trigger("click");
+                $("#order-submit-btn").trigger("click");
             } else {
                 // user clicked "Cancel"
                 alertify.error("訂單尚未送出");

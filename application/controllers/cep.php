@@ -10,7 +10,7 @@ class Cep extends CI_Controller {
         parent::__construct();
         $this->load->model('order_model');
         $this->load->model('receive_model');
-
+        $this->load->model('days_model');
     }
 
     // ------------------------------------------------------------------------
@@ -35,6 +35,28 @@ class Cep extends CI_Controller {
             $count += $_value['order_num'];
         }
         return $count;
+    }
+
+    private function days_count()
+    {
+        $days_count = array();
+        $days_fri = $this->days_model->get(array('days_name' => 'days_fri'));
+        $days_sat = $this->days_model->get(array('days_name' => 'days_sat'));
+        $days_sun = $this->days_model->get(array('days_name' => 'days_sun'));
+        $days_mon = $this->days_model->get(array('days_name' => 'days_mon'));
+
+        $days_count['fri_count'] = $days_fri[0]['days_count'];
+        $days_count['sat_count'] = $days_sat[0]['days_count'];
+        $days_count['sun_count'] = $days_sun[0]['days_count'];
+        $days_count['mon_count'] = $days_mon[0]['days_count'];
+
+        return $days_count;
+    }
+
+    private function tran_date()
+    {
+        $date = '5/26（一）24:00';
+        return $date;
     }
 
     // ------------------------------------------------------------------------
@@ -91,14 +113,17 @@ class Cep extends CI_Controller {
         $this->load->view('cep/order_failjs');
         $this->load->view('cep/partial/closehtml');
     }
-    public function order_virtual_account_success()
+    public function order_virtual_account_success($order_id)
     {
         // $data['TransNo'] = 02398410928734;
-        $data['TransAmt'] = 2;
-        $data['email_to'] = "s92f002@hotmail.com";
+        $order = $this->order_model->get($order_id);
+        $order = $order[0];
+
+        $data['TransAmt'] = $order['order_num'];
+        $data['email_to'] = $order['order_email'];
         $data['title'] = "交易成功";
-        $data['Virtual_account'] = "8332940-3829010";
-        $data['date_before_pay'] = "5/12（一）24:00前";
+        $data['Virtual_account'] =  $order['order_acc_name'];
+        $data['date_before_pay'] = $this->tran_date();
 
         $this->load->view('cep/partial/order_success_head', $data);
         $this->load->view('cep/order_virtual_account_success', $data);
@@ -118,6 +143,7 @@ class Cep extends CI_Controller {
     }
     public function order()
     {
+        $data['days_count'] = $this->days_count();
         $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
 
         // $this->load->view('cep/partial/head', $data);
@@ -129,6 +155,7 @@ class Cep extends CI_Controller {
     }
     public function order_test()
     {
+        $data['days_count'] = $this->days_count();
         $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
 
         $this->load->view('cep/partial/order_head', $data);

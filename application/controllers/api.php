@@ -10,6 +10,7 @@ class Api extends CI_Controller
         parent::__construct();
         $this->load->model('order_model');
         $this->load->model('receive_model');
+        $this->load->model('days_model');
         $this->load->library('curl');
 
     }
@@ -31,6 +32,32 @@ CONSTANTS
         return $date;
     }
 
+    private function days_count($day,$order_count)
+    {
+        if($day == '不指定'){
+            return 0;
+        }
+        else{
+            $days_count_match = array('5/23(五)白天' => 'days_fri',
+                                '5/23(五)晚上' => 'days_fri',
+                                '5/24(六)白天' => 'days_sat',
+                                '5/24(六)晚上' => 'days_sat',
+                                '5/25(日)白天' => 'days_sun',
+                                '5/25(日)晚上' => 'days_sun',
+                                '5/26(一)白天' => 'days_mon',
+                                '5/26(一)晚上' => 'days_mon',
+                                );
+            $day_to_be_less = $days_count_match[$day];
+            $day = $this->days_model->get(array('days_name' => $day_to_be_less));
+            $day_current_count = $day[0]['days_count'];
+            $this->days_model->update(
+                array('days_count' => $day_current_count + $order_count),
+                array('days_name' => $day_to_be_less )
+                    );
+
+            return 0;
+        }
+    }
 
 /****************************************************************************
 APIs for DB CRUD
@@ -128,13 +155,16 @@ APIs for DB CRUD
                         'rec_order_id' => $order_id,
                         'rec_name' => $post_data['rec_name'][$key],
                         'rec_num' => $post_data['rec_num'][$key],
-                        'rec_address_code' => $post_data['rec_add_num'][$key],
                         'rec_address' => $post_data['rec_address'][$key],
                         'rec_phone' => $post_data['rec_phone'][$key],
                         'rec_arrive_time' => $post_data['rec_arrive_time'][$key],
 
                         'rec_timestamp' => date("Y-m-d H:i:s")
                     ));
+
+                    if($rec_id){
+                        $this->days_count($post_data['rec_arrive_time'][$key],$post_data['rec_num'][$key]);
+                    }
 
                 }
 
@@ -172,26 +202,18 @@ APIs for DB CRUD
                 }
 
                 //虛擬帳戶
-                else if($pay_payment_method == 'virtual'){
+                else if($pay_payment_method == 'virtual_acc'){
+
+                    $virtual_account_num = $this->virtual_account($order_id,$total_cost);
 
                     $result = $this->order_model->update(array(
-                        'order_acc_name' => $post_data['order_acc_name'],
-                        'order_bank_id' => $post_data['order_bank_id'],
-                        'order_last_id' => $post_data['order_last_id']
+                        'order_acc_name' => $virtual_account_num
                     ), $order_id);
 
                     $email_to = $pay_email;
-                    $this->tran_email($order_id, $total_cost, $total_num, $email_to);
+                    $this->virtual_email($order_id, $total_cost, $total_num, $email_to, $virtual_account_num);
 
-                    $data['email_to'] = $pay_email;
-                    $data['TransAmt'] = $total_num;
-                    $data['title'] = "交易成功";
-                    $this->load->view('cep/partial/order_success_head', $data);
-                    $this->load->view('cep/order_success', $data);
-                    $this->load->view('cep/partial/repeatjs');
-                    $this->load->view('cep/order_successjs');
-                    $this->load->view('cep/partial/closehtml');
-
+                    redirect('order_virtual_account_success/'.$order_id);
 
                 }
 
@@ -587,6 +609,42 @@ public function webATM_return()
             $this->email->send();
     }
 
+    private function virtual_email($order_id = NULL, $total_cost = NULL,$total_num = NULL, $email_to = NULL, $virtual_account_num = NULL)
+    {
+        $this->load->library('email');
+            //取得order的receive資料
+            $rec = $this->receive_model->get(array('rec_order_id' => $order_id));
+     
+            $tran_date = $this->tran_date();
+            $email_subject = '感謝您訂購哈凱部落的彩虹蛋糕（台大創創學程）請於'.$tran_date.'前匯款';
+            $this->email->from('rainbowhope.service@gmail.com', '台大創創學程');
+            $this->email->to($email_to); 
+            $this->email->subject($email_subject);
+
+            //calculating shipping date
+            $date = $this->count_date();
+
+            $email_message = '<div><h1">感謝您的訂購</h1>
+            <p>您的訂單編號：'.($order_id + 98080000).'</p>
+            <p>請於'.$tran_date.'前繳費至下列帳戶<br>銀行代號：808 玉山銀行八德分行<br>虛擬帳號：'.$virtual_account_num.'</p>
+            
+            <p>訂購數量：'.$total_num.' 價錢：'.$total_cost.'</p>
+            <p>蛋糕將會寄送到下列地址：</p>';
+            
+            foreach ($rec as $_key => $_value) {
+                $email_message = $email_message."<p>收件人：".$_value['rec_name']."<br>收件地址：".$_value['rec_address']."<br>到貨時間：".$_value['rec_arrive_time']."<br>數量：".$_value['rec_num']."</p>";
+            }
+
+            $email_message = $email_message.
+            '<p>提醒您，請於'.$tran_date.'前匯款，以利蛋糕製作<br>若於該時間後匯款，蛋糕將遞延於下一週的指定時間出貨</p>
+            <br><h3>台大創創學程感謝您</h3></div>';
+
+            $this->email->message($email_message); 
+
+            $this->email->send();
+    }
+
+
 
     public function email_test($order_id)
     {
@@ -704,16 +762,16 @@ public function webATM_return()
         {
             $checkNo_Amt += $order_cost_array[$i] * (sizeof($order_cost_array) - $i);
         }
-        echo $checkNo_Amt."<br>";
-        echo $checkNo."<BR>";
-        echo $checkNo+$checkNo_Amt."<BR>";
+//        echo $checkNo_Amt."<br>";
+//        echo $checkNo."<BR>";
+//        echo $checkNo+$checkNo_Amt."<BR>";
 
         $checkNo = str_split($checkNo + $checkNo_Amt);
         $checkNo = $checkNo[sizeof($checkNo)-1];
-        echo $checkNo."<BR>";
+//        echo $checkNo."<BR>";
 
         $virtual_account_num = $storeNo.$order_id_string.$checkNo;
-        echo $virtual_account_num;
+//        echo $virtual_account_num;
 
         return $virtual_account_num;
     }
