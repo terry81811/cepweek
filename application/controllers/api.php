@@ -919,6 +919,20 @@ public function webATM_return()
     }
 
 
+    public function confirm_ship()
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+        foreach ($post_data['ship'] as $_key => $_value) {
+            $result_rec = $this->receive_model->update(
+                array('rec_on_the_way' => 1), 
+                array('rec_order_id' => $_value)
+                );
+            # code...
+        }
+//        print_r($post_data);
+
+        redirect('/db_cep_ship');
+    }
 
     public function send_email()
     {

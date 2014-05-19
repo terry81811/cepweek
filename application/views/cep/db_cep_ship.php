@@ -25,7 +25,7 @@
 
 
 <div class="panel-group" id="accordion">
-<form action="/api/confirm_remmitance" method="post">
+<form action="/api/confirm_ship" method="post">
 <?php
 	foreach ($not_shipped as $key => $order) {
 ?>
@@ -40,7 +40,7 @@
 				echo "<td width='5%'>".$order['order_cost']."</td>";
 				echo "<td width='10%'>".$order['order_type']."</td>";
 				echo "<td width='25%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
-				echo "<td width='5%'><input type='checkbox' name='paid[]' value='".$order['order_id']."'></td>";
+				echo "<td width='5%'><input type='checkbox' name='ship[]' value='".$order['order_id']."'></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
 				echo "<td width='15%'>".$order['order_note']."<a href='#'> +</a></td>";
 ?>
