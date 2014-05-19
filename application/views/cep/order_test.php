@@ -70,14 +70,14 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="5/23(五)白天">5/23(五)白天 <?php echo "剩餘".(500 - $days_count['fri_count'])."個"?></option>
-                                        <option value="5/23(五)晚上">5/23(五)晚上 <?php echo "剩餘".(500 - $days_count['fri_count'])."個"?></option>
-                                        <option value="5/24(六)白天">5/24(六)白天 <?php echo "剩餘".(500 - $days_count['sat_count'])."個"?></option>
-                                        <option value="5/24(六)晚上">5/24(六)晚上 <?php echo "剩餘".(500 - $days_count['sat_count'])."個"?></option>
-                                        <option value="5/25(日)白天">5/25(日)白天 <?php echo "剩餘".(500 - $days_count['sun_count'])."個"?></option>
-                                        <option value="5/25(日)晚上">5/25(日)晚上 <?php echo "剩餘".(500 - $days_count['sun_count'])."個"?></option>
-                                        <option value="5/26(一)白天">5/26(一)白天 <?php echo "剩餘".(500 - $days_count['mon_count'])."個"?></option>
-                                        <option value="5/26(一)晚上">5/26(一)晚上 <?php echo "剩餘".(500 - $days_count['mon_count'])."個"?></option>
+                                        <option value="5/30(五)白天">5/30(五)白天</option>
+                                        <option value="5/30(五)晚上">5/30(五)晚上</option>
+                                        <option value="5/31(六)白天">5/31(六)白天</option>
+                                        <option value="5/31(六)晚上">5/31(六)晚上</option>
+                                        <option value="6/1(日)白天">6/1(日)白天</option>
+                                        <option value="6/1(日)晚上">6/1(日)晚上</option>
+                                        <option value="6/2(一)白天">6/2(一)白天</option>
+                                        <option value="6/2(一)晚上">6/2(一)晚上</option>
                                     </select>
                                 </div>
                             </div>

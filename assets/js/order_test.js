@@ -148,7 +148,7 @@ $(function() {
 
     })
     $(".add-receiver").on("click", function() {
-        $(".line").before(add_new_receiver());
+        $(".line").before(add_new_receiver()).end(removeOrderOption());
     })
     function add_new_receiver() {
         var receiver_template = [];
@@ -173,14 +173,14 @@ $(function() {
             '            <label for="rec_arrive_time'+index+'">到貨時間：</label>',
             '            <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time'+index+'">',
             '               <option value="不指定">不指定</option>',
-            '               <option value="5/23(五)白天">5/23(五)白天</option>',
-            '               <option value="5/23(五)晚上">5/23(五)晚上</option>',
-            '               <option value="5/24(六)白天">5/24(六)白天</option>',
-            '               <option value="5/24(六)晚上">5/24(六)晚上</option>',
-            '               <option value="5/25(日)白天">5/25(日)白天</option>',
-            '               <option value="5/25(日)晚上">5/25(日)晚上</option>',
-            '               <option value="5/26(一)白天">5/26(一)白天</option>',
-            '               <option value="5/26(一)晚上">5/26(一)晚上</option>',
+            '               <option value="5/30(五)白天">5/30(五)白天</option>',
+            '               <option value="5/30(五)晚上">5/30(五)晚上</option>',
+            '               <option value="5/31(六)白天">5/31(六)白天</option>',
+            '               <option value="5/31(六)晚上">5/31(六)晚上</option>',
+            '               <option value="6/1(日)白天">6/1(日)白天</option>',
+            '               <option value="6/1(日)晚上">6/1(日)晚上</option>',
+            '               <option value="6/2(一)白天">6/2(一)白天</option>',
+            '               <option value="6/2(一)晚上">6/2(一)晚上</option>',
             '            </select>',
             '        </div>',
             '    </div>',

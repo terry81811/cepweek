@@ -18,7 +18,7 @@
 
         <meta name="description" content="吃好料做好事，陽光蛋糕，溫暖哈凱部落新家園。台灣最有人情味的群眾募資計畫，由台大創創學程學生發起，透過和企業的合作，幫助哈凱部落籌措一百萬重建費用。">
         <meta property="og:description" content="吃好料做好事，陽光蛋糕，溫暖哈凱部落新家園。台灣最有人情味的群眾募資計畫，由台大創創學程學生發起，透過和企業的合作，幫助哈凱部落籌措一百萬重建費用。"/>
-        
+
         <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png"/>
         <link href='http://fonts.googleapis.com/css?family=Rammetto+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
@@ -35,7 +35,6 @@
         <![endif]-->
 
         <!-- Facebook Conversion Code for shopping cart -->
-
         <script type="text/javascript">
         var fb_param = {};
         fb_param.pixel_id = '6016500146111';
@@ -58,4 +57,3 @@
         }
         </style>
     </head>
-    

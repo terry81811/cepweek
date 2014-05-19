@@ -70,14 +70,14 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="5/23(五)白天">5/23(五)白天</option>
-                                        <option value="5/23(五)晚上">5/23(五)晚上</option>
-                                        <option value="5/24(六)白天">5/24(六)白天</option>
-                                        <option value="5/24(六)晚上">5/24(六)晚上</option>
-                                        <option value="5/25(日)白天">5/25(日)白天</option>
-                                        <option value="5/25(日)晚上">5/25(日)晚上</option>
-                                        <option value="5/26(一)白天">5/26(一)白天</option>
-                                        <option value="5/26(一)晚上">5/26(一)晚上</option>
+                                        <option value="5/30(五)白天">5/30(五)白天</option>
+                                        <option value="5/30(五)晚上">5/30(五)晚上</option>
+                                        <option value="5/31(六)白天">5/31(六)白天</option>
+                                        <option value="5/31(六)晚上">5/31(六)晚上</option>
+                                        <option value="6/1(日)白天">6/1(日)白天</option>
+                                        <option value="6/1(日)晚上">6/1(日)晚上</option>
+                                        <option value="6/2(一)白天">6/2(一)白天</option>
+                                        <option value="6/2(一)晚上">6/2(一)晚上</option>
                                     </select>
                                 </div>
                             </div>
@@ -207,54 +207,12 @@
                                 <div style="display:none">
                                     <input type="radio" name="payment" value="webatm" id="payment-webatm-radio">WebATM<br>
                                     <input type="radio" name="payment" value="credit_card" id="payment-credit_card-radio" >線上刷卡
-                                    <input type="radio" name="payment" value="remittance" id="payment-remittance-radio" >匯款
+                                    <input type="radio" name="payment" value="virtual_acc" id="payment-remittance-radio" >匯款
 
                                 </div>
                             </div>
                         </div>
                         <!-- end of payment -->
-                        <div class="remittance mg10 hidden">
-                            <h3>匯款資料</h3>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="remittance-info">
-                                        <p>銀行代號：808 玉山銀行八德分行</p>
-                                        <p>戶名：桃園縣復興鄉哈凱部落永續發展協會張志雄</p>
-                                        <p>存戶帳號：0277-940-015066 </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">戶名：</label>
-                                        <input class="form-control order_acc_name" type="text" name="order_acc_name" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">帳戶末五碼：</label>
-                                        <input class="form-control order_last_id" type="text" name="order_last_id" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group">
-                                        <label for="pay_title">銀行代碼：</label>
-                                        <input class="form-control order_bank_id" type="text" name="order_bank_id" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mg10">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="info">＊三日內匯款成功，系統方計入訂單</div>
-                                    <a href="" id="remittance-btn" class="btn btn-warning">送出</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -283,7 +241,11 @@
                         </h3>
                     </div>
                     <div class="col-md-3">
-
+                        <h3>贊助：
+                            <a class="aws" href="http://aws.amazon.com">
+                                <img src="<?php echo base_url(); ?>assets/img/aws_logo.png" alt="AWS">
+                            </a>
+                        </h3>
                     </div>
                 </div>
             </div>

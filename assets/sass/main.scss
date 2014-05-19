@@ -148,6 +148,13 @@ body {
 .banner {
     margin-bottom: 20px;
 }
+
+
+// hack bootstrap css
+.carousel-control.left,
+.carousel-control.right {
+    background: none;
+}
 .video {
     position: relative;
     a:after {

@@ -395,6 +395,10 @@ body {
 .banner {
   margin-bottom: 20px; }
 
+.carousel-control.left,
+.carousel-control.right {
+  background: none; }
+
 .video {
   position: relative; }
   .video a:after {

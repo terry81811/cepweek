@@ -119,6 +119,11 @@
                             </h3>
                         </div>
                         <div class="col-md-3">
+                            <h3>贊助：
+                                <a class="aws" href="http://aws.amazon.com">
+                                    <img src="<?php echo base_url(); ?>assets/img/aws_logo.png" alt="AWS">
+                                </a>
+                            </h3>
                             <!-- h3 a.aws img-->
                         </div>
                     </div>

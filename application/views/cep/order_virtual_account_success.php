@@ -46,6 +46,7 @@
                     <h2>訂購完成！</h2>
                     <p>
                     您已經訂購<span class="virtual-account-focus"> <?php echo $TransAmt; ?> </span>個蛋糕<br>
+                    銀行代號：<span class="virtual-account">808</span><br>
                     您的匯款虛擬帳號為 <span class="virtual-account"><?php echo $Virtual_account; ?></span><br>
                     提醒您，請於<span class="virtual-account-focus"> <?php echo $date_before_pay; ?></span> 匯款，以利蛋糕製作<br>若超過時間匯款，蛋糕將於下週的相同指定時間出貨<br>
                     我們已經將相關資訊寄到 <span class="success-email"><?php echo $email_to; ?></span><br>
