@@ -10,7 +10,8 @@
 	<div class="well">
 
 	<h2>線上蛋糕總數（已付款）：<?php echo $total_num;?>個 / 4000</h2>
-	<h3>線上目前收入：<?php echo $total_income;?>元 / 1,000,000元</h2>
+	<h3>線上目前收入：<?php echo $total_income;?>元 / 1,000,000元</h3>
+	<h3>線上收入（不含信用卡）：<?php echo $total_income_no_credit;?>元</h3>
 
 	    <table class="table table-condensed" style="margin-bottom:0px;">
 		<tr>

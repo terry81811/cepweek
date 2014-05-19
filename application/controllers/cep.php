@@ -26,6 +26,19 @@ class Cep extends CI_Controller {
         return $count;
     }
 
+    private function count_income_no_credit()
+    {
+        $order = $this->order_model->get(array('order_success' => '1'));
+
+        $count = 0;
+        foreach ($order as $_key => $_value) {
+            if($_value['order_type'] != 'credit_card'){
+                $count += $_value['order_cost'];
+            }
+        }
+        return $count;
+    }
+
     private function count_order()
     {
         $order = $this->order_model->get(array('order_success' => '1'));
@@ -241,6 +254,7 @@ APIs for internal user
         $orders = $this->order_model->get();
         $data['total_num'] = $this->count_order();
         $data['total_income'] = $this->count_income();
+        $data['total_income_no_credit'] = $this->count_income_no_credit();
         $data['total_order'] = sizeof($orders);
 
         $orders_success = $this->order_model->get(array('order_success' => '1'));
@@ -392,19 +406,25 @@ APIs for internal user
         $shipped = array();
         $not_shipped = array();
 
+        $not_shipped_count = 0;
+        $shipped_count = 0;
+
         $orders = $this->order_model->get(array('order_success' => '1'));
             foreach ($orders as $_key => $_value) {
                 $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
                 if($rec){
                     if($rec[0]['rec_on_the_way'] == 1){
+                        $shipped_count += $_value['order_num'];
                         $shipped[] = $_value;
                     }else{
+                        $not_shipped_count += $_value['order_num'];
                         $not_shipped[] = $_value;
                     }                    
                 }
             }
 
-
+        $data['shipped_count'] = $shipped_count;
+        $data['not_shipped_count'] = $not_shipped_count;
         $data['shipped'] = $shipped;
         $data['not_shipped'] = $not_shipped;
 

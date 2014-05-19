@@ -9,6 +9,7 @@
 
 
 <div class="well"><h2>已付款未出貨訂單 <?php echo sizeof($not_shipped);?> 筆</h2>
+	<h3>已付款未出貨蛋糕 <?php echo $not_shipped_count;?> 個</h3>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
 			  			<td width='10%'>訂單編號</td>
@@ -67,6 +68,7 @@
 
 
 <div class="well"><h2>已付款已出貨訂單 <?php echo sizeof($shipped);?> 筆</h2>
+	<h3>已付款已出貨蛋糕 <?php echo $shipped_count;?> 個</h3>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
 			  			<td width='10%'>訂單編號</td>
