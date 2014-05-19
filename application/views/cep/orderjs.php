@@ -23,4 +23,4 @@ function removeOrderOption() {
 removeOrderOption();
 
 </script>
-<script src="<?php echo base_url(); ?>assets/js/order_test.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/order.js"></script>

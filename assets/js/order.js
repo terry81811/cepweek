@@ -17,15 +17,17 @@ $(function() {
         if ( $(this).is(":checked") ) {
             var address = $("input.address").val();
             var name = $("input.rec-input").val();
-            console.log("address: " + address);
-            console.log("name: " + name)
+            var phone = $("input.rec-phone").val();
             $(".pay_name").val(name);
+            $(".pay_phone").val(phone);
+            console.log(phone);
             if ( $(".get-receipt-or-not").hasClass("check") ) {
                 $(".pay_address").val(address);
             }
         } else {
             $(".pay_address").val("");
             $(".pay_name").val("");
+            $(".pay_phone").val("");
         }
     });
     //webatm
@@ -187,7 +189,7 @@ $(function() {
             '    <div class="row mg10">',
             '        <div class="form-group">',
             '            <label for="rec_address'+index+'">地址：</label>',
-            '            <input class="form-control address" type="text" name="rec_address[]" placeholder="" id="rec_address'+index+'" required>',
+            '            <input class="form-control address" type="text" name="rec_address[]" placeholder="ex.台北市xx區xx路" id="rec_address'+index+'" required>',
             '        </div>',
             '    </div>',
             '    <div class="row mg10 count">',
