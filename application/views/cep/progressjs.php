@@ -3,6 +3,11 @@
     $(function() {
         $(".main-nav .progresss").addClass("target");
     });
+    $(window).load(function() {
+        setTimeout(function() {
+            $(".call-to-action").addClass("animated swing");
+        }, 3000);
+    });
     
     $(window).scroll(function() {
         var winoffset = $(window).scrollTop();

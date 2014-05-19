@@ -1,6 +1,7 @@
 $(function() {
     $(".add-receiver").tooltip();
     $(".get-receiver-label").tooltip();
+    // 是否索取收據
     $("#get-receipt-or-not-checkbox").on("click",function() {
         $(".get-receipt-or-not").toggleClass("check");
         // user 點選索取收據，載入地址
@@ -30,68 +31,51 @@ $(function() {
     //webatm
     $("#payment-webatm-btn").on("click", function(e) {
         e.preventDefault();
-        if ( !$(".remittance").hasClass("hidden") ) {
-            $(".payment-btn").removeClass("active");
-            $(".remittance").addClass("hidden");
-        } else { //確認送出WebATM訂單
-            alertify.confirm("確認送出訂單？將會進入WebATM刷卡頁面", function (e) {
-                if (e) {
-                    // user clicked "ok"
-                    $("#payment-webatm-radio").trigger("click");
-                    $(".payment-btn").removeClass("active");
-                    $(this).addClass("active");
-                    $("#order-submit-btn").trigger("click");
-                } else {
-                    alertify.error("訂單尚未送出");
-                }
-            });
-        }
+        //確認送出WebATM訂單
+        alertify.confirm("確認送出訂單？將會進入WebATM刷卡頁面", function (e) {
+            if (e) {
+                // user clicked "ok"
+                $("#payment-webatm-radio").trigger("click");
+                $(".payment-btn").removeClass("active");
+                $(this).addClass("active");
+                $("#order-submit-btn").trigger("click");
+            } else {
+                alertify.error("訂單尚未送出");
+            }
+        });
     });
     //線上刷卡
     $("#payment-credit_card-btn").on("click", function(e) {
         e.preventDefault();
-        if ( !$(".remittance").hasClass("hidden") ) {
-            $(".payment-btn").removeClass("active");
-            $(".remittance").addClass("hidden");
-        } else { //確認送出線上刷卡
-            alertify.confirm("確認送出訂單？將會進入線上刷卡頁面", function (e) {
-                if (e) {
-                    // user clicked "ok"
-                    $(".payment-btn").removeClass("active");
-                    $(this).addClass("active");
-                    $("#payment-credit_card-radio").trigger("click");
-                    $("#order-submit-btn").trigger("click");
-                } else {
-                    // user clicked "Cancel"
-                    alertify.error("訂單尚未送出");
-                }
-            });
-        }
-    });
-    //匯款按鈕
-    $("#payment-remittance").on("click", function(e) {
-        e.preventDefault();
-        if ( $("#payment-remittance").hasClass("active") ) {
-            $(".payment-btn").removeClass("active");
-        } else {
-            $(this).addClass("active");
-        }
-        $("#payment-remittance-radio").trigger("click");
-        $(".remittance").toggleClass("hidden");
-    });
-    //匯款確認按鈕
-    $("#remittance-btn").on("click", function(e){
-        e.preventDefault();
-        alertify.confirm("確認送出匯款訂單？", function (e) {
+        //確認送出線上刷卡
+        alertify.confirm("確認送出訂單？將會進入線上刷卡頁面", function (e) {
             if (e) {
                 // user clicked "ok"
+                $(".payment-btn").removeClass("active");
+                $(this).addClass("active");
+                $("#payment-credit_card-radio").trigger("click");
                 $("#order-submit-btn").trigger("click");
             } else {
                 // user clicked "Cancel"
                 alertify.error("訂單尚未送出");
             }
         });
-    })
+    });
+    //匯款按鈕
+    $("#payment-remittance").on("click", function(e) {
+        e.preventDefault();
+        // 確認送出匯款，進入虛擬帳號頁面
+        alertify.confirm("確認送出匯款訂單？", function (e) {
+            if (e) {
+                // user clicked "ok"
+                $("#order-submit-btn").trigger("click");
+                $("#payment-remittance-radio").trigger("click");
+            } else {
+                // user clicked "Cancel"
+                alertify.error("訂單尚未送出");
+            }
+        });
+    });
     $(".order-form").on("blur", ".num", function() {
         var total_order_num = 0;
         var total_order_price = 0;

@@ -4,7 +4,7 @@
    ===================================== */
 @import 'h5bp';
 @import 'compass';
-@import 'mixin'; 
+@import 'mixin';
 
 $transifion-effect: all .15s ease-in-out;
 
@@ -40,6 +40,7 @@ body {
     position: fixed;
     top: 50px;
     right: 50px;
+    z-index: 10;
     @include size(120px);
     a {
         display: block;
@@ -81,9 +82,9 @@ body {
    ===================================== */
 .header {
     min-height: 100px;
-    @include clearfix; 
+    @include clearfix;
     .logo {
-        display: block; 
+        display: block;
         @include size(image-width('../img/logo.png'), image-height('../img/logo.png'));
 
     }
@@ -94,17 +95,16 @@ body {
    ===================================== */
 .main-nav {
     height: 50px;
-    border-top: 1px solid #bbb; 
+    border-top: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     margin-top: 20px;
     background: rgba(255,255,255,0.9);
-    background: red;
     @include clearfix;
     a {
         padding: none;
         text-align: center;
-        @include hide-text; 
+        @include hide-text;
     }
     ul {
         height: 50px;
@@ -224,12 +224,12 @@ body {
 .fund-raising {
     background: #fff;
     padding: 20px;
-    .content-bg { 
+    .content-bg {
         background: #e9e3e2;
         position: relative;
         @include size(100%);
     }
-    .describe { 
+    .describe {
         background: url('../img/progress_text.png') center top no-repeat;
         background-size: contain;
         @include size(100%, image-height('../img/progress_text.png'));
@@ -238,7 +238,7 @@ body {
     .content {
         padding: 5px;
         margin-top: 20px;
-        margin-bottom: 20px;  
+        margin-bottom: 20px;
         outline: 1px solid #a8a8a8;
         min-height: 300px;
         @include clearfix;
@@ -257,8 +257,8 @@ body {
     .money {
         position: relative;
         top: -2px;
-        left: 5px;  
-        margin-right: 5px; 
+        left: 5px;
+        margin-right: 5px;
     }
     .chart {
         position: relative;
@@ -275,6 +275,19 @@ body {
         .percent {
             font-family: 'Rammetto One', cursive;
             font-size: 40px;
+        }
+    }
+    .cake-count {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 1.4em;
+        color: darken(#42b3e2,10);
+        span {
+            font-family: 'Rammetto One', cursive;
+            font-size: 40px;
+            color: #333;
+            // text-shadow: 1px 3px #333;
+            margin: 0 5px 0 5px;
         }
     }
 }
@@ -299,7 +312,7 @@ body {
     @include size(image-width('../img/wall.png'), image-height('../img/wall.png'));
     letter-spacing: -0.32em;
 }
- 
+
 .wall-cube,
 .wall-black,
 .wall-colorful {
@@ -319,11 +332,11 @@ body {
 }
 
 .wall-cube.active {
-    .wall-black { 
-        @include transform(rotateY(180deg)); 
+    .wall-black {
+        @include transform(rotateY(180deg));
     }
-    .wall-colorful { 
-        @include transform(rotateY(0deg)); 
+    .wall-colorful {
+        @include transform(rotateY(0deg));
         z-index: 2;
     }
 }
@@ -337,9 +350,9 @@ body {
     @include transform(rotateY(-180deg));
     background: url('../img/wall.png');
     z-index: 1;
-} 
+}
 @for $i from 1 through 100 {
-    .wall-cube-position:nth-child(#{$i}) { 
+    .wall-cube-position:nth-child(#{$i}) {
         @if $i < 11 {
             .wall-black,
             .wall-colorful {
@@ -483,14 +496,15 @@ body {
    order
    ===================================== */
 .order-intro-frame {
-    border-top: 10px solid #ee9b29;
-    border-bottom: 10px solid #ee9b29;
+    border-top: 10px solid #fbb060;
+    border-bottom: 10px solid #fbb060;
     padding: 20px 0;
     margin-top: 20px;
     .cake-info {
         padding: 30px 0;
         font-size: 1.7em;
-        color: #d83627;
+        color: #fe762d;
+        background: rgba(255,255,255,0.85);
         li {
             margin-bottom: 5px;
         }
@@ -513,8 +527,8 @@ body {
     .present {
         margin-top: 20px;
         padding: 5px 0;
-        border-top: 3px solid #ee9b29;
-        border-bottom: 3px solid #ee9b29;
+        border-top: 3px solid #fbb060;
+        border-bottom: 3px solid #fbb060;
         background: #fff;
         font-size: 1.7em;
         text-align: center;
@@ -522,11 +536,11 @@ body {
     .notice {
         margin-top: 20px;
         padding: 5px 0;
-        border-top: 3px solid #ee9b29;
-        border-bottom: 3px solid #ee9b29;
+        border-top: 3px solid #fbb060;
+        border-bottom: 3px solid #fbb060;
         background: #fff;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.7em;
         ul {
             margin: 0;
         }
@@ -584,29 +598,30 @@ body {
         line-height: 80px;
         font-size: 30px;
         color: #fff;
-        background:  #e9a026;
+        background:  #fbb060;
         text-align: center;
         text-decoration: none;
         @include border-radius(5px);
+
     }
     a.open {
         &:hover,
         &.active {
-            color: #e9a026;
+            color: #fbb060;
             background: #fff;
-            @include box-shadow(0 0 10px #e9a026);
+            @include box-shadow(0 0 10px #fbb060);
             @include transform(scale(1.05));
-            @include transition(all .1s ease-in); 
+            @include transition(all .1s ease-in);
         }
         &:active {
-            background: lighten(#e9a026,30);
-            @include box-shadow(0 0 20px #e9a026);
+            background: lighten(#fbb060,30);
+            @include box-shadow(0 0 20px #fbb060);
         }
 
     }
     .closed {
-        a { 
-            cursor: not-allowed; 
+        a {
+            cursor: not-allowed;
             background: #cdcdcd;
         }
     }
@@ -618,7 +633,7 @@ body {
     display: none;
     // visibility: hidden;
     height: 0;
-    @include transition(all .1s ease-in); 
+    @include transition(all .1s ease-in);
     &.check {
         // visibility: visible;
         display: inherit;
@@ -629,17 +644,17 @@ body {
     .confirm-info {
         font-size: 1.2em;
         text-align: center;
-        border: 3px solid #e9a026;
+        border: 3px solid #fbb060;
         padding: 20px;
         p {
             margin: 5px 0;
         }
     }
     .shipping-fee {
-        color: #e9a026;
+        color: #fbb060;
     }
     span {
-        color: #e9a026;
+        color: #fbb060;
     }
     .confirm-total-num {
         font-size: 1.5em;
@@ -663,7 +678,7 @@ body {
 }
 .remittance-info {
     text-align: left;
-    border: 3px solid #e9a026;
+    border: 3px solid #fbb060;
     padding: 10px 20px;
     margin-bottom: 10px;
     font-weight: 900;
@@ -684,6 +699,32 @@ body {
     text-align: center;
     font-size: 1.4em;
 }
+.order-success-frame {
+    background: #e8eef4;
+    background: #f6f5ef;
+    border: 1px solid #7c8081;
+    padding: 15px;
+    text-align: center;
+    p {
+        font-size: 1.4em;
+    }
+}
+
+/* =====================================
+   order_virtual_account
+   ===================================== */
+.virtual-account {
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    color: #ed4e46;
+    font-size: 1.5em;
+}
+.virtual-account-focus {
+    font-weight: bold;
+    color: #ed4e46;
+}
+
+
 
 /* =====================================
    photos
@@ -765,15 +806,15 @@ footer {
         color: #fff;
         text-decoration: underline;
     }
-    
+
 }
 
 
 /* =====================================
    media query
    ===================================== */
-@media (min-width: 992px) { 
-    .main-container { 
+@media (min-width: 992px) {
+    .main-container {
         width: 960px;
         padding-bottom: 30px;
     }
@@ -781,7 +822,7 @@ footer {
         width: 1040px;
         padding: 20px 40px;
     }
-    
+
     .facebook {
         bottom: 100px;
         right: -55px;
@@ -799,7 +840,7 @@ footer {
         }
     }
     .order-form .address {
-        width: 472px;
+        width: 489px;
     }
     .order-form .add_num,
     .order-form .num {
@@ -817,10 +858,10 @@ footer {
             width: 160px;
         }
         .pay_name {
-            width: 95px;
+            width: 193px;
         }
         .pay_email {
-            width: 250px;
+            width: 196px;
         }
     }
     .get-receipt-or-not {
@@ -829,7 +870,7 @@ footer {
         }
         .pay_address {
             width: 290px;
-        } 
+        }
         .pay_title,
         .pay_tax_id {
             width: 158px;
@@ -837,6 +878,13 @@ footer {
     }
     .cake-intro-list {
         margin-top: 70px;
+    }
+    .order-intro-frame .cake-info {
+        padding: 30px 0 60px;
+    }
+    .order-intro-frame .sale-price {
+        top: 10px;
+        right: 20px;
     }
     .remittance {
         .order_acc_name {
@@ -883,13 +931,13 @@ footer {
         background: none;
     }
 }
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     body > .container {
         padding-bottom: 500px;
     }
     .container {
         padding-top: 20px;
-        
+
     }
     .facebook {
         position: fixed;
@@ -926,6 +974,9 @@ footer {
         font-size: 1.4em;
         width: 100%;
     }
+    .payment .col-xs-12 {
+        margin-bottom: 20px;
+    }
     .cake-info .sale-price:before {
         display: none;
     }
@@ -960,7 +1011,7 @@ footer {
         background-size: contain;
         &:hover {
             background-size: contain;
-        } 
+        }
     }
 
     footer {

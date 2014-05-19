@@ -82,7 +82,7 @@
 				echo "<td width='5%'>".$order['order_bank_id']."</td>";
 				echo "<td width='5%'>".$order['order_last_id']."</td>";
 				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
-				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
+				echo "<td width='5%'><a style='display:block;width:100%;' data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
 				echo "<td width='5%'><input type='checkbox' name='paid[]' value='".$order['order_id']."'></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
 				echo "<td width='15%'>".$order['order_note']."<a href='#'> +</a></td>";
