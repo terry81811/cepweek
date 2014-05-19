@@ -6,7 +6,7 @@ function removeOrderOption() {
     var sat_count_left = <?php echo (500 - $days_count['sat_count'])?>;
     var sun_count_left = <?php echo (500 - $days_count['sun_count'])?>;
     var mon_count_left = <?php echo (500 - $days_count['mon_count'])?>;
-    if (fri_count_left <= 500) {
+    if (fri_count_left <= 0) {
         $(".rec_a").find("option[value*='五']").remove();
     }
     if (sat_count_left <= 0) {
