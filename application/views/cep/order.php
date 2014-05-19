@@ -39,7 +39,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="notice">
                                 <ul class="list-unstyled">
-                                    <li>即刻預購的蛋糕會統一在<span class="focus">5/23（五）</span>開始出貨<br></li>
+                                    <li>即刻預購的蛋糕會統一在<span class="focus">5/30（五）</span>開始出貨<br></li>
                                     <li>請於到貨後<span class="focus">4日</span>內食用，並以<span class="focus">低溫冷藏</span>方式保存</li>
                                 </ul>
                         </div>
