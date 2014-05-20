@@ -269,16 +269,20 @@ APIs for internal user
             $order_success_array[$_key]['rec'] = $rec;
         }
 
-        $order_success_array_not_rec = $this->order_model->get(array('order_success' => '1', 'order_type' => 'remittance'));
-        foreach ($order_success_array as $_key => $_value) {
-            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
-            $order_success_array[$_key]['rec_num'] = sizeof($rec);
+        $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
 
-            $order_success_array[$_key]['rec'] = $rec;
+        //虛擬帳號資料
+        $virtual_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'virtual_acc'));
+        foreach ($virtual_order_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $virtual_order_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $virtual_order_success_array[$_key]['rec'] = $rec;
         }
 
+        $virtual_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'virtual_acc'));
 
-        $order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'remittance'));
+
 
         //webatm資料
         $webatm_order_success_array = $this->order_model->get(array('order_success' => '1', 'order_type' => 'webatm'));
@@ -323,6 +327,9 @@ APIs for internal user
 
         $data['order_success_array'] = $order_success_array;
         $data['order_not_success_array'] = $order_not_success_array;
+
+        $data['virtual_order_success_array'] = $virtual_order_success_array;
+        $data['virtual_order_not_success_array'] = $virtual_order_not_success_array;
 
         $data['webatm_order_success_array'] = $webatm_order_success_array;
         $data['webatm_order_not_success_array'] = $webatm_order_not_success_array;
@@ -388,7 +395,18 @@ APIs for internal user
 
         }
 
+        $virtual_order_not_success_array = $this->order_model->get(array('order_success' => '0', 'order_type' => 'virtual_acc'));
+        foreach ($virtual_order_not_success_array as $_key => $_value) {
+            $rec = $this->receive_model->get(array('rec_order_id' => $_value['order_id']));
+            $virtual_order_not_success_array[$_key]['rec_num'] = sizeof($rec);
+
+            $virtual_order_not_success_array[$_key]['rec'] = $rec;
+
+        }
+
+
         $data['order_not_success_array'] = $order_not_success_array;
+        $data['virtual_order_not_success_array'] = $virtual_order_not_success_array;
 
         $this->load->view('cep/partial/order_head', $data);
         $this->load->view('cep/db_cep_waiting', $data);
