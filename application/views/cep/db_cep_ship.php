@@ -20,7 +20,7 @@
 			  			<td width='25%'>付款email</td>
 			  			<td width='5%'>確認送貨</td>
 			  			<td width='15%'>訂單時間</td>
-			  			<td width='15%'>註解</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -43,7 +43,7 @@
 				echo "<td width='25%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><input type='checkbox' name='ship[]' value='".$order['order_id']."'></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
-				echo "<td width='15%'>".$order['order_note']."<a href='#'> +</a></td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>
@@ -78,7 +78,7 @@
 			  			<td width='10%'>付款方式</td>
 			  			<td width='25%'>付款email</td>
 			  			<td width='15%'>訂單時間</td>
-			  			<td width='15%'>註解</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -99,7 +99,7 @@
 				echo "<td width='10%'>".$order['order_type']."</td>";
 				echo "<td width='25%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='15%'>".$order['order_timestamp']."</td>";
-				echo "<td width='15%'>".$order['order_note']."<a href='#'> +</a></td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>

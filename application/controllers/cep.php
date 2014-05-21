@@ -457,7 +457,15 @@ APIs for internal user
 
     public function db_cep_edit($order_id)
     {
+        $data['title'] = "彩虹後台 ｜ 創創內部使用";
 
+        $order = $this->order_model->get($order_id);
+        $data['order'] = $order[0];
+        $this->load->view('cep/partial/order_head', $data);
+        $this->load->view('cep/db_cep_edit', $data);
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/deliveryjs');
+        $this->load->view('cep/partial/closehtml');
     }
 
     public function date()

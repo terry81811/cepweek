@@ -58,16 +58,17 @@
 	<h2>已付款匯款訂單 <?php echo sizeof($order_success_array);?> 筆</h2>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
-			  			<td width='10%'>訂單編號</td>
-			  			<td width='5%'>付款人</td>
-			  			<td width='5%'>數量</td>
+			  			<td width='8%'>訂單編號</td>
+			  			<td width='6%'>付款人</td>
+			  			<td width='3%'>數量</td>
 			  			<td width='5%'>總價</td>
-			  			<td width='10%'>匯款戶名</td>
+			  			<td width='6%'>匯款戶名</td>
 			  			<td width='5%'>銀行代碼</td>
-			  			<td width='10%'>帳號末五碼</td>
-			  			<td width='20%'>付款email（點我寄email）</td>
+			  			<td width='5%'>帳號末五碼</td>
+			  			<td width='18%'>付款email（點我寄email）</td>
 			  			<td width='5%'>貨單數量</td>
-			  			<td width='15%'>訂單時間</td>
+			  			<td width='12%'>訂單時間</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -84,16 +85,17 @@
 	    <table class="table table-condensed" style="margin-bottom:0px; width='100%'">
 			<tr>
 <?php
-				echo "<td width='10%'>訂單編號：".$order['order_id']."</td>";
-				echo "<td width='5%'>".$order['order_name']."</td>";
-				echo "<td width='5%'>".$order['order_num']."</td>";
+				echo "<td width='8%'>訂單編號：".$order['order_id']."</td>";
+				echo "<td width='6%'>".$order['order_name']."</td>";
+				echo "<td width='3%'>".$order['order_num']."</td>";
 				echo "<td width='5%'>".$order['order_cost']."</td>";
-				echo "<td width='10%'>".$order['order_acc_name']."</td>";
+				echo "<td width='6%'>".$order['order_acc_name']."</td>";
 				echo "<td width='5%'>".$order['order_bank_id']."</td>";
-				echo "<td width='10%'>".$order['order_last_id']."</td>";
-				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
+				echo "<td width='5%'>".$order['order_last_id']."</td>";
+				echo "<td width='18%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
-				echo "<td width='15%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>
@@ -171,14 +173,15 @@
 	<h2>已付款虛擬帳號訂單 <?php echo sizeof($virtual_order_success_array);?> 筆</h2>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
-			  			<td width='10%'>訂單編號</td>
-			  			<td width='5%'>付款人</td>
-			  			<td width='5%'>數量</td>
+			  			<td width='8%'>訂單編號</td>
+			  			<td width='6%'>付款人</td>
+			  			<td width='3%'>數量</td>
 			  			<td width='5%'>總價</td>
-			  			<td width='10%'>匯款虛擬帳號</td>
-			  			<td width='20%'>付款email（點我寄email）</td>
+			  			<td width='8%'>匯款虛擬帳號</td>
+			  			<td width='18%'>付款email（點我寄email）</td>
 			  			<td width='5%'>貨單數量</td>
-			  			<td width='15%'>訂單時間</td>
+			  			<td width='12%'>訂單時間</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -195,14 +198,15 @@
 	    <table class="table table-condensed" style="margin-bottom:0px; width='100%'">
 			<tr>
 <?php
-				echo "<td width='10%'>訂單編號：".$order['order_id']."</td>";
-				echo "<td width='5%'>".$order['order_name']."</td>";
-				echo "<td width='5%'>".$order['order_num']."</td>";
+				echo "<td width='8%'>訂單編號：".$order['order_id']."</td>";
+				echo "<td width='6%'>".$order['order_name']."</td>";
+				echo "<td width='3%'>".$order['order_num']."</td>";
 				echo "<td width='5%'>".$order['order_cost']."</td>";
-				echo "<td width='10%'>".$order['order_acc_name']."</td>";
-				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
+				echo "<td width='8%'>".$order['order_acc_name']."</td>";
+				echo "<td width='18%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
-				echo "<td width='15%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>
@@ -275,13 +279,14 @@
 <div class="well"><h2>已付款webatm訂單 <?php echo sizeof($webatm_order_success_array);?> 筆</h2>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
-			  			<td width='10%'>訂單編號</td>
-			  			<td width='5%'>付款人</td>
+			  			<td width='8%'>訂單編號</td>
+			  			<td width='6%'>付款人</td>
 			  			<td width='5%'>數量</td>
 			  			<td width='5%'>總價</td>
-			  			<td width='20%'>付款email</td>
+			  			<td width='18%'>付款email</td>
 			  			<td width='5%'>貨單數量</td>
-			  			<td width='15%'>訂單時間</td>
+			  			<td width='12%'>訂單時間</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -296,13 +301,14 @@
 	    <table class="table table-condensed" style="margin-bottom:0px; width='100%'">
 			<tr>
 <?php
-				echo "<td width='10%'>訂單編號：".$order['order_id']."</td>";
-				echo "<td width='5%'>".$order['order_name']."</td>";
+				echo "<td width='8%'>訂單編號：".$order['order_id']."</td>";
+				echo "<td width='6%'>".$order['order_name']."</td>";
 				echo "<td width='5%'>".$order['order_num']."</td>";
 				echo "<td width='5%'>".$order['order_cost']."</td>";
-				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
+				echo "<td width='18%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
-				echo "<td width='15%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>
@@ -378,13 +384,14 @@
 <div class="well"><h2>已付款信用卡訂單 <?php echo sizeof($credit_order_success_array);?> 筆</h2>
 	    		<table class="table table-condensed" style="margin-bottom:0px;">
 			  		<tr>
-			  			<td width='10%'>訂單編號</td>
-			  			<td width='5%'>付款人</td>
+			  			<td width='8%'>訂單編號</td>
+			  			<td width='6%'>付款人</td>
 			  			<td width='5%'>數量</td>
 			  			<td width='5%'>總價</td>
-			  			<td width='20%'>付款email</td>
+			  			<td width='18%'>付款email</td>
 			  			<td width='5%'>貨單數量</td>
-			  			<td width='15%'>訂單時間</td>
+			  			<td width='12%'>訂單時間</td>
+			  			<td width='12%'>註解</td>
 			  		</tr>
 			  	</table>
 
@@ -399,13 +406,14 @@
 	    <table class="table table-condensed" style="margin-bottom:0px; width='100%'">
 			<tr>
 <?php
-				echo "<td width='10%'>訂單編號：".$order['order_id']."</td>";
-				echo "<td width='5%'>".$order['order_name']."</td>";
+				echo "<td width='8%'>訂單編號：".$order['order_id']."</td>";
+				echo "<td width='6%'>".$order['order_name']."</td>";
 				echo "<td width='5%'>".$order['order_num']."</td>";
 				echo "<td width='5%'>".$order['order_cost']."</td>";
-				echo "<td width='20%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
+				echo "<td width='18%'><a href='/api/email/".urlencode($order['order_email'])."'>".$order['order_email']."</a></td>";
 				echo "<td width='5%'><a data-toggle='collapse' data-parent='#accordion' href='#collapse".$order['order_id']."'>".$order['rec_num']."</a></td>";
-				echo "<td width='15%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'>".$order['order_timestamp']."</td>";
+				echo "<td width='12%'><a href='/db_cep_edit/".$order['order_id']."'>".$order['order_note']." +</a></td>";
 ?>
 	  		</tr>
 	  	</table>

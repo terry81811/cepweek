@@ -956,6 +956,17 @@ public function webATM_return()
             redirect('/db_cep');
     }
 
+    public function note_edit($order_id)
+    {
+        $post_data = $this->input->post(NULL, TRUE);
+        $order_note = $post_data['order_note'];
+
+        $this->order_model->update(
+                array('order_note' => $order_note), $order_id
+            );
+        redirect('/db_cep_edit/'.$order_id);
+    }
+
 
     /****************************************************************************
     APIs for internal updating
