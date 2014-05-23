@@ -2,7 +2,7 @@ $(function() {
     $(".add-receiver").tooltip();
     $(".get-receiver-label").tooltip();
     // 是否索取收據
-    $("#get-receipt-or-not-checkbox").on("click",function() {
+    $("#get-receipt-or-not-checkbox").on("click", function() {
         $(".get-receipt-or-not").toggleClass("check");
         // user 點選索取收據，載入地址
         if ( $(".get-receipt-or-not").hasClass("check") ) {

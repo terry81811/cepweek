@@ -814,6 +814,7 @@ footer {
         text-decoration: underline;
     }
 
+
 }
 
 
@@ -845,6 +846,11 @@ footer {
         &:hover {
             right: -73px;
         }
+    }
+    .logo-17life {
+        margin-top: 20px;
+        margin-left: 0;
+        float: right;
     }
     .order-form .address {
         width: 489px;
@@ -922,6 +928,10 @@ footer {
             right: -73px;
         }
     }
+    .logo-17life {
+        margin-left: 20px;
+    }
+
     .call-to-action {
         top: 20px;
         right: 20px;
@@ -959,6 +969,9 @@ footer {
         right: 109px;
         @include transform(rotate(0));
         @include size(100px, 77px);
+    }
+    .logo-17life {
+        margin-left: 20px;
     }
     .order {
         background: url('../img/order.png');

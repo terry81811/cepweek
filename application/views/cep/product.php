@@ -54,7 +54,7 @@
                                 <img class="product-intro-img img-responsive hidden-xs" src="<?php echo base_url(); ?>/assets/img/Product_picture1.2.png">
                                 <img class="product-intro-img img-responsive visible-xs" src="<?php echo base_url(); ?>/assets/img/Product_picture_phone.png">
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                         </div>
                         <div class="col-md-6">
                             <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture3.png">
-                            
+
                         </div>
                         <div class="col-md-6">
                             <img class="product-intro-img img-responsive" src="<?php echo base_url(); ?>/assets/img/Product_picture4.png">
-                            
+
                         </div>
                     </div>
                     <div class="row">
@@ -120,15 +120,15 @@
                         </div>
                         <div class="col-md-3">
                             <h3>贊助：
-                                <a class="aws" href="http://aws.amazon.com">
+                                <a class="aws" href="http://aws.amazon.com" target="_blank">
                                     <img src="<?php echo base_url(); ?>assets/img/aws_logo.png" alt="AWS">
                                 </a>
+                                <a class="logo-17life" href="http://www.17life.com/" target="_blank">
+                                    <img src="<?php echo base_url(); ?>assets/img/17LIFE.png" alt="17life" />
+                                </a>
                             </h3>
-                            <!-- h3 a.aws img-->
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
-
-        

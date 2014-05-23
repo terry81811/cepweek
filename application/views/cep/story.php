@@ -89,7 +89,7 @@
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="subtitle">
-                                組合屋的第11個冬天，孩子們圍在爐邊取暖。<br>  
+                                組合屋的第11個冬天，孩子們圍在爐邊取暖。<br>
                                 儘管屋角滲著水，地基也不甚穩固，但孩子們仍興奮的討論著在屋內有什麼遊戲好玩，<br>
                                 因為這就是我們遮風避雨的，天堂12坪。
                             </div>
@@ -143,7 +143,7 @@
                                 <a href="https://www.facebook.com/218589151491994" class="pull-right" target="_blank">
                                 </a>
                             </div>
-                        </div>      
+                        </div>
                     </div>
                 </div>
                 <div class="story-frame third">
@@ -178,7 +178,7 @@
                                             結合企業的力量，<br>
                                             一同拼湊彩虹故鄉回家的夢。
                                         </p>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -212,15 +212,15 @@
                         </div>
                         <div class="col-md-3">
                             <h3>贊助：
-                                <a class="aws" href="http://aws.amazon.com">
+                                <a class="aws" href="http://aws.amazon.com" target="_blank">
                                     <img src="<?php echo base_url(); ?>assets/img/aws_logo.png" alt="AWS">
                                 </a>
+                                <a class="logo-17life" href="http://www.17life.com/" target="_blank">
+                                    <img src="<?php echo base_url(); ?>assets/img/17LIFE.png" alt="17life" />
+                                </a>
                             </h3>
-                            <!-- h3 a.aws img-->
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
-        
-        
