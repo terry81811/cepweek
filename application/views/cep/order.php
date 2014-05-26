@@ -39,7 +39,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="notice">
                                 <ul class="list-unstyled">
-                                    <li>即刻預購的蛋糕會統一在<span class="focus">5/30（五）</span>開始出貨<br></li>
+                                    <li>即刻預購的蛋糕會統一在<span class="focus">6/6（五）</span>開始出貨<br></li>
                                     <li>請於到貨後<span class="focus">4日</span>內食用，並以<span class="focus">低溫冷藏</span>方式保存</li>
                                 </ul>
                         </div>
@@ -70,14 +70,14 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="5/30(五)白天">5/30(五)白天</option>
-                                        <option value="5/30(五)晚上">5/30(五)晚上</option>
-                                        <option value="5/31(六)白天">5/31(六)白天</option>
-                                        <option value="5/31(六)晚上">5/31(六)晚上</option>
-                                        <option value="6/1(日)白天">6/1(日)白天</option>
-                                        <option value="6/1(日)晚上">6/1(日)晚上</option>
-                                        <option value="6/2(一)白天">6/2(一)白天</option>
-                                        <option value="6/2(一)晚上">6/2(一)晚上</option>
+                                        <option value="6/6(五)白天">6/6(五)白天</option>
+                                        <option value="6/6(五)晚上">6/6(五)晚上</option>
+                                        <option value="6/7(六)白天">6/7(六)白天</option>
+                                        <option value="6/7(六)晚上">6/7(六)晚上</option>
+                                        <option value="6/8(日)白天">6/8(日)白天</option>
+                                        <option value="6/8(日)晚上">6/8(日)晚上</option>
+                                        <option value="6/9(一)白天">6/9(一)白天</option>
+                                        <option value="6/9(一)晚上">6/9(一)晚上</option>
                                     </select>
                                 </div>
                             </div>

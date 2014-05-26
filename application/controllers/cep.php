@@ -186,6 +186,15 @@ class Cep extends CI_Controller {
         $this->load->view('cep/storyjs');
         $this->load->view('cep/partial/closehtml');
     }
+    public function qa()
+    {
+        $data['title'] = "問答集 | 彩虹故鄉的願望";
+        $this->load->view('cep/partial/head', $data);
+        $this->load->view('cep/qa');
+        $this->load->view('cep/partial/repeatjs');
+        $this->load->view('cep/qajs');
+        $this->load->view('cep/partial/closehtml');
+    }
     public function product()
     {
         $data['title'] = "產品介紹 | 彩虹故鄉的願望";

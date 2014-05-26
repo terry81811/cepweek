@@ -116,7 +116,7 @@ body {
         a:hover {
             background: none;
         }
-        @each $class in story, product, progresss, photos {
+        @each $class in story, product, progresss, photos, qa {
             &.#{$class} {
                 background: url('../img/btn-#{$class}.png') no-repeat center;
                 background-size: contain;
@@ -496,7 +496,12 @@ body {
 
 }
 
-
+/* =====================================
+   Q&A
+   ===================================== */
+.qa-panel {
+    font-size: 1.2em;
+}
 
 
 /* =====================================

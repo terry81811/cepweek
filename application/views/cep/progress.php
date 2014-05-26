@@ -17,7 +17,7 @@
                         <li class="story"><a href="<?php echo base_url(); ?>story">我們的故事</a></li>
                         <li class="product"><a href="<?php echo base_url(); ?>product">產品介紹</a></li>
                         <li class="progresss"><a href="<?php echo base_url(); ?>progress">募款進度</a></li>
-                        <li class="photos"><a href="<?php echo base_url(); ?>photos">彩虹相簿</a></li>
+                        <li class="qa"><a href="<?php echo base_url(); ?>qa">Q&A</a></li>
                     </ul>
                 </nav>
                 <nav class="navbar navbar-default visible-xs" role="navigation">
@@ -36,7 +36,7 @@
                         <li><a href="<?php echo base_url(); ?>story">我們的故事 | Story</a></li>
                         <li><a href="<?php echo base_url(); ?>product">產品介紹 | Product</a></li>
                         <li><a href="<?php echo base_url(); ?>progress">募款進度 | Progress</a></li>
-                        <li><a href="<?php echo base_url(); ?>photos">彩虹相簿 | Photos</a></li>
+                        <li><a href="<?php echo base_url(); ?>qa">問與答 | Q&A</a></li>
                         <li><a href="<?php echo base_url(); ?>order">立即訂購 | Order</a></li>
                       </ul>
                     </div>

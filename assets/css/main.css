@@ -376,6 +376,12 @@ body {
       .main-nav li.photos:hover {
         background: url("../img/btn-photos-hover.png") no-repeat center;
         background-size: contain; }
+    .main-nav li.qa {
+      background: url("../img/btn-qa.png") no-repeat center;
+      background-size: contain; }
+      .main-nav li.qa:hover {
+        background: url("../img/btn-qa-hover.png") no-repeat center;
+        background-size: contain; }
     .main-nav li.target:before {
       display: inline-block;
       content: "";
@@ -1072,6 +1078,12 @@ body {
     height: 28px; }
     .story-frame .go-to-facebook a:hover {
       background: url("../img/Story_gotofanpage2.png"); }
+
+/* =====================================
+   Q&A
+   ===================================== */
+.qa-panel {
+  font-size: 1.2em; }
 
 /* =====================================
    order
