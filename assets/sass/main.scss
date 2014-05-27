@@ -37,9 +37,6 @@ body {
 
 
 .call-to-action {
-    background: url('../img/call-to-action.png');
-    background-size: contain;
-    -ms-behavior: url(/backgroundsize.min.htc);
     position: fixed;
     top: 50px;
     right: 50px;
@@ -800,7 +797,7 @@ footer {
     width: 100%;
     left: 0;
     bottom: -2px;
-    min-height: 300px;
+    min-height: 200px;
     padding-top: 110px;
     background: url('../img/footer_background.png');
     .container {
@@ -925,6 +922,10 @@ footer {
         width: 60%;
         margin-right: 30px;
         margin-bottom: 10px;
+    }
+    // for good reading experience
+    .panel-body {
+        padding: 30px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {

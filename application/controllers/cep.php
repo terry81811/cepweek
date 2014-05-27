@@ -190,7 +190,7 @@ class Cep extends CI_Controller {
     }
     public function qa()
     {
-        $data['title'] = "問答集 | 彩虹故鄉的願望";
+        $data['title'] = "問與答 | 彩虹故鄉的願望";
         $this->load->view('cep/partial/head', $data);
         $this->load->view('cep/qa');
         $this->load->view('cep/partial/repeatjs');

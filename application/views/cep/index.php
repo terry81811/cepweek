@@ -1,7 +1,9 @@
     <body>
         <div id="loading"></div>
         <div class="call-to-action hidden-xs" role="button">
-            <a href="<?php echo base_url(); ?>order"></a>
+            <a href="<?php echo base_url(); ?>order">
+                <img src="<?php echo base_url(); ?>assets/img/call-to-action.png" alt="立即訂購"> 
+            </a>
         </div>
         <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
         <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
