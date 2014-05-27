@@ -175,6 +175,8 @@ $(function() {
             '            <label for="rec_arrive_time'+index+'">到貨時間：</label>',
             '            <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time'+index+'">',
             '               <option value="不指定">不指定</option>',
+            '               <option value="6/5(四)白天">6/5(四)白天</option>',
+            '               <option value="6/5(四)晚上">6/5(四)晚上</option>',
             '               <option value="6/6(五)白天">6/6(五)白天</option>',
             '               <option value="6/6(五)晚上">6/6(五)晚上</option>',
             '               <option value="6/7(六)白天">6/7(六)白天</option>',

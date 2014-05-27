@@ -53,11 +53,13 @@ class Cep extends CI_Controller {
     private function days_count()
     {
         $days_count = array();
+        $days_thu = $this->days_model->get(array('days_name' => 'days_thu'));
         $days_fri = $this->days_model->get(array('days_name' => 'days_fri'));
         $days_sat = $this->days_model->get(array('days_name' => 'days_sat'));
         $days_sun = $this->days_model->get(array('days_name' => 'days_sun'));
         $days_mon = $this->days_model->get(array('days_name' => 'days_mon'));
 
+        $days_count['thu_count'] = $days_thu[0]['days_count'];
         $days_count['fri_count'] = $days_fri[0]['days_count'];
         $days_count['sat_count'] = $days_sat[0]['days_count'];
         $days_count['sun_count'] = $days_sun[0]['days_count'];
@@ -68,7 +70,7 @@ class Cep extends CI_Controller {
 
     private function tran_date()
     {
-        $date = '5/26（一）24:00';
+        $date = '6/2（一）24:00';
         return $date;
     }
 

@@ -21,7 +21,7 @@ CONSTANTS
 
     private function count_date()
     {
-        $date = '2014/6/6（五）- 2014/6/9（一）';
+        $date = '2014/6/5（四）- 2014/6/9（一）';
         return $date;
     }
 
@@ -38,7 +38,9 @@ CONSTANTS
             return 0;
         }
         else{
-            $days_count_match = array('6/6(五)白天' => 'days_fri',
+            $days_count_match = array('6/5(四)白天' => 'days_thu',
+                                '6/5(四)晚上' => 'days_thu',
+                                '6/6(五)白天' => 'days_fri',
                                 '6/6(五)晚上' => 'days_fri',
                                 '6/7(六)白天' => 'days_sat',
                                 '6/7(六)晚上' => 'days_sat',
