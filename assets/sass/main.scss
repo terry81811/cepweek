@@ -848,6 +848,7 @@ footer {
         bottom: 100px;
         right: -55px;
         @include transform(rotate(-90deg));
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         &:hover {
             right: -50px;
         }
@@ -856,6 +857,7 @@ footer {
         bottom: 220px;
         right: -78px;
         @include transform(rotate(-90deg));
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         &:hover {
             right: -73px;
         }
@@ -930,6 +932,7 @@ footer {
         bottom: 100px;
         right: -55px;
         @include transform(rotate(-90deg));
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         &:hover {
             right: -50px;
         }
@@ -938,6 +941,7 @@ footer {
         bottom: 220px;
         right: -78px;
         @include transform(rotate(-90deg));
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         &:hover {
             right: -73px;
         }
