@@ -70,16 +70,16 @@
                                     <label for="rec_arrive_time1">到貨時間：</label>
                                     <select class="form-control" name="rec_arrive_time[]" id="rec_arrive_time1">
                                         <option value="不指定">不指定</option>
-                                        <option value="6/5(四)白天">6/5(四)白天</option>
-                                        <option value="6/5(四)晚上">6/5(四)晚上</option>
-                                        <option value="6/6(五)白天">6/6(五)白天</option>
-                                        <option value="6/6(五)晚上">6/6(五)晚上</option>
-                                        <option value="6/7(六)白天">6/7(六)白天</option>
-                                        <option value="6/7(六)晚上">6/7(六)晚上</option>
-                                        <option value="6/8(日)白天">6/8(日)白天</option>
-                                        <option value="6/8(日)晚上">6/8(日)晚上</option>
-                                        <option value="6/9(一)白天">6/9(一)白天</option>
-                                        <option value="6/9(一)晚上">6/9(一)晚上</option>
+                                        <option value="6/12(四)白天">6/12(四)白天</option>
+                                        <option value="6/12(四)晚上">6/12(四)晚上</option>
+                                        <option value="6/13(五)白天">6/13(五)白天</option>
+                                        <option value="6/13(五)晚上">6/13(五)晚上</option>
+                                        <option value="6/14(六)白天">6/14(六)白天</option>
+                                        <option value="6/14(六)晚上">6/14(六)晚上</option>
+                                        <option value="6/15(日)白天">6/15(日)白天</option>
+                                        <option value="6/15(日)晚上">6/15(日)晚上</option>
+                                        <option value="6/16(一)白天">6/16(一)白天</option>
+                                        <option value="6/16(一)晚上">6/16(一)晚上</option>
                                     </select>
                                 </div>
                             </div>
