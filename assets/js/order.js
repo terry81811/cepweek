@@ -150,8 +150,8 @@ $(function() {
 
     })
     $(".add-receiver").on("click", function() {
-        $(".line").before(add_new_receiver()).end(removeOrderOption());
-    })
+        $(".line").before(add_new_receiver());
+    });
     function add_new_receiver() {
         var receiver_template = [];
         var index = $(".receiver").length + 1;
