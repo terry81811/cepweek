@@ -91,7 +91,7 @@
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
                       <div class="panel-body">
-                        「彩虹故鄉的願望」團隊會在每週星期二中午12:00彙整當週訂單，並交給南投微熱山丘天使蛋糕和黑貓宅急便，因此如果有更改數量時間地點的需求，只要在星期二中午12:00前寄信到客服信箱(rainbowhope.service@gmail.com)告知，將會由專人替您更改訂單。
+                        「彩虹故鄉的願望」團隊會在每週星期一中午12:00彙整當週訂單，並交給南投微熱山丘天使蛋糕和黑貓宅急便，因此如果有更改數量時間地點的需求，只要在星期一中午12:00前寄信到客服信箱(rainbowhope.service@gmail.com)告知，將會由專人替您更改訂單。
                       </div>
                     </div>
                   </div>
