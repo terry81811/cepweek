@@ -21,14 +21,14 @@ CONSTANTS
 
     private function count_date()
     {
-        $date = '2014/6/19（四）- 2014/6/23（一）';
+        $date = '2014/6/26（四）- 2014/6/30（一）';
         return $date;
     }
 
 
     private function tran_date()
     {
-        $date = '6/15（日）24:00';
+        $date = '6/22（日）24:00';
         return $date;
     }
 
@@ -38,16 +38,16 @@ CONSTANTS
             return 0;
         }
         else{
-            $days_count_match = array('6/19(四)白天' => 'days_thu',
-                                '6/19(四)晚上' => 'days_thu',
-                                '6/20(五)白天' => 'days_fri',
-                                '6/20(五)晚上' => 'days_fri',
-                                '6/21(六)白天' => 'days_sat',
-                                '6/21(六)晚上' => 'days_sat',
-                                '6/22(日)白天' => 'days_sun',
-                                '6/22(日)晚上' => 'days_sun',
-                                '6/23(一)白天' => 'days_mon',
-                                '6/23(一)晚上' => 'days_mon',
+            $days_count_match = array('6/26(四)白天' => 'days_thu',
+                                '6/26(四)晚上' => 'days_thu',
+                                '6/27(五)白天' => 'days_fri',
+                                '6/27(五)晚上' => 'days_fri',
+                                '6/28(六)白天' => 'days_sat',
+                                '6/28(六)晚上' => 'days_sat',
+                                '6/29(日)白天' => 'days_sun',
+                                '6/29(日)晚上' => 'days_sun',
+                                '6/30(一)白天' => 'days_mon',
+                                '6/30(一)晚上' => 'days_mon',
                                 );
             $day_to_be_less = $days_count_match[$day];
             $day = $this->days_model->get(array('days_name' => $day_to_be_less));

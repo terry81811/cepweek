@@ -70,7 +70,7 @@ class Cep extends CI_Controller {
 
     private function tran_date()
     {
-        $date = '6/15（日）24:00';
+        $date = '6/22（日）24:00';
         return $date;
     }
 
