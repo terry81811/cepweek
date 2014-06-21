@@ -10,5 +10,14 @@
             });
             $(function() {
                 $(".youtube").colorbox({iframe:true, innerWidth:853, innerHeight:480});
-            })
+                if(typeof(Storage) !== "undefined") {
+                    if (localStorage.rainbowhope == undefined) {
+                        $("#success_modal").modal();
+                        localStorage.rainbowhope = true;
+                    }
+                } else {
+                    // Sorry! No Web Storage support..
+                }
+            });
+
         </script>

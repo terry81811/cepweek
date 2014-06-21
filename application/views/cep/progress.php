@@ -1,12 +1,24 @@
     <body>
-        <div class="call-to-action hidden-xs" role="button">
-            <a href="<?php echo base_url(); ?>order">
-                <img src="<?php echo base_url(); ?>assets/img/call-to-action.png" alt="立即訂購"> 
-            </a>
-        </div>
         <div class="facebook"><a href="https://www.facebook.com/253825544806259"></a></div>
         <div class="contact-us"><a href="mailto:rainbowhope.service@gmail.com" target="_top"></a></div>
-        <div class="order"><a href="<?php echo base_url(); ?>order"></a></div>
+        <!-- modal -->
+        <div class="modal fade" id="success_modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">100萬募資計畫成功！</h4>
+              </div>
+              <div class="modal-body">
+                <img src="<?php echo base_url(); ?>/assets/img/4000.jpg" class="img-responsive" alt="100萬募資計畫成功">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">了解</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- end of modal -->
         <div class="container">
             <div class="main-container">
                 <header class="header">
@@ -39,7 +51,6 @@
                         <li><a href="<?php echo base_url(); ?>product">產品介紹 | Product</a></li>
                         <li><a href="<?php echo base_url(); ?>progress">募款進度 | Progress</a></li>
                         <li><a href="<?php echo base_url(); ?>qa">問與答 | Q&A</a></li>
-                        <li><a href="<?php echo base_url(); ?>order">立即訂購 | Order</a></li>
                       </ul>
                     </div>
                   </div>
@@ -468,7 +479,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(); ?>order" role="button" class="order-btn">我要訂購</a>
                         </div>
                     </div>
                 </div>
