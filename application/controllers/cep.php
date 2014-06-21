@@ -156,18 +156,20 @@ class Cep extends CI_Controller {
     {
         $this->load->view('cep/test_email');
     }
-    // public function order()
-    // {
-    //     $data['days_count'] = $this->days_count();
-    //     $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
+    public function order()
+    {
+        // $data['days_count'] = $this->days_count();
+        // $data['title'] = "訂購頁面 | 彩虹故鄉的願望";
 
-    //     // $this->load->view('cep/partial/head', $data);
-    //     $this->load->view('cep/partial/order_head', $data);
-    //     $this->load->view('cep/order');
-    //     $this->load->view('cep/partial/repeatjs');
-    //     $this->load->view('cep/orderjs');
-    //     $this->load->view('cep/partial/closehtml');
-    // }
+        // // $this->load->view('cep/partial/head', $data);
+        // $this->load->view('cep/partial/order_head', $data);
+        // $this->load->view('cep/order');
+        // $this->load->view('cep/partial/repeatjs');
+        // $this->load->view('cep/orderjs');
+        // $this->load->view('cep/partial/closehtml');
+
+        redirect('/');
+    }
     public function order_test()
     {
         $data['days_count'] = $this->days_count();
